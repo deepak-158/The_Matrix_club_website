@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Roboto:wght@300;400;500;600;700&display=swap');
+
+:root {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: #FFFFFF;
+  background-color: #111111;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Matrix Color Palette */
+  --primary-bg: #111111;
+  --secondary-bg: #222222;
+  --matrix-green: #00FF41;
+  --white: #FFFFFF;
+  --grey: #CCCCCC;
+  --dark-grey: #333333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--primary-bg);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+a {
+  font-weight: 500;
+  color: var(--matrix-green);
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #00CC33;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Share Tech Mono', monospace;
+  color: var(--matrix-green);
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  color: var(--white);
+}
+
+button {
+  border-radius: 5px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--matrix-green);
+  color: var(--primary-bg);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+button:hover {
+  background-color: #00CC33;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 255, 65, 0.3);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 2px solid var(--matrix-green);
+  outline-offset: 2px;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primary-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--matrix-green);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00CC33;
+}
+
+/* Selection */
+::selection {
+  background: rgba(0, 255, 65, 0.3);
+  color: var(--white);
+}
