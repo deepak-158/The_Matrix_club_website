@@ -161,4 +161,4 @@ npm run build
 
 > *"Welcome to the real world"* - Morpheus
 
-Built with ❤️ and lots of ☕ by The Matrix Club Technical Team
+Built with ❤️ and lots of ☕ by Deepak Shukla
