@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Linkedin, Instagram, Github, Target, Eye, Heart } from 'lucide-react'
-import { sampleImages, openExternalLink } from '../utils/helpers'
+import { openExternalLink } from '../utils/helpers'
 
 const About: React.FC = () => {
   const teamMembers = [
@@ -10,7 +10,7 @@ const About: React.FC = () => {
       name: "Yuva Bharti",
       team: "LEADERSHIP",
       role: "President",
-      bio: "Leading The Matrix Club towards excellence and innovation.",
+      bio: `"Leadership is a practice of imperfect humans leading imperfect humans. That's why it's so hard."`,
       email: "yuva.bharti@vitbhopal.ac.in",
       image: "/images/team/YuvaBharti.jpg",
       linkedin: "https://www.linkedin.com/in/yuva-bharti-bansal/",
