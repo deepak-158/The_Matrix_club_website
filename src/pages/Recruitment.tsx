@@ -16,8 +16,8 @@ const Recruitment: React.FC = () => {
         "Experience with Git/GitHub is a plus"
       ],
       skills: ["Full Stack Development", "Machine Learning", "DevOps", "Mobile Development"],
-      positions: "2-3 Core Members",
-      applicationLink: "https://forms.google.com/technical-recruitment",
+      positions:null,
+      applicationLink: "https://forms.gle/3qXoyBYXHi2kXnPM6",
       icon: "💻",
       color: "#00FF41"
     },
@@ -32,8 +32,8 @@ const Recruitment: React.FC = () => {
         "Portfolio showcasing previous design work"
       ],
       skills: ["UI/UX Design", "Graphic Design", "Brand Identity", "Digital Art"],
-      positions: "2-3 Core Members",
-      applicationLink: "https://forms.google.com/design-recruitment",
+      positions:null,
+      applicationLink: "https://forms.gle/ky9NDYoMi6muutoA8",
       icon: "🎨",
       color: "#FF6B6B"
     },
@@ -48,8 +48,8 @@ const Recruitment: React.FC = () => {
         "Own camera equipment preferred but not mandatory"
       ],
       skills: ["Photography", "Video Editing", "Content Creation", "Visual Effects"],
-      positions: "3-4 Core Members",
-      applicationLink: "https://forms.google.com/media-recruitment",
+      positions:null,
+      applicationLink: "https://forms.gle/EtbNSJhFhZpyLWaM9",
       icon: "📸",
       color: "#4ECDC4"
     },
@@ -64,8 +64,8 @@ const Recruitment: React.FC = () => {
         "Ability to work under pressure and meet deadlines"
       ],
       skills: ["Event Planning", "Project Management", "Vendor Coordination", "Logistics"],
-      positions: "2-3 Core Members",
-      applicationLink: "https://forms.google.com/event-recruitment",
+      positions:null,
+      applicationLink: "https://forms.gle/rNg6gxkUKSySj1gt9",
       icon: "🎉",
       color: "#FFE66D"
     },
@@ -80,8 +80,8 @@ const Recruitment: React.FC = () => {
         "Knowledge of marketing principles is a plus"
       ],
       skills: ["Public Relations", "Social Media", "Marketing", "Community Building"],
-      positions: "2 Core Members",
-      applicationLink: "https://forms.google.com/pr-recruitment",
+      positions:null,
+      applicationLink: "https://forms.gle/3xHFCfxmRu2AhtYQA",
       icon: "📢",
       color: "#A8E6CF"
     },
@@ -96,11 +96,27 @@ const Recruitment: React.FC = () => {
         "Trustworthy and responsible attitude"
       ],
       skills: ["Financial Planning", "Budget Management", "Sponsorship", "Resource Allocation"],
-      positions: "1-2 Core Members",
-      applicationLink: "https://forms.google.com/finance-recruitment",
+      positions:null,
+      applicationLink: "https://forms.gle/UiXizqQsPC8eK4uq7",
       icon: "💰",
       color: "#FFB6C1"
-    }
+    },
+    {
+  id: 7,
+  name: "CONTENT TEAM",
+  description: "Craft compelling narratives and engage our audience through creative writing and storytelling across all our platforms.",
+  requirements: [
+    "Excellent command of language, grammar, and style",
+    "Ability to write engaging copy for social media and scripts",
+    "A creative mindset with a knack for storytelling",
+    "Experience in writing for blogs, social media, or scripts is a plus"
+  ],
+  skills: ["Copywriting", "Content Strategy", "Storytelling", "Script Writing"],
+  positions:null,
+  applicationLink: "https://forms.gle/m3dPd8V2N4ZbYWB58",
+  icon: "📝",
+  color: "#87CEEB"
+}
   ]
 
   const recruitmentTimeline = [

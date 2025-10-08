@@ -12,8 +12,8 @@ const About: React.FC = () => {
       role: "President",
       bio: "Leading The Matrix Club towards excellence and innovation.",
       email: "yuva.bharti@vitbhopal.ac.in",
-      image: sampleImages.team(),
-      linkedin: null,
+      image: "/images/team/YuvaBharti.jpg",
+      linkedin: "https://www.linkedin.com/in/yuva-bharti-bansal/",
       instagram: null,
       github: null
     },
@@ -22,12 +22,12 @@ const About: React.FC = () => {
       name: "Yash Goyal",
       team: "LEADERSHIP",
       role: "Operation Manager",
-      bio: "Managing operations and ensuring smooth functioning of all club activities.",
+      bio: "Precision in Motion, success in action",
       email: "yash.goyal@vitbhopal.ac.in",
-      image: sampleImages.team(),
-      linkedin: null,
-      instagram: null,
-      github: null
+      image: "/images/team/YashGoyal.jpg",
+      linkedin: "https://www.linkedin.com/in/yashgoyal06/",
+      instagram: "https://www.instagram.com/__yash__06__",
+      github: "https://github.com/YashGoyal06"
     },
     {
       id: "1",
@@ -36,7 +36,7 @@ const About: React.FC = () => {
       role: "Core Member",
       bio: "We don't just post, we produce.",
       email: "eipshita.24bac10038@vitbhopal.ac.in",
-      image: sampleImages.team(),
+      image: "/images/team/EipshitaBasuli.jpeg",
       linkedin: null,
       instagram: "https://www.instagram.com/eipshitabasuli/",
       github: null
@@ -48,7 +48,7 @@ const About: React.FC = () => {
       role: "Core Member",
       bio: "A great event leaves hearts full, not just calendars marked",
       email: "ayush.24mei10091@vitbhopal.ac.in",
-      image: sampleImages.team(),
+      image: "/images/team/AyushUpadhyay.jpg",
       linkedin: null,
       instagram: "https://www.instagram.com/royal7_ayush/",
       github: null
@@ -60,7 +60,7 @@ const About: React.FC = () => {
       role: "Lead",
       bio: "Data Scientist || My models predict the future. You just pay the invoice.",
       email: "piyush.24bai10094@vitbhopal.ac.in",
-      image: sampleImages.team(),
+      image: "/images/team/PiyushKumarSingh.jpeg",
       linkedin: "https://www.linkedin.com/in/piyush-kumar-singh-b53749313/",
       instagram: "https://www.instagram.com/signature.piyush_/"
     },
@@ -71,18 +71,18 @@ const About: React.FC = () => {
       role: "Core Member",
       bio: "Turning caffeine into code | Full Stack Developer | Generative AI",
       email: "arav.23bce11788@vitbhopal.ac.in",
-      image: sampleImages.team(),
+      image: "/images/team/AravAchari.jpg",
       linkedin: "https://www.linkedin.com/in/arav-achari-115715281/",
       instagram: "https://www.instagram.com/_arav_acharya_?igsh=bnh1eXhieTZ6Zmdz"
     },
     {
       id: "5",
-      name: "Mohammad Kaif",
+      name: "Mohammed Kaif",
       team: "PR AND OUTREACH",
       role: "Co-Lead",
       bio: "Still Figuring Out What PR Means || Outreach Ninja, Meme Enthusiast",
       email: "mohammad.23bai10510@vitbhopal.ac.in",
-      image: sampleImages.team(),
+      image: "/images/team/MohammedKaif.jpeg",
       linkedin: null,
       instagram: "https://www.instagram.com/zkaifsyed46/"
     },
@@ -93,7 +93,7 @@ const About: React.FC = () => {
       role: "Co-Lead",
       bio: "Creating impact together",
       email: "ashmit.24bcy10376@vitbhopal.ac.in",
-      image: sampleImages.team(),
+      image: "/images/team/AshmitMudgal.jpg",
       linkedin: null,
       instagram: "https://www.instagram.com/ashmit.mudgal/"
     },
@@ -104,7 +104,7 @@ const About: React.FC = () => {
       role: "Core Member",
       bio: "Driven by creativity, powered by media.",
       email: "kaushal.24bcy10062@vitbhopal.ac.in",
-      image: sampleImages.team(),
+      image: "/images/team/KaushalKant.jpg",
       linkedin: "https://www.linkedin.com/in/kaushal-kant-718959323",
       instagram: "https://www.instagram.com/kaushal_3589/"
     },
@@ -115,7 +115,7 @@ const About: React.FC = () => {
       role: "Core Member",
       bio: "Turning connections into collaborations.",
       email: "anushka.24bai10805@vitbhopal.ac.in",
-      image: sampleImages.team(),
+      image: "/images/team/Anushka.jpg",
       linkedin: "https://www.linkedin.com/in/anushka-09a694357/",
       instagram: null,
       github: null
@@ -127,7 +127,7 @@ const About: React.FC = () => {
       role: "Co-Lead",
       bio: "No matter how many fish in the sea It would be so empty without me",
       email: "shivang.24bsa10306@vitbhopal.ac.in",
-      image: sampleImages.team(),
+      image: "/images/team/ShivangSaini.jpg",
       linkedin: "http://www.linkedin.com/inshivang-saini-455681328",
       instagram: "https://www.instagram.com/shivangsaini17/"
     },
@@ -138,7 +138,7 @@ const About: React.FC = () => {
       role: "Lead",
       bio: "Design Team || Your idea, our canvas",
       email: "nikhil.23bai10718@vitbhopal.ac.in",
-      image: sampleImages.team(),
+      image: "/images/team/NikhilMohammed.jpeg",
       linkedin: "http://linkedin.com/in/nikhil-mohammed",
       instagram: "https://www.instagram.com/nikhil.mohammed"
     },
@@ -149,7 +149,7 @@ const About: React.FC = () => {
       role: "Core Member",
       bio: "Capturing moments, Creating impact",
       email: "anupriya.24bce11110@vitbhopal.ac.in",
-      image: sampleImages.team(),
+      image: "/images/team/Anupriya.jpg",
       linkedin: "https://www.linkedin.com/in/anupriya-859445322",
       instagram: "https://www.instagram.com/anupriya36993"
     },
@@ -160,7 +160,7 @@ const About: React.FC = () => {
       role: "Core Member",
       bio: "and so it goes",
       email: "rupankita.24bai10975@vitbhopal.ac.in",
-      image: sampleImages.team(),
+      image: "/images/team/RupankitaBaruah.jpeg",
       linkedin: "https://www.linkedin.com/in/rupankita-baruah-b59678324/",
       instagram: null,
       github: null
@@ -172,10 +172,10 @@ const About: React.FC = () => {
       role: "Core Member",
       bio: "Cloud & Backend || Deploying dreams, not just servers",
       email: "sarthak.23bsa10058@vitbhopal.ac.in",
-      image: sampleImages.team(),
+      image: "/images/team/SarthakJalan.jpg",
       linkedin: "https://www.linkedin.com/in/sarthak-jalan-7685a7285/",
       instagram: "https://www.instagram.com/frenzy_sarthak/",
-      github: null
+      github: "https://github.com/sarthakjalan05"
     },
     {
       id: "14",
@@ -184,7 +184,7 @@ const About: React.FC = () => {
       role: "Core Member",
       bio: "Relentless in preparation. Undefeated in execution.",
       email: "abhishek.24bai10673@vitbhopal.ac.in",
-      image: sampleImages.team(),
+      image: "/images/team/AbhishekMishra.jpg",
       linkedin: "https://www.linkedin.com/in/abhishek-mishra-74745a324",
       instagram: null,
       github: null
@@ -196,7 +196,7 @@ const About: React.FC = () => {
       role: "Core Member",
       bio: "Finance Core Member || Making every rupee count",
       email: "yash.23bce10699@vitbhopal.ac.in",
-      image: sampleImages.team(),
+      image: "/images/team/YashSaxena.jpg",
       linkedin: "https://www.linkedin.com/in/yash-saxena-5a6974279/",
       instagram: null,
       github: null
@@ -212,14 +212,47 @@ const About: React.FC = () => {
       linkedin: "https://www.linkedin.com/in/deepak-shukla-27a60628a/",
       instagram: "https://www.instagram.com/dipakshukla1508/",
       github: "https://github.com/deepak-158"
-    }
+    },
+    {
+      id: "17",
+      name: "Lakshmi Hridyesha Peddinti",
+      team: "CONTENT",
+      role: "Core Member",
+      bio: "Content Writer || Crafting Chaos into Chapters - One Word at a Time",
+      email: "lakshmi.24bas10074@vitbhopal.ac.in",
+      image: "/images/team/Hridyesha.jpg",
+      linkedin: "https://www.linkedin.com/in/hridyesha-p-l-672965324",
+      instagram: null,
+      github: null
+    },
+        {
+      id: "18",
+      name: "Sreelakshmi A",
+      team: "TECHNICAL",
+      role: "Core Member",
+      bio: "AI/ML Student || Training my future, one epoch at a time",
+      email: "sreelakshmi.23bai11083@vitbhopal.ac.in",
+      image: "/images/team/Sreelakshmi.jpg",
+      linkedin: "https://www.linkedin.com/in/sreelakshmi-a-69100b296",
+      instagram: null,
+      github: null
+    },
+    {
+      id: "19",
+      name: "Nishita Gupta",
+      team: "CONTENT",
+      role: "Core Member",
+      bio: "Writing what everyone else is thinking",
+      email: "nishita.23bsa10081@vitbhopal.ac.in",
+      image: "/images/team/NishitaGupta.jpg",
+      linkedin: "linkedin.com/in/nishita-gupta-62348a284",
+      instagram: null,
+      github: null
+    },
   ]
 
   const sponsors = [
-    { name: "College IT Department", logo: sampleImages.sponsor() },
-    { name: "Student Affairs", logo: sampleImages.sponsor() },
-    { name: "Adobe Creative", logo: sampleImages.sponsor() },
-    { name: "Local Photography Studio", logo: sampleImages.sponsor() }
+    { name: "Unstop", logo: "/images/sponsors/unstop.jpg" },
   ]
 
   return (
@@ -352,7 +385,7 @@ const About: React.FC = () => {
         </p>
         
         {/* Group team members by team */}
-        {['LEADERSHIP', 'TECHNICAL', 'DESIGN', 'DIGITAL MEDIA AND PRODUCTION TEAM', 'EVENT MANAGEMENT', 'PR AND OUTREACH', 'FINANCE'].map((teamName, teamIndex) => {
+        {['LEADERSHIP', 'TECHNICAL', 'DESIGN', 'DIGITAL MEDIA AND PRODUCTION TEAM', 'EVENT MANAGEMENT', 'PR AND OUTREACH', 'FINANCE' , 'CONTENT'].map((teamName, teamIndex) => {
           const teamMembersFiltered = teamMembers
             .filter(member => member.team === teamName)
             .sort((a, b) => {
@@ -526,8 +559,7 @@ const About: React.FC = () => {
       >
         <h2>Our Sponsors</h2>
         <p style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          We're grateful for the support of our sponsors and partners who make 
-          our events and activities possible.
+          Sponsored the event "Media Morphosis"
         </p>
         <div style={{
           display: 'grid',
