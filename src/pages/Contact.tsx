@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, MapPin, Instagram, Youtube, Linkedin, Send, Phone } from 'lucide-react'
+import { Mail, MapPin, Instagram, Linkedin, Send, Phone } from 'lucide-react'
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -54,7 +54,7 @@ const Contact: React.FC = () => {
       >
         <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>Connect With Us</h1>
         <p style={{ fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto' }}>
-          Ready to join The Matrix? Have questions? We'd love to hear from you!
+          Ready to join The Matrix Club-  VIT BHOPAL? Have questions? We'd love to hear from you!
         </p>
       </motion.section>
 
@@ -100,7 +100,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h4 style={{ color: '#00FF41', margin: '0 0 0.5rem 0' }}>Email</h4>
-                  <p style={{ margin: 0, color: '#CCCCCC' }}>contact@thematrixclub.com</p>
+                  <p style={{ margin: 0, color: '#CCCCCC' }}>multimedia_club@vitbhopal.ac.in</p>
                 </div>
               </div>
 
@@ -153,7 +153,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h4 style={{ color: '#00FF41', margin: '0 0 0.5rem 0' }}>Phone</h4>
-                  <p style={{ margin: 0, color: '#CCCCCC' }}>+91 98765 43210</p>
+                  <p style={{ margin: 0, color: '#CCCCCC' }}>+91 89689 78226</p>
                 </div>
               </div>
             </div>
@@ -161,9 +161,8 @@ const Contact: React.FC = () => {
             <h3 style={{ marginBottom: '1rem', color: '#00FF41' }}>Follow Us</h3>
             <div style={{ display: 'flex', gap: '1rem' }}>
               {[
-                { icon: Instagram, link: 'https://instagram.com/thematrixclub', label: 'Instagram' },
-                { icon: Youtube, link: 'https://youtube.com/@thematrixclub', label: 'YouTube' },
-                { icon: Linkedin, link: 'https://linkedin.com/company/thematrixclub', label: 'LinkedIn' }
+                { icon: Instagram, link: 'https://instagram.com/thematrixclub_vitb', label: 'Instagram' },
+                { icon: Linkedin, link: 'https://www.linkedin.com/company/matrixclub-vitbhopal/', label: 'LinkedIn' }
               ].map(({ icon: Icon, link, label }) => (
                 <motion.button
                   key={label}
@@ -190,19 +189,6 @@ const Contact: React.FC = () => {
                   <Icon size={24} />
                 </motion.button>
               ))}
-            </div>
-
-            <div style={{ 
-              marginTop: '3rem',
-              padding: '1.5rem',
-              background: 'linear-gradient(135deg, #00FF41, #00CC33)',
-              borderRadius: '10px',
-              color: '#111'
-            }}>
-              <h3 style={{ margin: '0 0 1rem 0', color: '#111' }}>Office Hours</h3>
-              <p style={{ margin: '0.5rem 0', color: '#111' }}>Monday - Friday: 2:00 PM - 6:00 PM</p>
-              <p style={{ margin: '0.5rem 0', color: '#111' }}>Saturday: 10:00 AM - 4:00 PM</p>
-              <p style={{ margin: '0.5rem 0', color: '#111' }}>Sunday: Closed</p>
             </div>
           </motion.div>
 
@@ -380,20 +366,24 @@ const Contact: React.FC = () => {
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           {[
             {
-              question: "How can I join The Matrix Club?",
-              answer: "Simply fill out our contact form or visit us during office hours. We welcome members of all skill levels!"
+              question: "How can I join The Matrix Club at VIT Bhopal?",
+              answer: "You can join by filling out the registration form released during our recruitment drive or by contacting us through our official social media handles."
             },
             {
-              question: "Do I need prior experience in multimedia?",
-              answer: "Not at all! We have workshops and events for beginners as well as advanced practitioners."
+              question: "Do I need prior coding experience?",
+              answer: "No prior experience is required! We organize beginner-friendly workshops and mentoring sessions."
             },
             {
-              question: "What equipment do you provide?",
-              answer: "We have cameras, editing software, computers, and other multimedia equipment available for member use."
+              question: "What kind of events does the club organize?",
+              answer: "We host hackathons, coding challenges, project showcases, and collaborative learning sessions."
             },
             {
               question: "Are there any membership fees?",
-              answer: "Basic membership is free! Some specialized workshops may have nominal fees to cover materials."
+              answer: "Membership is completely free! Some events may have small participation fees."
+            },
+            {
+              question: "Can students from any branch join?",
+              answer: "Absolutely! The Matrix Club encourages interdisciplinary collaboration across all branches."
             }
           ].map((faq, index) => (
             <motion.div
