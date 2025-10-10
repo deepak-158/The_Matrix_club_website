@@ -166,115 +166,6 @@ const Recruitment: React.FC = () => {
         </p>
       </motion.section>
 
-      {/* Why Join Section */}
-      <motion.section 
-        className="section"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Why Join The Matrix Club?</h2>
-        <div className="card-grid">
-          <motion.div 
-            className="card"
-            whileHover={{ scale: 1.05 }}
-            style={{ textAlign: 'center' }}
-          >
-            <Target size={40} style={{ color: '#00FF41', marginBottom: '1rem' }} />
-            <h3>Skill Development</h3>
-            <p>Learn from industry experts and develop professional-level skills in your chosen field.</p>
-          </motion.div>
-          
-          <motion.div 
-            className="card"
-            whileHover={{ scale: 1.05 }}
-            style={{ textAlign: 'center' }}
-          >
-            <Users size={40} style={{ color: '#00FF41', marginBottom: '1rem' }} />
-            <h3>Networking</h3>
-            <p>Connect with like-minded creatives and build lasting professional relationships.</p>
-          </motion.div>
-          
-          <motion.div 
-            className="card"
-            whileHover={{ scale: 1.05 }}
-            style={{ textAlign: 'center' }}
-          >
-            <Zap size={40} style={{ color: '#00FF41', marginBottom: '1rem' }} />
-            <h3>Real Projects</h3>
-            <p>Work on actual projects and build an impressive portfolio that stands out.</p>
-          </motion.div>
-        </div>
-      </motion.section>
-
-      {/* Recruitment Timeline */}
-      <motion.section 
-        className="section"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Recruitment Timeline</h2>
-        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          {recruitmentTimeline.map((phase, index) => (
-            <motion.div
-              key={index}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                marginBottom: '2rem',
-                padding: '1.5rem',
-                background: phase.status === 'active' ? 'rgba(0, 255, 65, 0.1)' : 
-                           phase.status === 'completed' ? 'rgba(0, 255, 65, 0.05)' : '#222',
-                border: phase.status === 'active' ? '2px solid #00FF41' : 
-                        phase.status === 'completed' ? '1px solid #00FF41' : '1px solid #333',
-                borderRadius: '10px'
-              }}
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <div style={{
-                minWidth: '40px',
-                height: '40px',
-                borderRadius: '50%',
-                background: phase.status === 'active' ? '#00FF41' : 
-                            phase.status === 'completed' ? '#00CC33' : '#333',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginRight: '1.5rem'
-              }}>
-                {phase.status === 'active' ? 
-                  <CheckCircle size={24} color="#111" /> : 
-                  phase.status === 'completed' ?
-                  <CheckCircle2 size={24} color="#111" /> :
-                  <Calendar size={24} color="#666" />
-                }
-              </div>
-              <div style={{ flex: 1 }}>
-                <h3 style={{ 
-                  color: phase.status === 'active' ? '#00FF41' : 
-                         phase.status === 'completed' ? '#00CC33' : '#FFFFFF',
-                  margin: '0 0 0.5rem 0' 
-                }}>
-                  {phase.phase}
-                </h3>
-                <p style={{ color: '#00FF41', margin: '0 0 0.5rem 0', fontSize: '0.9rem' }}>
-                  {phase.date}
-                </p>
-                <p style={{ color: '#CCCCCC', margin: '0', fontSize: '0.9rem' }}>
-                  {phase.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </motion.section>
-
       {/* Team Recruitment Cards */}
       <motion.section 
         className="section"
@@ -417,6 +308,114 @@ const Recruitment: React.FC = () => {
                 <ExternalLink size={20} />
                 Apply for {team.name}
               </motion.button>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
+      {/* Why Join Section */}
+      <motion.section 
+        className="section"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Why Join The Matrix Club?</h2>
+        <div className="card-grid">
+          <motion.div 
+            className="card"
+            whileHover={{ scale: 1.05 }}
+            style={{ textAlign: 'center' }}
+          >
+            <Target size={40} style={{ color: '#00FF41', marginBottom: '1rem' }} />
+            <h3>Skill Development</h3>
+            <p>Learn from industry experts and develop professional-level skills in your chosen field.</p>
+          </motion.div>
+          
+          <motion.div 
+            className="card"
+            whileHover={{ scale: 1.05 }}
+            style={{ textAlign: 'center' }}
+          >
+            <Users size={40} style={{ color: '#00FF41', marginBottom: '1rem' }} />
+            <h3>Networking</h3>
+            <p>Connect with like-minded creatives and build lasting professional relationships.</p>
+          </motion.div>
+          
+          <motion.div 
+            className="card"
+            whileHover={{ scale: 1.05 }}
+            style={{ textAlign: 'center' }}
+          >
+            <Zap size={40} style={{ color: '#00FF41', marginBottom: '1rem' }} />
+            <h3>Real Projects</h3>
+            <p>Work on actual projects and build an impressive portfolio that stands out.</p>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Recruitment Timeline */}
+      <motion.section 
+        className="section"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Recruitment Timeline</h2>
+        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+          {recruitmentTimeline.map((phase, index) => (
+            <motion.div
+              key={index}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                marginBottom: '2rem',
+                padding: '1.5rem',
+                background: phase.status === 'active' ? 'rgba(0, 255, 65, 0.1)' : 
+                           phase.status === 'completed' ? 'rgba(0, 255, 65, 0.05)' : '#222',
+                border: phase.status === 'active' ? '2px solid #00FF41' : 
+                        phase.status === 'completed' ? '1px solid #00FF41' : '1px solid #333',
+                borderRadius: '10px'
+              }}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <div style={{
+                minWidth: '40px',
+                height: '40px',
+                borderRadius: '50%',
+                background: phase.status === 'active' ? '#00FF41' : 
+                            phase.status === 'completed' ? '#00CC33' : '#333',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginRight: '1.5rem'
+              }}>
+                {phase.status === 'active' ? 
+                  <CheckCircle size={24} color="#111" /> : 
+                  phase.status === 'completed' ?
+                  <CheckCircle2 size={24} color="#111" /> :
+                  <Calendar size={24} color="#666" />
+                }
+              </div>
+              <div style={{ flex: 1 }}>
+                <h3 style={{ 
+                  color: phase.status === 'active' ? '#00FF41' : 
+                         phase.status === 'completed' ? '#00CC33' : '#FFFFFF',
+                  margin: '0 0 0.5rem 0' 
+                }}>
+                  {phase.phase}
+                </h3>
+                <p style={{ color: '#00FF41', margin: '0 0 0.5rem 0', fontSize: '0.9rem' }}>
+                  {phase.date}
+                </p>
+                <p style={{ color: '#CCCCCC', margin: '0', fontSize: '0.9rem' }}>
+                  {phase.description}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
