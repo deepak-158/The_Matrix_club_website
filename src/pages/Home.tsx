@@ -6,12 +6,12 @@ import { openExternalLink } from '../utils/helpers'
 
 const Home: React.FC = () => {
   const galleryItems = [
-    { id: 1, type: 'image', src: "/images/events/1.JPG", alt: "Photography work 1" },
+    { id: 1, type: 'image', src: "/images/events/6.JPG", alt: "Photography work 1" },
     { id: 2, type: 'image', src: "/images/events/2.JPG", alt: "Photography work 2" },
     { id: 3, type: 'image', src: "/images/events/3.JPG", alt: "Photography work 3" },
     { id: 4, type: 'image', src: "/images/events/4.JPG", alt: "Photography work 4" },
     { id: 5, type: 'image', src: "/images/events/5.JPG", alt: "Photography work 5" },
-    { id: 6, type: 'image', src: "/images/events/6.JPG", alt: "Photography work 6" }
+    { id: 6, type: 'image', src: "/images/events/1.JPG", alt: "Photography work 6" }
   ]
 
   return (
