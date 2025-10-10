@@ -14,7 +14,7 @@ const About: React.FC = () => {
       email: "yuva.bharti@vitbhopal.ac.in",
       image: "/images/team/YuvaBharti.jpg",
       linkedin: "https://www.linkedin.com/in/yuva-bharti-bansal/",
-      instagram: null,
+      instagram: "https://www.instagram.com/yuvabbansal?igsh=MTNsM2FuMzVvbmxpeA==",
       github: null
     },
     {
