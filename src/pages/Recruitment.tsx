@@ -121,26 +121,26 @@ const Recruitment: React.FC = () => {
 
   const recruitmentTimeline = [
     {
-      phase: "Registration Opens",
-      date: "Oct 15 - Oct 25, 2025",
-      description: "Recruitment announcement and team - wise form fillup ",
-      status: "upcoming"
+      phase: "Registrations Open",
+      date: "Nov 13 - Nov 22, 2025",
+      description: "Recruitment announcement and team-wise form fillup",
+      status: "active"
     },
     {
-      phase: "Shortlisting - Round 1",
-      date: "Oct 27 - Oct 28, 2025",
+      phase: "Shortlisting Round",
+      date: "By Nov 23, 2025",
       description: "Review of applications",
       status: "upcoming"
     },
     {
       phase: "Interview Round",
-      date: "Nov 1 - 6, 2025",
+      date: "Nov 24 - Nov 27, 2025",
       description: "One-on-one interviews",
       status: "upcoming"
     },
     {
       phase: "Final Selection",
-      date: "Nov 7, 2025",
+      date: "Nov 28, 2025",
       description: "Results announcement",
       status: "upcoming"
     }
