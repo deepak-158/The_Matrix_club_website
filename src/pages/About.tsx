@@ -31,6 +31,18 @@ const About: React.FC = () => {
     },
     {
       id: "1",
+      name: "Tuhin Rakshit",
+      team: "DIGITAL MEDIA AND PRODUCTION TEAM",
+      role: "Lead",
+      bio: "Capturing stories through the lens of creativity",
+      email: "",
+      image: "/images/team/TuhinRakshit.jpg",
+      linkedin: "https://www.linkedin.com/in/tuhin-rakshit-05511528a",
+      instagram: "https://www.instagram.com/tuhinrakshit6",
+      github: null
+    },
+    {
+      id: "2",
       name: "Eipshita Basuli",
       team: "DIGITAL MEDIA AND PRODUCTION TEAM",
       role: "Core Member",
@@ -42,7 +54,7 @@ const About: React.FC = () => {
       github: null
     },
     {
-      id: "2",
+      id: "3",
       name: "AYUSH UPADHYAY",
       team: "EVENT MANAGEMENT",
       role: "Core Member",
@@ -54,7 +66,7 @@ const About: React.FC = () => {
       github: null
     },
     {
-      id: "3",
+      id: "4",
       name: "Piyush Kumar Singh",
       team: "FINANCE",
       role: "Lead",
@@ -65,7 +77,7 @@ const About: React.FC = () => {
       instagram: "https://www.instagram.com/signature.piyush_/"
     },
     {
-      id: "4",
+      id: "5",
       name: "Arav Acharya",
       team: "TECHNICAL",
       role: "Core Member",
@@ -76,7 +88,7 @@ const About: React.FC = () => {
       instagram: "https://www.instagram.com/_arav_acharya_?igsh=bnh1eXhieTZ6Zmdz"
     },
     {
-      id: "5",
+      id: "6",
       name: "Tanisha Verma",
       team: "PR AND OUTREACH",
       role: "Lead",
@@ -88,7 +100,7 @@ const About: React.FC = () => {
       github: null
     },
     {
-      id: "6",
+      id: "7",
       name: "Mohammed Kaif",
       team: "PR AND OUTREACH",
       role: "Co-Lead",
@@ -99,7 +111,7 @@ const About: React.FC = () => {
       instagram: "https://www.instagram.com/zkaifsyed46/"
     },
     {
-      id: "7",
+      id: "8",
       name: "Ashmit Mudgal",
       team: "DIGITAL MEDIA AND PRODUCTION TEAM",
       role: "Co-Lead",
@@ -110,7 +122,7 @@ const About: React.FC = () => {
       instagram: "https://www.instagram.com/ashmit.mudgal/"
     },
     {
-      id: "8",
+      id: "9",
       name: "KAUSHAL KANT",
       team: "DIGITAL MEDIA AND PRODUCTION TEAM",
       role: "Core Member",
@@ -121,7 +133,7 @@ const About: React.FC = () => {
       instagram: "https://www.instagram.com/kaushal_3589/"
     },
     {
-      id: "9",
+      id: "10",
       name: "Anushka",
       team: "PR AND OUTREACH",
       role: "Core Member",
@@ -133,7 +145,7 @@ const About: React.FC = () => {
       github: null
     },
     {
-      id: "10",
+      id: "11",
       name: "Shivang saini",
       team: "EVENT MANAGEMENT",
       role: "Co-Lead",
@@ -144,7 +156,7 @@ const About: React.FC = () => {
       instagram: "https://www.instagram.com/shivangsaini17/"
     },
     {
-      id: "11",
+      id: "12",
       name: "Nikhil Mohammed",
       team: "DESIGN",
       role: "Lead",
@@ -155,7 +167,7 @@ const About: React.FC = () => {
       instagram: "https://www.instagram.com/nikhil.mohammed"
     },
     {
-      id: "12",
+      id: "13",
       name: "Anupriya",
       team: "DIGITAL MEDIA AND PRODUCTION TEAM",
       role: "Core Member",
@@ -166,7 +178,7 @@ const About: React.FC = () => {
       instagram: "https://www.instagram.com/anupriya36993"
     },
     {
-      id: "13",
+      id: "14",
       name: "RUPANKITA BARUAH",
       team: "DESIGN",
       role: "Core Member",
@@ -178,7 +190,7 @@ const About: React.FC = () => {
       github: null
     },
     {
-      id: "14",
+      id: "15",
       name: "Sarthak Jalan",
       team: "TECHNICAL",
       role: "Core Member",
@@ -190,7 +202,7 @@ const About: React.FC = () => {
       github: "https://github.com/sarthakjalan05"
     },
     {
-      id: "15",
+      id: "16",
       name: "Abhishek Mishra",
       team: "EVENT MANAGEMENT",
       role: "Core Member",
@@ -202,7 +214,7 @@ const About: React.FC = () => {
       github: null
     },
     {
-      id: "16",
+      id: "17",
       name: "Yash Saxena",
       team: "FINANCE",
       role: "Core Member",
@@ -214,7 +226,7 @@ const About: React.FC = () => {
       github: null
     },
     {
-      id: "17",
+      id: "18",
       name: "Deepak Shukla",
       team: "TECHNICAL",
       role: "Co-Lead",
@@ -226,7 +238,19 @@ const About: React.FC = () => {
       github: "https://github.com/deepak-158"
     },
     {
-      id: "18",
+      id: "19",
+      name: "Bhumika Verma",
+      team: "TECHNICAL",
+      role: "Core Member",
+      bio: "Coding the future, one line at a time",
+      email: "",
+      image: "/images/team/BhumikaVerma.jpg",
+      linkedin: null,
+      instagram: null,
+      github: null
+    },
+    {
+      id: "20",
       name: "Lakshmi Hridyesha Peddinti",
       team: "CONTENT",
       role: "Core Member",
@@ -238,7 +262,7 @@ const About: React.FC = () => {
       github: null
     },
         {
-      id: "19",
+      id: "21",
       name: "Sreelakshmi A",
       team: "TECHNICAL",
       role: "Core Member",
@@ -250,7 +274,7 @@ const About: React.FC = () => {
       github: null
     },
     {
-      id: "20",
+      id: "22",
       name: "Ayush Gupta",
       team: "TECHNICAL",
       role: "Core Member",
@@ -262,7 +286,7 @@ const About: React.FC = () => {
       github: null
     },
     {
-      id: "21",
+      id: "23",
       name: "Nishita Gupta",
       team: "CONTENT",
       role: "Core Member",
