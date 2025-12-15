@@ -1,7 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Users, Calendar, ExternalLink, CheckCircle, CheckCircle2, Target, Zap } from 'lucide-react'
-import { openExternalLink } from '../utils/helpers'
+import { Users, Calendar, CheckCircle, CheckCircle2, Target, Zap } from 'lucide-react'
 
 const Recruitment: React.FC = () => {
   const recruitmentTeams = [
