@@ -34,9 +34,9 @@ const AnnouncementModal: React.FC<AnnouncementModalProps> = ({ onClose }) => {
           <X size={24} />
         </button>
         
-        <h3>🚀 Join The Matrix! Recruitments Are Open!</h3>
+        <h3>✅ Recruitment Cycle Completed!</h3>
         <p>
-          The Matrix Club is looking for passionate creators and tech enthusiasts to join our ranks. If you have a flair for photography, videography, design, or web development, we want you. Choose your path and help us redefine creativity.
+          Thank you for your interest in The Matrix Club! Our recruitment for this cycle has ended and selections have been made. Stay connected with us for future opportunities and upcoming events!
         </p>
         
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
@@ -44,10 +44,10 @@ const AnnouncementModal: React.FC<AnnouncementModalProps> = ({ onClose }) => {
             className="btn" 
             onClick={handleApplyClick}
           >
-            Apply Now
+            View Details
           </button>
           <button className="btn btn-secondary" onClick={onClose}>
-            Maybe Later
+            Close
           </button>
         </div>
       </motion.div>

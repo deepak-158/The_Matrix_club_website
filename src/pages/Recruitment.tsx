@@ -124,25 +124,25 @@ const Recruitment: React.FC = () => {
       phase: "Registrations Open",
       date: "Nov 13 - Nov 22, 2025",
       description: "Recruitment announcement and team-wise form fillup",
-      status: "active"
+      status: "completed"
     },
     {
       phase: "Shortlisting Round",
       date: "By Nov 23, 2025",
       description: "Review of applications",
-      status: "upcoming"
+      status: "completed"
     },
     {
       phase: "Interview Round",
       date: "Nov 24 - Nov 27, 2025",
       description: "One-on-one interviews",
-      status: "upcoming"
+      status: "completed"
     },
     {
       phase: "Final Selection",
       date: "Nov 28, 2025",
       description: "Results announcement",
-      status: "upcoming"
+      status: "completed"
     }
   ]
 
@@ -156,13 +156,12 @@ const Recruitment: React.FC = () => {
         transition={{ duration: 0.8 }}
         style={{ textAlign: 'center', paddingBottom: '2rem' }}
       >
-        <h1 style={{ fontSize: '3rem', marginBottom: '1rem', color: '#00FF41' }}>
-          Join The Matrix
+        <h1 style={{ fontSize: '3rem', marginBottom: '1rem', color: '#FF4141' }}>
+          Recruitment Closed
         </h1>
         <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', color: '#CCCCCC' }}>
-          Ready to be part of something extraordinary? The Matrix Club is looking for passionate 
-          individuals to join our creative community. Choose your path and help us push the 
-          boundaries of multimedia excellence.
+          Thank you for your interest in The Matrix Club! Recruitment for this cycle has ended. 
+          Stay tuned for future opportunities to join our creative community.
         </p>
       </motion.section>
 
@@ -284,30 +283,27 @@ const Recruitment: React.FC = () => {
                 </div>
               </div>
 
-              {/* Apply Button */}
-              <motion.button
+              {/* Closed Notice */}
+              <div
                 style={{
                   width: '100%',
-                  background: `linear-gradient(135deg, ${team.color}, ${team.color}CC)`,
-                  color: '#111',
-                  border: 'none',
+                  background: '#333',
+                  color: '#999',
+                  border: '1px solid #444',
                   borderRadius: '8px',
                   padding: '1rem',
                   fontSize: '1rem',
                   fontWeight: 'bold',
-                  cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  gap: '0.5rem'
+                  gap: '0.5rem',
+                  cursor: 'not-allowed'
                 }}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => openExternalLink(team.applicationLink)}
               >
-                <ExternalLink size={20} />
-                Apply for {team.name}
-              </motion.button>
+                <CheckCircle size={20} />
+                Recruitment Closed
+              </div>
             </motion.div>
           ))}
         </div>

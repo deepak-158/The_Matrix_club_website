@@ -13,10 +13,10 @@ interface AnnouncementBubbleProps {
 
 const AnnouncementBubble: React.FC<AnnouncementBubbleProps> = ({ 
   announcement = {
-    title: "🚀 Join The Matrix! Recruitments Are Open!",
-    message: "The Matrix Club is looking for passionate creators and tech enthusiasts to join our ranks. If you have a flair for photography, videography, design, or web development, we want you. Choose your path and help us redefine creativity.",
+    title: "✅ Recruitment Cycle Completed!",
+    message: "Thank you for your interest in The Matrix Club! Our recruitment for this cycle has ended. Stay connected with us for future opportunities and upcoming events!",
     link: "/recruitment",
-    linkText: "Apply Now"
+    linkText: "View Details"
   }
 }) => {
   const [isVisible, setIsVisible] = useState(false)
