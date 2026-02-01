@@ -12,23 +12,48 @@ const About: React.FC = () => {
       role: "President",
       bio: `"Leadership is a practice of imperfect humans leading imperfect humans. That's why it's so hard."`,
       email: "yuva.bharti@vitbhopal.ac.in",
-      image: "/images/team/YuvaBharti.jpg",
+      image: "/images/team/president/YuvaBharti.jpg",
       linkedin: "https://www.linkedin.com/in/yuva-bharti-bansal/",
       instagram: "https://www.instagram.com/yuvabbansal?igsh=MTNsM2FuMzVvbmxpeA==",
       github: null
     },
     {
-      id: "00",
+      id: "1",
+      name: "Darshan V",
+      team: "LEADERSHIP",
+      role: "Vice President",
+      bio: "Vetrivel Veeravel",
+      email: "darshan.v2022@vitbhopal.ac.in",
+      image: "/images/team/president/darshanV.jpeg",
+      linkedin: "https://www.linkedin.com/in/darshanv1/",
+      instagram: null,
+      github: "https://github.com/TheHashiramaSenju"
+    },
+    {
+      id: "2",
       name: "Yash Goyal",
       team: "LEADERSHIP",
-      role: "Operation Manager",
+      role: "General Secretary",
       bio: "Precision in Motion, success in action",
       email: "yash.goyal@vitbhopal.ac.in",
-      image: "/images/team/YashGoyal.jpg",
+      image: "/images/team/managers/YashGoyal.jpg",
       linkedin: "https://www.linkedin.com/in/yashgoyal06/",
       instagram: "https://www.instagram.com/__yash__06__",
       github: "https://github.com/YashGoyal06"
     },
+    {
+      id: "3",
+      name: "Piyush Kumar Singh",
+      team: "LEADERSHIP",
+      role: "Operation Manager",
+      bio: "Connecting Teams. Building Systems. Delivering Results.",
+      email: "piyush.24bai10094@vitbhopal.ac.in",
+      image: "/images/team/managers/PiyushKumarSingh.jpeg",
+      linkedin: "https://www.linkedin.com/in/piyush-kumar-singh-b53749313/",
+      instagram: "https://www.instagram.com/signature.piyush_/"
+    },
+
+    // -----------------------------------Digital Media and Production Team-----------------------------------------
     {
       id: "1",
       name: "Tuhin Rakshit",
@@ -36,7 +61,7 @@ const About: React.FC = () => {
       role: "Lead",
       bio: "Capturing stories through the lens of creativity",
       email: "",
-      image: "/images/team/TuhinRakshit.jpg",
+      image: "/images/team/digitalmedia/TuhinRakshit.jpg",
       linkedin: "https://www.linkedin.com/in/tuhin-rakshit-05511528a",
       instagram: "https://www.instagram.com/tuhinrakshit6",
       github: null
@@ -48,67 +73,10 @@ const About: React.FC = () => {
       role: "Core Member",
       bio: "We don't just post, we produce.",
       email: "eipshita.24bac10038@vitbhopal.ac.in",
-      image: "/images/team/EipshitaBasuli.jpeg",
+      image: "/images/team/digitalmedia/EipshitaBasuli.jpeg",
       linkedin: null,
       instagram: "https://www.instagram.com/eipshitabasuli/",
       github: null
-    },
-    {
-      id: "3",
-      name: "AYUSH UPADHYAY",
-      team: "EVENT MANAGEMENT",
-      role: "Core Member",
-      bio: "A great event leaves hearts full, not just calendars marked",
-      email: "ayush.24mei10091@vitbhopal.ac.in",
-      image: "/images/team/AyushUpadhyay.jpg",
-      linkedin: null,
-      instagram: "https://www.instagram.com/royal7_ayush/",
-      github: null
-    },
-    {
-      id: "4",
-      name: "Piyush Kumar Singh",
-      team: "FINANCE",
-      role: "Lead",
-      bio: "Data Scientist || My models predict the future. You just pay the invoice.",
-      email: "piyush.24bai10094@vitbhopal.ac.in",
-      image: "/images/team/PiyushKumarSingh.jpeg",
-      linkedin: "https://www.linkedin.com/in/piyush-kumar-singh-b53749313/",
-      instagram: "https://www.instagram.com/signature.piyush_/"
-    },
-    {
-      id: "5",
-      name: "Arav Acharya",
-      team: "TECHNICAL",
-      role: "Core Member",
-      bio: "Turning caffeine into code | Full Stack Developer | Generative AI",
-      email: "arav.23bce11788@vitbhopal.ac.in",
-      image: "/images/team/AravAchari.jpg",
-      linkedin: "https://www.linkedin.com/in/arav-achari-115715281/",
-      instagram: "https://www.instagram.com/_arav_acharya_?igsh=bnh1eXhieTZ6Zmdz"
-    },
-    {
-      id: "6",
-      name: "Tanisha Verma",
-      team: "PR AND OUTREACH",
-      role: "Lead",
-      bio: "Coding connections, igniting innovation!",
-      email: "",
-      image: "/images/team/tanishaverma.jpg",
-      linkedin: "https://www.linkedin.com/in/tanishaverma13",
-      instagram: "https://www.instagram.com/tanisha11_27?igsh=ZW05cDBlc3IyMWJh",
-      github: null
-    },
-    {
-      id: "7",
-      name: "Mohammed Kaif",
-      team: "PR AND OUTREACH",
-      role: "Co-Lead",
-      bio: "Still Figuring Out What PR Means || Outreach Ninja, Meme Enthusiast",
-      email: "mohammad.23bai10510@vitbhopal.ac.in",
-      image: "/images/team/MohammedKaif.jpeg",
-      linkedin: null,
-      instagram: "https://www.instagram.com/zkaifsyed46/"
     },
     {
       id: "8",
@@ -117,7 +85,7 @@ const About: React.FC = () => {
       role: "Co-Lead",
       bio: "Creating impact together",
       email: "ashmit.24bcy10376@vitbhopal.ac.in",
-      image: "/images/team/AshmitMudgal.jpg",
+      image: "/images/team/digitalmedia/AshmitMudgal.jpg",
       linkedin: null,
       instagram: "https://www.instagram.com/ashmit.mudgal/"
     },
@@ -128,20 +96,66 @@ const About: React.FC = () => {
       role: "Core Member",
       bio: "Driven by creativity, powered by media.",
       email: "kaushal.24bcy10062@vitbhopal.ac.in",
-      image: "/images/team/KaushalKant.jpg",
+      image: "/images/team/digitalmedia/KaushalKant.jpg",
       linkedin: "https://www.linkedin.com/in/kaushal-kant-718959323",
       instagram: "https://www.instagram.com/kaushal_3589/"
     },
     {
-      id: "10",
-      name: "Anushka",
-      team: "PR AND OUTREACH",
+      id: "13",
+      name: "Anupriya",
+      team: "DIGITAL MEDIA AND PRODUCTION TEAM",
       role: "Core Member",
-      bio: "Turning connections into collaborations.",
-      email: "anushka.24bai10805@vitbhopal.ac.in",
-      image: "/images/team/Anushka.jpg",
-      linkedin: "https://www.linkedin.com/in/anushka-09a694357/",
-      instagram: null,
+      bio: "Capturing moments, Creating impact",
+      email: "anupriya.24bce11110@vitbhopal.ac.in",
+      image: "/images/team/digitalmedia/Anupriya.jpg",
+      linkedin: "https://www.linkedin.com/in/anupriya-859445322",
+      instagram: "https://www.instagram.com/anupriya36993"
+    },
+    {
+      id: "107",
+      name: "Aditya Kumar",
+      team: "DIGITAL MEDIA AND PRODUCTION TEAM",
+      role: "Core Member",
+      bio: "Moments explain what words never can",
+      email: "aditya.24bhi10050@vitbhopal.ac.in",
+      image: "/images/team/digitalmedia/AdityaKumar.jpg",
+      linkedin: "https://www.linkedin.com/in/aditya-kumar-7a216934a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      instagram: "https://www.instagram.com/adiiiitya.aa"
+    },
+    {
+      id: "108",
+      name: "Shrenika Rajpoot",
+      team: "DIGITAL MEDIA AND PRODUCTION TEAM",
+      role: "Core Member",
+      bio: "Social media team || where content that connects ",
+      email: "shrenika.25bai11384@vitbhopal.ac.in",
+      image: "/images/team/digitalmedia/ShrenikaRajpoot.png",
+      linkedin: "https://www.linkedin.com/in/shrenika-rajpoot?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      instagram: "https://www.instagram.com/shrenikarajput?igsh=YnM2OG5sbTM2bW90"
+    },
+    {
+      id: "109",
+      name: "Deepti Singh",
+      team: "DIGITAL MEDIA AND PRODUCTION TEAM",
+      role: "Core Member",
+      bio: "Powered by reels,stories and posts.. ",
+      email: "deepti.25bai10058@vitbhopal.ac.in",
+      image: "/images/team/digitalmedia/DeeptiSingh.jpg",
+      linkedin: null,
+      instagram: "https://www.instagram.com/deepti.singh_18"
+    },
+
+    // -----------------------------------Event Management Team-----------------------------------------
+    {
+      id: "3",
+      name: "AYUSH UPADHYAY",
+      team: "EVENT MANAGEMENT",
+      role: "Core Member",
+      bio: "A great event leaves hearts full, not just calendars marked",
+      email: "ayush.24mei10091@vitbhopal.ac.in",
+      image: "/images/team/eventmanagement/AyushUpadhyay.jpg",
+      linkedin: null,
+      instagram: "https://www.instagram.com/royal7_ayush/",
       github: null
     },
     {
@@ -151,55 +165,9 @@ const About: React.FC = () => {
       role: "Co-Lead",
       bio: "No matter how many fish in the sea It would be so empty without me",
       email: "shivang.24bsa10306@vitbhopal.ac.in",
-      image: "/images/team/ShivangSaini.jpg",
+      image: "/images/team/eventmanagement/ShivangSaini.jpg",
       linkedin: "http://www.linkedin.com/inshivang-saini-455681328",
       instagram: "https://www.instagram.com/shivangsaini17/"
-    },
-    {
-      id: "12",
-      name: "Nikhil Mohammed",
-      team: "DESIGN",
-      role: "Lead",
-      bio: "Design Team || Your idea, our canvas",
-      email: "nikhil.23bai10718@vitbhopal.ac.in",
-      image: "/images/team/NikhilMohammed.jpeg",
-      linkedin: "http://linkedin.com/in/nikhil-mohammed",
-      instagram: "https://www.instagram.com/nikhil.mohammed"
-    },
-    {
-      id: "13",
-      name: "Anupriya",
-      team: "DIGITAL MEDIA AND PRODUCTION TEAM",
-      role: "Core Member",
-      bio: "Capturing moments, Creating impact",
-      email: "anupriya.24bce11110@vitbhopal.ac.in",
-      image: "/images/team/Anupriya.jpg",
-      linkedin: "https://www.linkedin.com/in/anupriya-859445322",
-      instagram: "https://www.instagram.com/anupriya36993"
-    },
-    {
-      id: "14",
-      name: "RUPANKITA BARUAH",
-      team: "DESIGN",
-      role: "Core Member",
-      bio: "and so it goes",
-      email: "rupankita.24bai10975@vitbhopal.ac.in",
-      image: "/images/team/RupankitaBaruah.jpeg",
-      linkedin: "https://www.linkedin.com/in/rupankita-baruah-b59678324/",
-      instagram: null,
-      github: null
-    },
-    {
-      id: "15",
-      name: "Sarthak Jalan",
-      team: "TECHNICAL",
-      role: "Core Member",
-      bio: "Cloud & Backend || Deploying dreams, not just servers",
-      email: "sarthak.23bsa10058@vitbhopal.ac.in",
-      image: "/images/team/SarthakJalan.jpg",
-      linkedin: "https://www.linkedin.com/in/sarthak-jalan-7685a7285/",
-      instagram: "https://www.instagram.com/frenzy_sarthak/",
-      github: "https://github.com/sarthakjalan05"
     },
     {
       id: "16",
@@ -208,22 +176,71 @@ const About: React.FC = () => {
       role: "Core Member",
       bio: "Relentless in preparation. Undefeated in execution.",
       email: "abhishek.24bai10673@vitbhopal.ac.in",
-      image: "/images/team/AbhishekMishra.jpg",
+      image: "/images/team/eventmanagement/AbhishekMishra.jpg",
       linkedin: "https://www.linkedin.com/in/abhishek-mishra-74745a324",
       instagram: null,
       github: null
     },
     {
-      id: "17",
-      name: "Yash Saxena",
-      team: "FINANCE",
+      id: "105",
+      name: "Aryan Mishra",
+      team: "EVENT MANAGEMENT",
       role: "Core Member",
-      bio: "Finance Core Member || Making every rupee count",
-      email: "yash.23bce10699@vitbhopal.ac.in",
-      image: "/images/team/YashSaxena.jpg",
-      linkedin: "https://www.linkedin.com/in/yash-saxena-5a6974279/",
+      bio:  `Making sure the "Backend" doesn't crash in real life`,
+      email: "aryan.24mip10041@vitbhopal.ac.in",
+      image: "/images/team/eventmanagement/AryanMishra.JPG",
+      linkedin: null,
+      instagram: "https://www.instagram.com/aryan_mishra62/",
+      github: null
+    },
+    {
+      id: "106",
+      name: "Kashish Raj",
+      team: "EVENT MANAGEMENT",
+      role: "Core Member",
+      bio: "Where ideas meet execution",
+      email: "kashish.25bai11409@vitbhopal.ac.in",
+      image: "/images/team/eventmanagement/KashishRaj.jpg",
+      linkedin: "https://www.linkedin.com/in/kashish-raj-70940b379?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       instagram: null,
       github: null
+    },
+
+    // -----------------------------------Technical Team-----------------------------------------
+    {
+      id:"120",
+      name: "Vishwajeet Pratap Singh",
+      team: "TECHNICAL",
+      role: "Lead",
+      bio: "If itss not broken, give it time… wesll fix it anyway.",
+      email: "vishwajeet.23bcg10096@vitbhopal.ac.in",
+      image: "/images/team/technical/Vishwajeet.jpeg",
+      linkedin: "https://www.linkedin.com/in/v7ksr/",
+      github: "https://github.com/vKS-Rajput"
+    },
+
+    {
+      id: "5",
+      name: "Arav Acharya",
+      team: "TECHNICAL",
+      role: "Core Member",
+      bio: "Turning caffeine into code | Full Stack Developer | Generative AI",
+      email: "arav.23bce11788@vitbhopal.ac.in",
+      image: "/images/team/technical/AravAchari.jpg",
+      linkedin: "https://www.linkedin.com/in/arav-achari-115715281/",
+      instagram: "https://www.instagram.com/_arav_acharya_?igsh=bnh1eXhieTZ6Zmdz"
+    },
+    {
+      id: "15",
+      name: "Sarthak Jalan",
+      team: "TECHNICAL",
+      role: "Core Member",
+      bio: "Cloud & Backend || Deploying dreams, not just servers",
+      email: "sarthak.23bsa10058@vitbhopal.ac.in",
+      image: "/images/team/technical/SarthakJalan.jpg",
+      linkedin: "https://www.linkedin.com/in/sarthak-jalan-7685a7285/",
+      instagram: "https://www.instagram.com/frenzy_sarthak/",
+      github: "https://github.com/sarthakjalan05"
     },
     {
       id: "18",
@@ -232,7 +249,7 @@ const About: React.FC = () => {
       role: "Co-Lead",
       bio: "Web & ML || Crafting full-stack experiences and teaching machines to read.",
       email: "deepak.23bce11422@vitbhopal.ac.in",
-      image: "/images/team/DeepakShukla.jpg",
+      image: "/images/team/technical/DeepakShukla.jpg",
       linkedin: "https://www.linkedin.com/in/deepak-shukla-27a60628a/",
       instagram: "https://www.instagram.com/dipakshukla1508/",
       github: "https://github.com/deepak-158"
@@ -244,31 +261,19 @@ const About: React.FC = () => {
       role: "Core Member",
       bio: "Coding the future, one line at a time",
       email: "",
-      image: "/images/team/BhumikaVerma.jpg",
+      image: "/images/team/technical/BhumikaVerma.jpg",
       linkedin: null,
       instagram: null,
       github: null
     },
     {
-      id: "20",
-      name: "Lakshmi Hridyesha Peddinti",
-      team: "CONTENT",
-      role: "Core Member",
-      bio: "Content Writer || Crafting Chaos into Chapters - One Word at a Time",
-      email: "lakshmi.24bas10074@vitbhopal.ac.in",
-      image: "/images/team/Hridyesha.jpg",
-      linkedin: "https://www.linkedin.com/in/hridyesha-p-l-672965324",
-      instagram: null,
-      github: null
-    },
-        {
       id: "21",
       name: "Sreelakshmi A",
       team: "TECHNICAL",
       role: "Core Member",
       bio: "AI/ML Student || Training my future, one epoch at a time",
       email: "sreelakshmi.23bai11083@vitbhopal.ac.in",
-      image: "/images/team/Sreelakshmi.jpg",
+      image: "/images/team/technical/Sreelakshmi.jpg",
       linkedin: "https://www.linkedin.com/in/sreelakshmi-a-69100b296",
       instagram: null,
       github: null
@@ -280,20 +285,234 @@ const About: React.FC = () => {
       role: "Core Member",
       bio: "Full-stack developer || Building scalable solutions and debugging life, one commit at a time",
       email: "",
-      image: "/images/team/AyushGupta.jpg",
+      image: "/images/team/technical/AyushGupta.jpg",
       linkedin: "https://www.linkedin.com/in/ayushkathil/",
       instagram: "https://www.instagram.com/ayush_kathil/",
+      github: null
+    },
+    {
+      id: "111",
+      name: "Deepak Singh",
+      team: "TECHNICAL",
+      role: "Core Member",
+      bio: "Data Scientist ",
+      email: "deepak.24mim10228@vitbhopal.ac.in",
+      image: "/images/team/technical/DeepakSingh.png",
+      linkedin: null,
+      instagram: "https://www.instagram.com/d_raajput_01?igsh=eXU2d2kwdm1kbTVj",
+      github: null
+    },
+    {
+      id: "112",
+      name: "Vaishnavi Sagar Jadhav",
+      team: "TECHNICAL",
+      role: "Core Member",
+      bio: "Web Development || Turning ideas into responsive reality.",
+      email: "vaishnavi.25bai11401@vitbhopal.ac.in",
+      image: "/images/team/technical/VaishnaviJadhav.jpg",
+      linkedin: "https://www.linkedin.com/in/vaishnavi-jadhav-b6b147376?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      instagram: "https://www.instagram.com/vaishnavijadhav9328?igsh=MWw4amJsYXIydTM2eg==",
+      github: null
+    }, 
+    {
+      id: "115",
+      name: "Rakshit Raj",
+      team: "TECHNICAL",
+      role: "Core Member",
+      bio: "Talk is Cheap Show me the Code",
+      email: "rakshit.25bai11234@vitbhopal.ac.in",
+      image: "/images/team/technical/RakshitRaj.jpeg",
+      linkedin: "https://www.linkedin.com/in/RakshitRajVIT",
+      instagram: "https://www.instagram.com/rakshitraj._",
+      github: "https://github.com/rakshitrajvit"
+    },
+
+    
+    
+
+    // -----------------------------------PR and Outreach Team-----------------------------------------
+    {
+      id: "6",
+      name: "Tanisha Verma",
+      team: "PR AND OUTREACH",
+      role: "Lead",
+      bio: "Coding connections, igniting innovation!",
+      email: "",
+      image: "/images/team/pr/TanishaVerma.jpg",
+      linkedin: "https://www.linkedin.com/in/tanishaverma13",
+      instagram: "https://www.instagram.com/tanisha11_27?igsh=ZW05cDBlc3IyMWJh",
+      github: null
+    },
+    {
+      id: "7",
+      name: "Mohammed Kaif",
+      team: "PR AND OUTREACH",
+      role: "Co-Lead",
+      bio: "Still Figuring Out What PR Means || Outreach Ninja, Meme Enthusiast",
+      email: "mohammad.23bai10510@vitbhopal.ac.in",
+      image: "/images/team/pr/MohammedKaif.jpeg",
+      linkedin: null,
+      instagram: "https://www.instagram.com/zkaifsyed46/"
+    },
+    {
+      id: "10",
+      name: "Anushka",
+      team: "PR AND OUTREACH",
+      role: "Core Member",
+      bio: "Turning connections into collaborations.",
+      email: "anushka.24bai10805@vitbhopal.ac.in",
+      image: "/images/team/pr/Anushka.jpg",
+      linkedin: "https://www.linkedin.com/in/anushka-09a694357/",
+      instagram: null,
+      github: null
+    },
+    {
+      id: "104",
+      name: "Akshat Mishra",
+      team: "PR AND OUTREACH",
+      role: "Core Member",
+      bio: "Execution Over Excuses",
+      email: "akshat.25bai11569@vitbhopal.ac.in",
+      image: "/images/team/pr/AkshatMishra.jpg",
+      linkedin: null,
+      instagram: "https://www.instagram.com/akshatsznzz",
+      github: null
+    },
+    {
+      id: "116",
+      name: "Rakshit Raj",
+      team: "PR AND OUTREACH",
+      role: "Core Member",
+      bio: "From Campus to Crowd - one message at a Time",
+      email: "rakshit.25bai11234@vitbhopal.ac.in",
+      image: "/images/team/technical/RakshitRaj.jpeg",
+      linkedin: "https://www.linkedin.com/in/RakshitRajVIT",
+      instagram: "https://www.instagram.com/rakshitraj._",
+      github: "https://github.com/rakshitrajvit"
+    },
+    
+    // -----------------------------------Design Team-----------------------------------------
+    {
+      id: "12",
+      name: "Nikhil Mohammed",
+      team: "DESIGN",
+      role: "Lead",
+      bio: "Design Team || Your idea, our canvas",
+      email: "nikhil.23bai10718@vitbhopal.ac.in",
+      image: "/images/team/design/NikhilMohammed.jpeg",
+      linkedin: "http://linkedin.com/in/nikhil-mohammed",
+      instagram: "https://www.instagram.com/nikhil.mohammed"
+    },
+    {
+      id: "14",
+      name: "RUPANKITA BARUAH",
+      team: "DESIGN",
+      role: "Core Member",
+      bio: "and so it goes",
+      email: "rupankita.24bai10975@vitbhopal.ac.in",
+      image: "/images/team/design/RupankitaBaruah.jpeg",
+      linkedin: "https://www.linkedin.com/in/rupankita-baruah-b59678324/",
+      instagram: null,
+      github: null
+    },
+    {
+      id: "110",
+      name: "Diya Gugale",
+      team: "DESIGN",
+      role: "Core Member",
+      bio: "Designing || Where creativity meets clarity",
+      email: "diya.24bai10870@vitbhopal.ac.in",
+      image: "/images/team/design/DiyaGugale.jpg",
+      linkedin: "https://www.linkedin.com/in/diya-gugale-2877b1275?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      instagram: null,
+      github: null
+    },
+
+    // -----------------------------------Finance Team-----------------------------------------
+    {
+      id: "17",
+      name: "Yash Saxena",
+      team: "FINANCE",
+      role: "Lead",
+      bio: "Finance Core Member || Making every rupee count",
+      email: "yash.23bce10699@vitbhopal.ac.in",
+      image: "/images/team/finance/YashSaxena.jpg",
+      linkedin: "https://www.linkedin.com/in/yash-saxena-5a6974279/",
+      instagram: null,
+      github: null
+    },
+    {
+      id: "102",
+      name: "K Kashyap",
+      team: "FINANCE",
+      role: "Core Member",
+      bio: "Finance Core Member | Turning numbers into strategy, insights into impact, and ideas into sustainable growth.",
+      email: "kashyap.25bai10101@vitbhopal.ac.in",
+      image: "/images/team/finance/KKashyap.jpg",
+      linkedin: "https://www.linkedin.com/in/koyilada-kashyap-862509382?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      instagram: "https://www.instagram.com/kashyap_0460_?igsh=MXF4NGk5eDhoczN2Zg==",
+      github: null
+    },
+    {
+      id: "103",
+      name: "Gaurav Singh",
+      team: "FINANCE",
+      role: "Core Member",
+      bio: "Finance",
+      email: "kashyap.25bai10101@vitbhopal.ac.in",
+      image: "/images/team/finance/GauravSingh.jpg",
+      linkedin: null,
+      instagram: "https://www.instagram.com/Gauravsingh_lucky ",
+      github: null
+    },
+    
+
+    // -----------------------------------Content Team-----------------------------------------
+    {
+      id: "20",
+      name: "Lakshmi Hridyesha Peddinti",
+      team: "CONTENT",
+      role: "Core Member",
+      bio: "Content Writer || Crafting Chaos into Chapters - One Word at a Time",
+      email: "lakshmi.24bas10074@vitbhopal.ac.in",
+      image: "/images/team/content/Hridyesha.jpg",
+      linkedin: "https://www.linkedin.com/in/hridyesha-p-l-672965324",
+      instagram: null,
       github: null
     },
     {
       id: "23",
       name: "Nishita Gupta",
       team: "CONTENT",
-      role: "Core Member",
+      role: "Lead",
       bio: "Writing what everyone else is thinking",
       email: "nishita.23bsa10081@vitbhopal.ac.in",
-      image: "/images/team/NishitaGupta.jpg",
-      linkedin: "linkedin.com/in/nishita-gupta-62348a284",
+      image: "/images/team/content/NishitaGupta.jpg",
+      linkedin: "https://www.linkedin.com/in/nishita-gupta-62348a284",
+      instagram: null,
+      github: null
+    },
+    {
+      id: "100",
+      name: "Aditi Sinha",
+      team: "CONTENT",
+      role: "Core Member",
+      bio: "Powered by words, driven by ideas.",
+      email: "aditi.24bhi10024@vitbhopal.ac.in",
+      image: "/images/team/content/AditiSinha.jpg",
+      linkedin: "https://www.linkedin.com/in/aditi-sinha-399632341",
+      instagram: null,
+      github: null
+    },
+    {
+      id: "101",
+      name: "Abdul Samad Khan",
+      team: "CONTENT",
+      role: "Core Member",
+      bio: "Here for those ideas that pop up once in a while.",
+      email: "abdul.24bce11414@vitbhopal.ac.in",
+      image: "/images/team/content/AbdulSamad.jpg",
+      linkedin: "https://www.linkedin.com/in/abdul-samad-khan-6b4b8537a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       instagram: null,
       github: null
     },
@@ -438,8 +657,8 @@ const About: React.FC = () => {
             .filter(member => member.team === teamName)
             .sort((a, b) => {
               // Define hierarchy order
-              const roleOrder = { 'President': 1, 'Operation Manager': 2, 'Lead': 3, 'Co-Lead': 4, 'Core Member': 5 }
-              return (roleOrder[a.role as keyof typeof roleOrder] || 6) - (roleOrder[b.role as keyof typeof roleOrder] || 6)
+              const roleOrder = { 'President': 1,'Vice President': 2,'General Secretary': 3, 'Operation Manager': 4, 'Lead': 5, 'Co-Lead': 6, 'Core Member': 7 }
+              return (roleOrder[a.role as keyof typeof roleOrder] || 8) - (roleOrder[b.role as keyof typeof roleOrder] || 8)
             })
           if (teamMembersFiltered.length === 0) return null
           
@@ -482,6 +701,8 @@ const About: React.FC = () => {
                     <div style={{ textAlign: 'center', width: '100%' }}>
                       <img 
                         src={member.image} 
+                        loading='lazy'
+                        decoding='async'
                         alt={member.name}
                         style={{
                           width: '120px',
@@ -647,7 +868,8 @@ const About: React.FC = () => {
                   maxWidth: '120px',
                   maxHeight: '60px',
                   objectFit: 'contain',
-                  marginBottom: '0.5rem'
+                  marginBottom: '0.5rem',
+                  borderRadius: '8px'
                 }}
               />
               <span style={{ fontSize: '0.8rem', color: '#999' }}>
