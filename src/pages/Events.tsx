@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Calendar, Users, ExternalLink, Trophy, Archive } from 'lucide-react'
 import { openExternalLink } from '../utils/helpers'
 
+
 const Events: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'upcoming' | 'ongoing' | 'completed'>('upcoming')
 
@@ -13,9 +14,33 @@ const Events: React.FC = () => {
       date: "July 27, 2025",
       description: "Matrix Club in partnership with Unstop hosted Media Morphosis at VIT Bhopal. The event explored how Data Science and Social Media Analytics shape branding and business strategies. Participants enjoyed an insightful learning session followed by a hackathon-style quiz and case study, applying data-driven insights to real-world challenges.",
       attendees: 200,
-      galleryUrl: "https://drive.google.com/drive/folders/1U8_BoZ6wY9DTy_Sr3qiVPERbuAx4jL_k?usp=sharing"
+      galleryUrl: "https://www.instagram.com/p/DMaeyxZtH1i/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+      image: "/images/events/MediaMorphosis/Media_Morphosis.webp"
+    },
+    {
+      id: 2,
+      title: "AIRM 2025",
+      date: "December 30, 2025",
+      description: `Matrix Club, the Multimedia Club at VIT Bhopal, hosted AIRM 2025—an online event for college students focused on Artificial Intelligence, Robotics, and Multimedia. With over 100 participants, the session delivered valuable insights through expert talks, interactive discussions, and engaging quizzes, inspiring young minds to explore emerging technologies and real-world applications.`,
+      attendees: 150,
+      galleryUrl: "https://www.instagram.com/p/DS1e_hXEr5s/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+      image: "/images/events/AIRM1/AIRM_2025.png"
     }
   ]
+  const upcomingEvents = [
+    // Add upcoming events here
+      {id: 3,
+      title: "AIRM 2 2026",
+      date: "February 7, 2026",
+      description: "Matrix Club, the Multimedia Club at VIT Bhopal, is set to host AIRM 2 on 7 February—an upcoming online event for college students focused on Artificial Intelligence, Robotics, and Multimedia. The session will feature expert talks, interactive discussions, and engaging activities, aiming to provide valuable insights into emerging technologies and real-world applications.",
+      attendees: 'Expected 200+',
+      galleryUrl: "https://www.instagram.com/p/DS1e_hXEr5s/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA=="
+    }
+
+  ]
+  // const ongoingContests = [
+  //   // Add ongoing contests here
+  // ]
 
   return (
     <div style={{ paddingTop: '100px' }}>
@@ -52,7 +77,7 @@ const Events: React.FC = () => {
         ].map(({ key, label, icon: Icon }) => (
           <button
             key={key}
-            onClick={() => setActiveTab(key as any)}
+            onClick={() => setActiveTab(key as 'upcoming' | 'ongoing' | 'completed')}
             style={{
               background: 'none',
               border: 'none',
@@ -80,7 +105,7 @@ const Events: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <div style={{
+          {/* <div style={{
             textAlign: 'center',
             padding: '4rem 0',
             minHeight: '40vh',
@@ -88,7 +113,7 @@ const Events: React.FC = () => {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center'
-          }}>
+           }}>
             <motion.h2
               style={{
                 fontFamily: 'Share Tech Mono, monospace',
@@ -111,6 +136,58 @@ const Events: React.FC = () => {
             <p style={{ color: '#CCCCCC', fontSize: '1.2rem' }}>
               New events are being planned. Stay tuned for exciting workshops and contests!
             </p>
+          </div> */}
+          <div className="card-grid">
+            {upcomingEvents.map((event, index) => (
+              <motion.div 
+                key={event.id}
+                className="card"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
+                  <Archive size={24} color="#00FF41" />
+                  <h3 style={{ margin: 0 }}>{event.title}</h3>
+                </div>
+
+                {/* jgaLKFDf */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
+                  {/* <Archive size={24} color="#00FF41" /> */}
+                  {/* <h3 style={{ margin: 0 }}>{event.title}</h3> */}
+                  {/* <img src={event.image} alt={event.title} /> */}
+                </div>
+
+                
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem', color: '#00FF41' }}>
+                  <Calendar size={16} />
+                  <span>{event.date}</span>
+                </div>
+                
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', color: '#CCCCCC' }}>
+                  <Users size={16} />
+                  <span>{event.attendees} attendees</span>
+                </div>
+                
+                <p style={{ marginBottom: '1.5rem' }}>{event.description}</p>
+                
+                <button 
+                  className="btn btn-secondary"
+                  onClick={() => openExternalLink(event.galleryUrl)}
+                  style={{ 
+                    width: '100%', 
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '0.5rem'
+                  }}
+                >
+                  <ExternalLink size={16} />
+                  View Gallery
+                </button>
+              </motion.div>
+            ))}
           </div>
         </motion.section>
       )}
@@ -179,6 +256,11 @@ const Events: React.FC = () => {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
                   <Archive size={24} color="#00FF41" />
                   <h3 style={{ margin: 0 }}>{event.title}</h3>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
+                  {/* <Archive size={24} color="#00FF41" /> */}
+                  {/* <h3 style={{ margin: 0 }}>{event.title}</h3> */}
+                  <img src={event.image} alt={event.title} style={{ width: '100%', objectFit: 'cover', borderRadius: '8px' }} />
                 </div>
                 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem', color: '#00FF41' }}>

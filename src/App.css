@@ -120,6 +120,13 @@
   }
 }
 
+@keyframes pulse {
+  0% { opacity: .4 }
+  50% { opacity: .7 }
+  100% { opacity: .4 }
+}
+
+
 /* Buttons */
 .btn {
   display: inline-block;
@@ -369,3 +376,4 @@
     font-size: 1.2rem;
   }
 }
+

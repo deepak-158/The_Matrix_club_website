@@ -32,7 +32,43 @@ const Header: React.FC = () => {
     >
       <nav className="nav">
         <Link to="/" className="logo">
-          THE MATRIX CLUB
+        <div style={{display: "flex",alignItems: "center",gap: "0.6rem",borderRadius: "9999px",}}>
+          <div
+            style={{
+              width: "46px",
+              height: "46px",
+              borderRadius: "50%",
+              border: "2px solid #00FF41",
+              boxShadow: "0 0 12px rgba(0,255,65,0.8)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              background: "black",
+            }}
+          >
+            <img
+              src="/favicon.ico"
+              alt="The Matrix Club Logo"
+              style={{width: "28px",
+                height: "28px",
+                borderRadius: "50%",
+                objectFit: "cover",
+              }}
+            />
+          </div>
+
+          <span
+            style={{
+              color: "#00FF41",
+              fontWeight: 600,
+              letterSpacing: "1px",
+              fontFamily: "Share Tech Mono, monospace",
+            }}
+          >
+            THE MATRIX CLUB
+          </span>
+        </div>
+
         </Link>
         
         {/* Desktop Navigation */}
