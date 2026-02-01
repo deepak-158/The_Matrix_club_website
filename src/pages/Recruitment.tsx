@@ -18,7 +18,7 @@ const Recruitment: React.FC = () => {
       positions:null,
       applicationLink: "https://forms.gle/3qXoyBYXHi2kXnPM6",
       icon: "💻",
-      color: "#00FF41"
+      color: "#FFFFFF"
     },
     {
       id: 2,
@@ -223,7 +223,7 @@ const Recruitment: React.FC = () => {
                       {team.name}
                     </h3>
                     <p style={{ 
-                      color: '#00FF41', 
+                      color: '#FFFFFF', 
                       margin: '0',
                       fontSize: '0.9rem',
                       fontWeight: 'bold',
@@ -322,7 +322,7 @@ const Recruitment: React.FC = () => {
             whileHover={{ scale: 1.05 }}
             style={{ textAlign: 'center' }}
           >
-            <Target size={40} style={{ color: '#00FF41', marginBottom: '1rem' }} />
+            <Target size={40} style={{ color: '#FFFFFF', marginBottom: '1rem' }} />
             <h3>Skill Development</h3>
             <p>Learn from industry experts and develop professional-level skills in your chosen field.</p>
           </motion.div>
@@ -332,7 +332,7 @@ const Recruitment: React.FC = () => {
             whileHover={{ scale: 1.05 }}
             style={{ textAlign: 'center' }}
           >
-            <Users size={40} style={{ color: '#00FF41', marginBottom: '1rem' }} />
+            <Users size={40} style={{ color: '#FFFFFF', marginBottom: '1rem' }} />
             <h3>Networking</h3>
             <p>Connect with like-minded creatives and build lasting professional relationships.</p>
           </motion.div>
@@ -342,7 +342,7 @@ const Recruitment: React.FC = () => {
             whileHover={{ scale: 1.05 }}
             style={{ textAlign: 'center' }}
           >
-            <Zap size={40} style={{ color: '#00FF41', marginBottom: '1rem' }} />
+            <Zap size={40} style={{ color: '#FFFFFF', marginBottom: '1rem' }} />
             <h3>Real Projects</h3>
             <p>Work on actual projects and build an impressive portfolio that stands out.</p>
           </motion.div>
@@ -369,8 +369,8 @@ const Recruitment: React.FC = () => {
                 padding: '1.5rem',
                 background: phase.status === 'active' ? 'rgba(0, 255, 65, 0.1)' : 
                            phase.status === 'completed' ? 'rgba(0, 255, 65, 0.05)' : '#222',
-                border: phase.status === 'active' ? '2px solid #00FF41' : 
-                        phase.status === 'completed' ? '1px solid #00FF41' : '1px solid #333',
+                border: phase.status === 'active' ? '2px solid #FFFFFF' : 
+                        phase.status === 'completed' ? '1px solid #FFFFFF' : '1px solid #333',
                 borderRadius: '10px'
               }}
               initial={{ opacity: 0, x: -50 }}
@@ -382,8 +382,8 @@ const Recruitment: React.FC = () => {
                 minWidth: '40px',
                 height: '40px',
                 borderRadius: '50%',
-                background: phase.status === 'active' ? '#00FF41' : 
-                            phase.status === 'completed' ? '#00CC33' : '#333',
+                background: phase.status === 'active' ? '#FFFFFF' : 
+                            phase.status === 'completed' ? '#CCCCCC' : '#333',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -398,13 +398,13 @@ const Recruitment: React.FC = () => {
               </div>
               <div style={{ flex: 1 }}>
                 <h3 style={{ 
-                  color: phase.status === 'active' ? '#00FF41' : 
-                         phase.status === 'completed' ? '#00CC33' : '#FFFFFF',
+                  color: phase.status === 'active' ? '#FFFFFF' : 
+                         phase.status === 'completed' ? '#CCCCCC' : '#FFFFFF',
                   margin: '0 0 0.5rem 0' 
                 }}>
                   {phase.phase}
                 </h3>
-                <p style={{ color: '#00FF41', margin: '0 0 0.5rem 0', fontSize: '0.9rem' }}>
+                <p style={{ color: '#FFFFFF', margin: '0 0 0.5rem 0', fontSize: '0.9rem' }}>
                   {phase.date}
                 </p>
                 <p style={{ color: '#CCCCCC', margin: '0', fontSize: '0.9rem' }}>
@@ -426,7 +426,7 @@ const Recruitment: React.FC = () => {
       >
         <div style={{ 
           textAlign: 'center',
-          background: 'linear-gradient(135deg, #00FF41, #00CC33)',
+          background: 'linear-gradient(135deg, #FFFFFF, #CCCCCC)',
           borderRadius: '15px',
           color: '#111',
           padding: '3rem 2rem',
@@ -449,7 +449,7 @@ const Recruitment: React.FC = () => {
             className="btn"
             style={{
               background: '#111',
-              color: '#00FF41',
+              color: '#FFFFFF',
               border: '2px solid #111'
             }}
             whileHover={{ 

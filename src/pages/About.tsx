@@ -546,7 +546,7 @@ const About: React.FC = () => {
             }}
           >
             <div style={{ marginBottom: '1.5rem' }}>
-              <Target size={40} style={{ color: '#00FF41', marginBottom: '1rem' }} />
+              <Target size={40} style={{ color: '#FFFFFF', marginBottom: '1rem' }} />
               <h3 style={{ margin: '0' }}>Mission</h3>
             </div>
             <p style={{ textAlign: 'center', flex: '1', margin: '0' }}>
@@ -570,7 +570,7 @@ const About: React.FC = () => {
             }}
           >
             <div style={{ marginBottom: '1.5rem' }}>
-              <Eye size={40} style={{ color: '#00FF41', marginBottom: '1rem' }} />
+              <Eye size={40} style={{ color: '#FFFFFF', marginBottom: '1rem' }} />
               <h3 style={{ margin: '0' }}>Vision</h3>
             </div>
             <p style={{ textAlign: 'center', flex: '1', margin: '0' }}>
@@ -594,7 +594,7 @@ const About: React.FC = () => {
             }}
           >
             <div style={{ marginBottom: '1.5rem' }}>
-              <Heart size={40} style={{ color: '#00FF41', marginBottom: '1rem' }} />
+              <Heart size={40} style={{ color: '#FFFFFF', marginBottom: '1rem' }} />
               <h3 style={{ margin: '0' }}>Values</h3>
             </div>
             <p style={{ textAlign: 'center', flex: '1', margin: '0' }}>
@@ -666,7 +666,7 @@ const About: React.FC = () => {
             <div key={teamName} style={{ marginBottom: '4rem' }}>
               <motion.h3 
                 style={{ 
-                  color: '#00FF41', 
+                  color: '#FFFFFF', 
                   textAlign: 'center', 
                   marginBottom: '2rem',
                   fontSize: '1.5rem',
@@ -709,7 +709,7 @@ const About: React.FC = () => {
                           height: '120px',
                           borderRadius: '50%',
                           margin: '0 auto 1rem',
-                          border: '3px solid #00FF41',
+                          border: '3px solid #FFFFFF',
                           objectFit: 'cover'
                         }}
                       />
@@ -729,7 +729,7 @@ const About: React.FC = () => {
                           style={{ 
                             background: 'none', 
                             border: 'none', 
-                            color: '#00FF41', 
+                            color: '#FFFFFF', 
                             cursor: 'pointer',
                             padding: '8px',
                             borderRadius: '50%',
@@ -756,7 +756,7 @@ const About: React.FC = () => {
                           style={{ 
                             background: 'none', 
                             border: 'none', 
-                            color: '#00FF41', 
+                            color: '#FFFFFF', 
                             cursor: 'pointer',
                             padding: '8px',
                             borderRadius: '50%',
@@ -783,7 +783,7 @@ const About: React.FC = () => {
                           style={{ 
                             background: 'none', 
                             border: 'none', 
-                            color: '#00FF41', 
+                            color: '#FFFFFF', 
                             cursor: 'pointer',
                             padding: '8px',
                             borderRadius: '50%',
@@ -857,7 +857,7 @@ const About: React.FC = () => {
                 overflow: 'hidden'
               }}
               whileHover={{ 
-                borderColor: '#00FF41',
+                borderColor: '#FFFFFF',
                 scale: 1.05
               }}
             >

@@ -81,10 +81,10 @@ const Events: React.FC = () => {
             style={{
               background: 'none',
               border: 'none',
-              color: activeTab === key ? '#00FF41' : '#FFFFFF',
+              color: activeTab === key ? '#FFFFFF' : '#FFFFFF',
               padding: '1rem 2rem',
               cursor: 'pointer',
-              borderBottom: activeTab === key ? '2px solid #00FF41' : 'none',
+              borderBottom: activeTab === key ? '2px solid #FFFFFF' : 'none',
               display: 'flex',
               alignItems: 'center',
               gap: '0.5rem',
@@ -118,8 +118,8 @@ const Events: React.FC = () => {
               style={{
                 fontFamily: 'Share Tech Mono, monospace',
                 fontSize: '3rem',
-                color: '#00FF41',
-                textShadow: '0 0 15px #00FF41',
+                color: '#FFFFFF',
+                textShadow: '0 0 15px #FFFFFF',
                 marginBottom: '1rem'
               }}
               animate={{
@@ -148,19 +148,19 @@ const Events: React.FC = () => {
                 whileHover={{ scale: 1.02 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-                  <Archive size={24} color="#00FF41" />
+                  <Archive size={24} color="#FFFFFF" />
                   <h3 style={{ margin: 0 }}>{event.title}</h3>
                 </div>
 
                 {/* jgaLKFDf */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-                  {/* <Archive size={24} color="#00FF41" /> */}
+                  {/* <Archive size={24} color="#FFFFFF" /> */}
                   {/* <h3 style={{ margin: 0 }}>{event.title}</h3> */}
                   {/* <img src={event.image} alt={event.title} /> */}
                 </div>
 
                 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem', color: '#00FF41' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem', color: '#FFFFFF' }}>
                   <Calendar size={16} />
                   <span>{event.date}</span>
                 </div>
@@ -213,8 +213,8 @@ const Events: React.FC = () => {
               style={{
                 fontFamily: 'Share Tech Mono, monospace',
                 fontSize: '3rem',
-                color: '#00FF41',
-                textShadow: '0 0 15px #00FF41',
+                color: '#FFFFFF',
+                textShadow: '0 0 15px #FFFFFF',
                 marginBottom: '1rem'
               }}
               animate={{
@@ -254,16 +254,16 @@ const Events: React.FC = () => {
                 whileHover={{ scale: 1.02 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-                  <Archive size={24} color="#00FF41" />
+                  <Archive size={24} color="#FFFFFF" />
                   <h3 style={{ margin: 0 }}>{event.title}</h3>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-                  {/* <Archive size={24} color="#00FF41" /> */}
+                  {/* <Archive size={24} color="#FFFFFF" /> */}
                   {/* <h3 style={{ margin: 0 }}>{event.title}</h3> */}
                   <img src={event.image} alt={event.title} style={{ width: '100%', objectFit: 'cover', borderRadius: '8px' }} />
                 </div>
                 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem', color: '#00FF41' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem', color: '#FFFFFF' }}>
                   <Calendar size={16} />
                   <span>{event.date}</span>
                 </div>

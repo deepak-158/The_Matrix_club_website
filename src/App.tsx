@@ -26,11 +26,11 @@ function App() {
 
     // Secret developer message
     const matrixStyle = `
-      color: #00FF41;
+      color: #FFFFFF;
       font-family: 'Courier New', monospace;
       font-size: 16px;
       font-weight: bold;
-      text-shadow: 0 0 10px #00FF41;
+      text-shadow: 0 0 10px #FFFFFF;
     `
 
     console.log('%c╔════════════════════════════════════════════════════════════════════════════════╗', matrixStyle)
@@ -62,13 +62,13 @@ function App() {
       team: 'The Matrix Club',
       message: 'Thanks for exploring! 🚀',
       joinUs: () => {
-        console.log('%c🎯 Ready to join The Matrix Club?', 'color: #00FF41; font-size: 18px; font-weight: bold;')
+        console.log('%c🎯 Ready to join The Matrix Club?', 'color: #FFFFFF; font-size: 18px; font-weight: bold;')
         console.log('%c🌟 Visit our recruitment page and choose your destiny!', 'color: #FFD700; font-size: 14px;')
         window.location.href = '/recruitment'
       },
       easteregg: () => {
         console.log('%c🎊 You found the easter egg! 🎊', 'color: #FF69B4; font-size: 20px; font-weight: bold;')
-        console.log('%c🔮 "There is no spoon" - Neo', 'color: #00FF41; font-size: 16px; font-style: italic;')
+        console.log('%c🔮 "There is no spoon" - Neo', 'color: #FFFFFF; font-size: 16px; font-style: italic;')
         console.log('%c⚡ The Matrix has you... but in a good way! ⚡', 'color: #FFD700; font-size: 14px;')
       }
     }

@@ -38,7 +38,7 @@ const Header: React.FC = () => {
               width: "46px",
               height: "46px",
               borderRadius: "50%",
-              border: "2px solid #00FF41",
+              border: "2px solid #FFFFFF",
               boxShadow: "0 0 12px rgba(0,255,65,0.8)",
               display: "flex",
               alignItems: "center",
@@ -59,7 +59,7 @@ const Header: React.FC = () => {
 
           <span
             style={{
-              color: "#00FF41",
+              color: "#FFFFFF",
               fontWeight: 600,
               letterSpacing: "1px",
               fontFamily: "Share Tech Mono, monospace",
@@ -92,7 +92,7 @@ const Header: React.FC = () => {
           style={{
             background: 'none',
             border: 'none',
-            color: '#00FF41',
+            color: '#FFFFFF',
             cursor: 'pointer',
             padding: '0.5rem',
             display: 'none'
@@ -114,7 +114,7 @@ const Header: React.FC = () => {
             style={{
               background: 'rgba(17, 17, 17, 0.98)',
               backdropFilter: 'blur(10px)',
-              borderTop: '1px solid #00FF41',
+              borderTop: '1px solid #FFFFFF',
               position: 'absolute',
               top: '100%',
               left: 0,
@@ -146,13 +146,13 @@ const Header: React.FC = () => {
                       padding: '1rem 2rem',
                       borderBottom: '1px solid #333',
                       textDecoration: 'none',
-                      color: location.pathname === item.path ? '#00FF41' : '#FFFFFF',
+                      color: location.pathname === item.path ? '#FFFFFF' : '#FFFFFF',
                       fontSize: '1.1rem',
                       transition: 'all 0.3s ease'
                     }}
                     onMouseEnter={(e) => {
                       if (location.pathname !== item.path) {
-                        e.currentTarget.style.color = '#00FF41'
+                        e.currentTarget.style.color = '#FFFFFF'
                         e.currentTarget.style.backgroundColor = 'rgba(0, 255, 65, 0.1)'
                       }
                     }}

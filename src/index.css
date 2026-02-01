@@ -14,12 +14,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* Matrix Color Palette */
-  --primary-bg: #111111;
-  --secondary-bg: #222222;
-  --matrix-green: #00FF41;
+  /* Black & White Color Palette */
+  --primary-bg: #000000;
+  --secondary-bg: #1a1a1a;
+  --matrix-green: #FFFFFF;
   --white: #FFFFFF;
-  --grey: #CCCCCC;
+  --grey: #AAAAAA;
   --dark-grey: #333333;
 }
 
@@ -45,7 +45,7 @@ a {
 }
 
 a:hover {
-  color: #00CC33;
+  color: #CCCCCC;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -72,9 +72,9 @@ button {
 }
 
 button:hover {
-  background-color: #00CC33;
+  background-color: #CCCCCC;
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 255, 65, 0.3);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
 }
 
 button:focus,
@@ -98,11 +98,11 @@ button:focus-visible {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00CC33;
+  background: #CCCCCC;
 }
 
 /* Selection */
 ::selection {
-  background: rgba(0, 255, 65, 0.3);
-  color: var(--white);
+  background: rgba(255, 255, 255, 0.3);
+  color: var(--primary-bg);
 }

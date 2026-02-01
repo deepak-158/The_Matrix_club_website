@@ -29,7 +29,7 @@ const GalleryCard = memo(({ item, delay }: any) => {
       transition={{ duration: 0.4, delay }}
       whileHover={{
         scale: 1.05,
-        boxShadow: '0 10px 30px rgba(0,255,65,0.3)'
+        boxShadow: '0 10px 30px rgba(255,255,255,0.3)'
       }}
     >
       {/* Skeleton */}
@@ -64,10 +64,10 @@ const GalleryCard = memo(({ item, delay }: any) => {
           position: 'absolute',
           top: '10px',
           right: '10px',
-          background: 'rgba(0,255,65,0.85)',
+          background: 'rgba(255,255,255,0.85)',
           borderRadius: '50%',
           padding: '6px',
-          color: '#111'
+          color: '#000'
         }}
       >
         {item.type === 'video' ? <Video size={16} /> : <Camera size={16} />}

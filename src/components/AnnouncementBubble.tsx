@@ -72,18 +72,18 @@ const AnnouncementBubble: React.FC<AnnouncementBubbleProps> = ({
               width: '60px',
               height: '60px',
               borderRadius: '50%',
-              background: 'linear-gradient(135deg, #00FF41, #00CC33)',
+              background: 'linear-gradient(135deg, #FFFFFF, #CCCCCC)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               cursor: 'pointer',
-              boxShadow: '0 4px 20px rgba(0, 255, 65, 0.4)',
+              boxShadow: '0 4px 20px rgba(255, 255, 255, 0.4)',
               position: 'relative'
             }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
-            <Bell size={24} color="#111" />
+            <Bell size={24} color="#000" />
             {/* Notification dot */}
             <motion.div
               style={{
@@ -105,11 +105,11 @@ const AnnouncementBubble: React.FC<AnnouncementBubbleProps> = ({
             initial={{ width: '60px', height: '60px' }}
             animate={{ width: '320px', height: 'auto' }}
             style={{
-              background: '#222222',
-              border: '2px solid #00FF41',
+              background: '#1a1a1a',
+              border: '2px solid #FFFFFF',
               borderRadius: '15px',
               padding: '15px',
-              boxShadow: '0 8px 30px rgba(0, 255, 65, 0.3)',
+              boxShadow: '0 8px 30px rgba(255, 255, 255, 0.3)',
               position: 'relative'
             }}
           >
@@ -131,7 +131,7 @@ const AnnouncementBubble: React.FC<AnnouncementBubbleProps> = ({
 
             <div style={{ marginBottom: '10px' }}>
               <h4 style={{ 
-                color: '#00FF41', 
+                color: '#FFFFFF', 
                 fontSize: '0.9rem', 
                 margin: '0 0 8px 0',
                 fontFamily: 'Share Tech Mono, monospace'
@@ -152,8 +152,8 @@ const AnnouncementBubble: React.FC<AnnouncementBubbleProps> = ({
               <button
                 onClick={handleClick}
                 style={{
-                  background: 'linear-gradient(45deg, #00FF41, #00CC33)',
-                  color: '#111',
+                  background: 'linear-gradient(45deg, #FFFFFF, #CCCCCC)',
+                  color: '#000',
                   border: 'none',
                   borderRadius: '5px',
                   padding: '8px 12px',

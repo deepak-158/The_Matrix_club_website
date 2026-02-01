@@ -23,10 +23,10 @@ const MatrixRain: React.FC = () => {
     }
 
     const draw = () => {
-      ctx.fillStyle = 'rgba(17, 17, 17, 0.04)'
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.04)'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-      ctx.fillStyle = '#00FF41'
+      ctx.fillStyle = '#FFFFFF'
       ctx.font = font_size + 'px monospace'
 
       for (let i = 0; i < drops.length; i++) {

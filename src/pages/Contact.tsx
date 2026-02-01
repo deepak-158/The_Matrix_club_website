@@ -91,7 +91,7 @@ const Contact: React.FC = () => {
                 border: '1px solid #333'
               }}>
                 <div style={{ 
-                  background: '#00FF41', 
+                  background: '#FFFFFF', 
                   borderRadius: '50%', 
                   padding: '10px',
                   color: '#111'
@@ -99,7 +99,7 @@ const Contact: React.FC = () => {
                   <Mail size={20} />
                 </div>
                 <div>
-                  <h4 style={{ color: '#00FF41', margin: '0 0 0.5rem 0' }}>Email</h4>
+                  <h4 style={{ color: '#FFFFFF', margin: '0 0 0.5rem 0' }}>Email</h4>
                   <p style={{ margin: 0, color: '#CCCCCC' }}>multimedia_club@vitbhopal.ac.in</p>
                 </div>
               </div>
@@ -115,7 +115,7 @@ const Contact: React.FC = () => {
                 border: '1px solid #333'
               }}>
                 <div style={{ 
-                  background: '#00FF41', 
+                  background: '#FFFFFF', 
                   borderRadius: '50%', 
                   padding: '10px',
                   color: '#111',
@@ -125,7 +125,7 @@ const Contact: React.FC = () => {
                   <MapPin size={20} />
                 </div>
                 <div style={{ flex: 1, textAlign: 'left' }}>
-                  <h4 style={{ color: '#00FF41', margin: '0 0 0.5rem 0', textAlign: 'left' }}>Location</h4>
+                  <h4 style={{ color: '#FFFFFF', margin: '0 0 0.5rem 0', textAlign: 'left' }}>Location</h4>
                   <p style={{ margin: '0 0 0.3rem 0', color: '#CCCCCC', lineHeight: '1.4', textAlign: 'left' }}>The Matrix Club</p>
                   <p style={{ margin: '0 0 0.3rem 0', color: '#CCCCCC', lineHeight: '1.4', textAlign: 'left' }}>VIT Bhopal University</p>
                   <p style={{ margin: '0 0 0.3rem 0', color: '#CCCCCC', lineHeight: '1.4', textAlign: 'left' }}>Kothri Kalan, Sehore</p>
@@ -144,7 +144,7 @@ const Contact: React.FC = () => {
                 border: '1px solid #333'
               }}>
                 <div style={{ 
-                  background: '#00FF41', 
+                  background: '#FFFFFF', 
                   borderRadius: '50%', 
                   padding: '10px',
                   color: '#111'
@@ -152,13 +152,13 @@ const Contact: React.FC = () => {
                   <Phone size={20} />
                 </div>
                 <div>
-                  <h4 style={{ color: '#00FF41', margin: '0 0 0.5rem 0' }}>Phone</h4>
+                  <h4 style={{ color: '#FFFFFF', margin: '0 0 0.5rem 0' }}>Phone</h4>
                   <p style={{ margin: 0, color: '#CCCCCC' }}>+91 89689 78226</p>
                 </div>
               </div>
             </div>
 
-            <h3 style={{ marginBottom: '1rem', color: '#00FF41' }}>Follow Us</h3>
+            <h3 style={{ marginBottom: '1rem', color: '#FFFFFF' }}>Follow Us</h3>
             <div style={{ display: 'flex', gap: '1rem' }}>
               {[
                 { icon: Instagram, link: 'https://instagram.com/thematrixclub_vitb', label: 'Instagram' },
@@ -172,7 +172,7 @@ const Contact: React.FC = () => {
                     border: '1px solid #333',
                     borderRadius: '8px',
                     padding: '12px',
-                    color: '#00FF41',
+                    color: '#FFFFFF',
                     cursor: 'pointer',
                     display: 'flex',
                     alignItems: 'center',
@@ -181,7 +181,7 @@ const Contact: React.FC = () => {
                   }}
                   whileHover={{ 
                     scale: 1.05, 
-                    borderColor: '#00FF41',
+                    borderColor: '#FFFFFF',
                     boxShadow: '0 5px 15px rgba(0, 255, 65, 0.3)'
                   }}
                   whileTap={{ scale: 0.95 }}
@@ -211,7 +211,7 @@ const Contact: React.FC = () => {
                   <label style={{ 
                     display: 'block', 
                     marginBottom: '0.5rem', 
-                    color: '#00FF41',
+                    color: '#FFFFFF',
                     fontWeight: '500'
                   }}>
                     Name *
@@ -232,7 +232,7 @@ const Contact: React.FC = () => {
                       fontSize: '1rem',
                       transition: 'border-color 0.3s ease'
                     }}
-                    onFocus={(e) => e.target.style.borderColor = '#00FF41'}
+                    onFocus={(e) => e.target.style.borderColor = '#FFFFFF'}
                     onBlur={(e) => e.target.style.borderColor = '#333'}
                   />
                 </div>
@@ -241,7 +241,7 @@ const Contact: React.FC = () => {
                   <label style={{ 
                     display: 'block', 
                     marginBottom: '0.5rem', 
-                    color: '#00FF41',
+                    color: '#FFFFFF',
                     fontWeight: '500'
                   }}>
                     Email *
@@ -262,7 +262,7 @@ const Contact: React.FC = () => {
                       fontSize: '1rem',
                       transition: 'border-color 0.3s ease'
                     }}
-                    onFocus={(e) => e.target.style.borderColor = '#00FF41'}
+                    onFocus={(e) => e.target.style.borderColor = '#FFFFFF'}
                     onBlur={(e) => e.target.style.borderColor = '#333'}
                   />
                 </div>
@@ -271,7 +271,7 @@ const Contact: React.FC = () => {
                   <label style={{ 
                     display: 'block', 
                     marginBottom: '0.5rem', 
-                    color: '#00FF41',
+                    color: '#FFFFFF',
                     fontWeight: '500'
                   }}>
                     Subject *
@@ -292,7 +292,7 @@ const Contact: React.FC = () => {
                       fontSize: '1rem',
                       transition: 'border-color 0.3s ease'
                     }}
-                    onFocus={(e) => e.target.style.borderColor = '#00FF41'}
+                    onFocus={(e) => e.target.style.borderColor = '#FFFFFF'}
                     onBlur={(e) => e.target.style.borderColor = '#333'}
                   />
                 </div>
@@ -301,7 +301,7 @@ const Contact: React.FC = () => {
                   <label style={{ 
                     display: 'block', 
                     marginBottom: '0.5rem', 
-                    color: '#00FF41',
+                    color: '#FFFFFF',
                     fontWeight: '500'
                   }}>
                     Your Message *
@@ -324,7 +324,7 @@ const Contact: React.FC = () => {
                       fontFamily: 'inherit',
                       transition: 'border-color 0.3s ease'
                     }}
-                    onFocus={(e) => e.target.style.borderColor = '#00FF41'}
+                    onFocus={(e) => e.target.style.borderColor = '#FFFFFF'}
                     onBlur={(e) => e.target.style.borderColor = '#333'}
                   />
                 </div>
@@ -400,7 +400,7 @@ const Contact: React.FC = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <h4 style={{ color: '#00FF41', marginBottom: '1rem' }}>{faq.question}</h4>
+              <h4 style={{ color: '#FFFFFF', marginBottom: '1rem' }}>{faq.question}</h4>
               <p style={{ margin: 0, color: '#CCCCCC' }}>{faq.answer}</p>
             </motion.div>
           ))}
