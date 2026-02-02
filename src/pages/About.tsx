@@ -427,6 +427,18 @@ const About: React.FC = () => {
       instagram: null,
       github: null
     },
+    {
+      id: "121",
+      name: "Sneha Bakre",
+      team: "DESIGN",
+      role: "Core Member",
+      bio: "Not just Colors, there’s thinking involved",
+      email: "sneha.25bcy10096@vitbhopal.ac.in",
+      image: "/images/team/design/SnehaBakre.jpg",
+      linkedin: null,
+      instagram: "https://www.instagram.com/snehabakre7",
+      github: null
+    },
 
     // -----------------------------------Finance Team-----------------------------------------
     {
