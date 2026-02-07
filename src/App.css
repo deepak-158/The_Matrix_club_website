@@ -199,8 +199,22 @@
 .card {
   background: #1a1a1a;
   border: 1px solid #333333;
-  border-radius: 10px;
+  border-radius: 30px;
   padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  min-height: 350px; /* Ensure consistent height for team cards */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cardV2 {
+  /* background: #1a1a1a; */
+  /* border: 1px solid #333333; */
+  border-radius: 30px;
+  /* padding: 2rem; */
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;

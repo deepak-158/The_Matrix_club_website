@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Linkedin, Instagram, Github, Target, Eye, Heart } from 'lucide-react'
 import { openExternalLink } from '../utils/helpers'
+import ProfileCard from '../components/ProfileCard'
 
 const About: React.FC = () => {
   const teamMembers = [
@@ -680,11 +681,11 @@ const About: React.FC = () => {
                 {teamName}
               </motion.h3>
               
-              <div className="card-grid">
+              <div className="card-grid" style={{ justifyContent: 'center' }}>
                 {teamMembersFiltered.map((member, index) => (
                   <motion.div 
                     key={member.id}
-                    className="card"
+                    className="cardV2"
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: (teamIndex * 0.1) + (index * 0.1) }}
@@ -698,7 +699,7 @@ const About: React.FC = () => {
                       justifyContent: 'space-between'
                     }}
                   >
-                    <div style={{ textAlign: 'center', width: '100%' }}>
+                    {/* <div style={{ textAlign: 'center', width: '100%' }}>
                       <img 
                         src={member.image} 
                         loading='lazy'
@@ -721,8 +722,25 @@ const About: React.FC = () => {
                         "{member.bio}"
                       </p>
                     </div>
-                    
-                    <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', alignItems: 'center' }}>
+                     */}
+                      <ProfileCard
+                        name={member.name}
+                        title={member.role}
+                        // handle="javicodes"
+                        // status="Online"
+                        // contactText="Contact Me"
+                        avatarUrl={member.image}
+                        showUserInfo = {false}
+                        enableTilt={true}
+                        linkedinUrl={member.linkedin ?? undefined}
+                        instagramUrl={member.instagram ?? undefined}
+                        githubUrl={member.github ?? undefined}
+                        // enableMobileTilt
+                        // onContactClick={() => console.log('Contact clicked')}
+                        // behindGlowColor="hsla(108, 100%, 70%, 0.6)"
+                        // customInnerGradient="linear-gradient(145deg,hsla(108, 40%, 45%, 0.55) 0%,hsla(246, 60%, 70%, 0.27) 100%)"
+                      />
+                    {/* <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', alignItems: 'center' }}>
                       {member.linkedin && (
                         <button 
                           onClick={() => openExternalLink(member.linkedin!)} 
@@ -809,7 +827,7 @@ const About: React.FC = () => {
                           📧 {member.email.split('@')[0]}
                         </p>
                       )}
-                    </div>
+                    </div> */}
                   </motion.div>
                 ))}
               </div>
