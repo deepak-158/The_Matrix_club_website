@@ -1,81 +1,50 @@
-import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { useState, useEffect, lazy, Suspense } from 'react'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import './App.css'
 
-// Components
-import Header from './components/Header.tsx'
-import Home from './pages/Home.tsx'
-import About from './pages/About.tsx'
-import Events from './pages/Events.tsx'
-import Contact from './pages/Contact.tsx'
-import Recruitment from './pages/Recruitment.tsx'
-import MatrixRain from './components/MatrixRain.tsx'
-import AnnouncementModal from './components/AnnouncementModal.tsx'
-import AnnouncementBubble from './components/AnnouncementBubble.tsx'
+import Header from './components/Header'
+import MatrixRain from './components/MatrixRain'
+import AnnouncementModal from './components/AnnouncementModal'
+import AnnouncementBubble from './components/AnnouncementBubble'
+import ErrorBoundary from './components/ErrorBoundary'
+import Footer from './components/Footer'
 
-function App() {
-  const [showAnnouncement, setShowAnnouncement] = useState(true)
+/* Lazy-loaded pages for code splitting */
+const Home = lazy(() => import('./pages/Home'))
+const About = lazy(() => import('./pages/About'))
+const Events = lazy(() => import('./pages/Events'))
+const Contact = lazy(() => import('./pages/Contact'))
+const Recruitment = lazy(() => import('./pages/Recruitment'))
+const NotFound = lazy(() => import('./pages/NotFound'))
+const AdminLayout = lazy(() => import('./admin/AdminLayout'))
+
+/** Simple full-screen loading spinner */
+function PageLoader() {
+  return (
+    <div
+      style={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontFamily: "'Share Tech Mono', monospace",
+        color: '#666',
+        fontSize: '1.2rem',
+      }}
+    >
+      Loading...
+    </div>
+  )
+}
+
+/** Wraps public site layout — hides header/footer on admin routes */
+function PublicLayout() {
+  const [showAnnouncement, setShowAnnouncement] = useState(false)
 
   useEffect(() => {
-    // Check if user has seen the announcement in this session
-    const hasSeenAnnouncement = sessionStorage.getItem('hasSeenAnnouncement')
-    if (hasSeenAnnouncement) {
-      setShowAnnouncement(false)
-    }
-
-    // Secret developer message
-    const matrixStyle = `
-      color: #FFFFFF;
-      font-family: 'Courier New', monospace;
-      font-size: 16px;
-      font-weight: bold;
-      text-shadow: 0 0 10px #FFFFFF;
-    `
-
-    console.log('%c╔════════════════════════════════════════════════════════════════════════════════╗', matrixStyle)
-    console.log('%c║                                                                                ║', matrixStyle)
-    console.log('%c║  ████████╗██╗  ██╗███████╗    ███╗   ███╗ █████╗ ████████╗██████╗ ██╗██╗  ██╗  ║', matrixStyle)
-    console.log('%c║  ╚══██╔══╝██║  ██║██╔════╝    ████╗ ████║██╔══██╗╚══██╔══╝██╔══██╗██║╚██╗██╔╝  ║', matrixStyle)
-    console.log('%c║     ██║   ███████║█████╗      ██╔████╔██║███████║   ██║   ██████╔╝██║ ╚███╔╝   ║', matrixStyle)
-    console.log('%c║     ██║   ██╔══██║██╔══╝      ██║╚██╔╝██║██╔══██║   ██║   ██╔══██╗██║ ██╔██╗   ║', matrixStyle)
-    console.log('%c║     ██║   ██║  ██║███████╗    ██║ ╚═╝ ██║██║  ██║   ██║   ██║  ██║██║██╔╝ ██╗  ║', matrixStyle)
-    console.log('%c║     ╚═╝   ╚═╝  ╚═╝╚══════╝    ╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝  ║', matrixStyle)
-    console.log('%c║                                                                                ║', matrixStyle)
-    console.log('%c║                        🔥 CLUB WEBSITE 🔥                                     ║', matrixStyle)
-    console.log('%c║                                                                                ║', matrixStyle)
-    console.log('%c║    💻 Developed by: Deepak Shukla                                              ║', matrixStyle)
-    console.log('%c║    ❤️ Made with Love for The Matrix Club                                       ║', matrixStyle)
-    console.log('%c║    🌐 GitHub: https://github.com/deepak-158                                    ║', matrixStyle)
-    console.log('%c║    📧 Contact: deepak.23bce11422@vitbhopal.ac.in                               ║', matrixStyle)
-    console.log('%c║                                                                                ║', matrixStyle)
-    console.log('%c║    🚀 "Welcome to The Matrix. Red pill or blue pill?"                          ║', matrixStyle)
-    console.log('%c║                                                                                ║', matrixStyle)
-    console.log('%c╚════════════════════════════════════════════════════════════════════════════════╝', matrixStyle)
-    
-    console.log('%c\n💡 Pro tip: If you\'re seeing this, you might be the perfect candidate for our Technical Team!', 'color: #FFD700; font-size: 14px; font-style: italic;')
-    console.log('%c🔍 Check out our recruitment page: /recruitment', 'color: #00BFFF; font-size: 12px;')
-
-    // Add a secret function to the window object
-    ;(window as any).matrixClub = {
-      developer: 'Deepak Shukla',
-      team: 'The Matrix Club',
-      message: 'Thanks for exploring! 🚀',
-      joinUs: () => {
-        console.log('%c🎯 Ready to join The Matrix Club?', 'color: #FFFFFF; font-size: 18px; font-weight: bold;')
-        console.log('%c🌟 Visit our recruitment page and choose your destiny!', 'color: #FFD700; font-size: 14px;')
-        window.location.href = '/recruitment'
-      },
-      easteregg: () => {
-        console.log('%c🎊 You found the easter egg! 🎊', 'color: #FF69B4; font-size: 20px; font-weight: bold;')
-        console.log('%c🔮 "There is no spoon" - Neo', 'color: #FFFFFF; font-size: 16px; font-style: italic;')
-        console.log('%c⚡ The Matrix has you... but in a good way! ⚡', 'color: #FFD700; font-size: 14px;')
-      }
-    }
-
-    console.log('%c\n🎮 Try these commands:', 'color: #FF6B6B; font-size: 14px; font-weight: bold;')
-    console.log('%c   matrixClub.joinUs() - Quick access to recruitment', 'color: #FFA500; font-size: 12px;')
-    console.log('%c   matrixClub.easteregg() - Discover the easter egg', 'color: #FFA500; font-size: 12px;')
+    const hasSeen = sessionStorage.getItem('hasSeenAnnouncement')
+    if (!hasSeen) setShowAnnouncement(true)
   }, [])
 
   const closeAnnouncement = () => {
@@ -84,30 +53,59 @@ function App() {
   }
 
   return (
-    <Router>
-      <div className="App">
-        <MatrixRain />
-        <Header />
-        
-        <AnimatePresence>
-          {showAnnouncement && (
-            <AnnouncementModal onClose={closeAnnouncement} />
-          )}
-        </AnimatePresence>
+    <>
+      <MatrixRain />
+      <Header />
 
-        <main className="main-content">
+      <AnimatePresence>
+        {showAnnouncement && (
+          <AnnouncementModal onClose={closeAnnouncement} />
+        )}
+      </AnimatePresence>
+
+      <main className="main-content">
+        <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/events" element={<Events />} />
             <Route path="/recruitment" element={<Recruitment />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
-        </main>
-        
-        <AnnouncementBubble />
-      </div>
-    </Router>
+        </Suspense>
+      </main>
+
+      <AnnouncementBubble />
+      <Footer />
+    </>
+  )
+}
+
+function AppRoutes() {
+  const location = useLocation()
+  const isAdmin = location.pathname.startsWith('/admin')
+
+  if (isAdmin) {
+    return (
+      <Suspense fallback={<PageLoader />}>
+        <AdminLayout />
+      </Suspense>
+    )
+  }
+
+  return <PublicLayout />
+}
+
+function App() {
+  return (
+    <ErrorBoundary>
+      <Router>
+        <div className="App">
+          <AppRoutes />
+        </div>
+      </Router>
+    </ErrorBoundary>
   )
 }
 

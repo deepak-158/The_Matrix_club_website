@@ -1,82 +1,70 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 
+const NAV_ITEMS = [
+  { path: '/', label: 'Home' },
+  { path: '/about', label: 'About Us' },
+  { path: '/events', label: 'Events' },
+  { path: '/recruitment', label: 'Join Us' },
+  { path: '/contact', label: 'Contact' },
+]
+
 const Header: React.FC = () => {
   const location = useLocation()
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-
-  const navItems = [
-    { path: '/', label: 'Home' },
-    { path: '/about', label: 'About Us' },
-    { path: '/events', label: 'Events' },
-    { path: '/recruitment', label: 'Join Us' },
-    { path: '/contact', label: 'Contact' }
-  ]
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
-  }
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false)
-  }
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <motion.header 
+    <motion.header
       className="header"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <nav className="nav">
-        <Link to="/" className="logo">
-        <div style={{display: "flex",alignItems: "center",gap: "0.6rem",borderRadius: "9999px",}}>
-          <div
-            style={{
-              width: "46px",
-              height: "46px",
-              borderRadius: "50%",
-              border: "2px solid #FFFFFF",
-              boxShadow: "0 0 12px rgba(0,255,65,0.8)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "black",
-            }}
-          >
-            <img
-              src="/favicon.ico"
-              alt="The Matrix Club Logo"
-              style={{width: "28px",
-                height: "28px",
-                borderRadius: "50%",
-                objectFit: "cover",
+      <nav className="nav" role="navigation" aria-label="Main navigation">
+        <Link to="/" className="logo" aria-label="The Matrix Club Home">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+            <div
+              style={{
+                width: 46,
+                height: 46,
+                borderRadius: '50%',
+                border: '2px solid #FFFFFF',
+                boxShadow: '0 0 12px rgba(0,255,65,0.8)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                background: 'black',
               }}
-            />
+            >
+              <img
+                src="/favicon.ico"
+                alt=""
+                width={28}
+                height={28}
+                style={{ borderRadius: '50%', objectFit: 'cover' }}
+              />
+            </div>
+            <span
+              style={{
+                color: '#FFFFFF',
+                fontWeight: 600,
+                letterSpacing: '1px',
+                fontFamily: "'Share Tech Mono', monospace",
+              }}
+            >
+              THE MATRIX CLUB
+            </span>
           </div>
-
-          <span
-            style={{
-              color: "#FFFFFF",
-              fontWeight: 600,
-              letterSpacing: "1px",
-              fontFamily: "Share Tech Mono, monospace",
-            }}
-          >
-            THE MATRIX CLUB
-          </span>
-        </div>
-
         </Link>
-        
-        {/* Desktop Navigation */}
+
+        {/* Desktop Nav */}
         <ul className="nav-links desktop-nav">
-          {navItems.map((item) => (
+          {NAV_ITEMS.map((item) => (
             <li key={item.path}>
-              <Link 
-                to={item.path} 
+              <Link
+                to={item.path}
                 className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
               >
                 {item.label}
@@ -85,26 +73,27 @@ const Header: React.FC = () => {
           ))}
         </ul>
 
-        {/* Mobile Menu Button */}
-        <button 
+        {/* Mobile Toggle */}
+        <button
           className="mobile-menu-button"
-          onClick={toggleMobileMenu}
+          onClick={() => setMobileOpen((prev) => !prev)}
+          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={mobileOpen}
           style={{
             background: 'none',
             border: 'none',
             color: '#FFFFFF',
             cursor: 'pointer',
             padding: '0.5rem',
-            display: 'none'
           }}
         >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </nav>
 
-      {/* Mobile Navigation Menu */}
+      {/* Mobile Menu */}
       <AnimatePresence>
-        {isMobileMenuOpen && (
+        {mobileOpen && (
           <motion.div
             className="mobile-nav"
             initial={{ opacity: 0, height: 0 }}
@@ -114,53 +103,34 @@ const Header: React.FC = () => {
             style={{
               background: 'rgba(17, 17, 17, 0.98)',
               backdropFilter: 'blur(10px)',
-              borderTop: '1px solid #FFFFFF',
+              borderTop: '1px solid #333',
               position: 'absolute',
               top: '100%',
               left: 0,
               right: 0,
               zIndex: 99,
-              overflow: 'hidden'
+              overflow: 'hidden',
             }}
           >
-            <ul style={{
-              listStyle: 'none',
-              margin: 0,
-              padding: '1rem 0',
-              display: 'flex',
-              flexDirection: 'column'
-            }}>
-              {navItems.map((item, index) => (
-                <motion.li 
+            <ul style={{ listStyle: 'none', margin: 0, padding: '1rem 0' }}>
+              {NAV_ITEMS.map((item, i) => (
+                <motion.li
                   key={item.path}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  transition={{ duration: 0.3, delay: i * 0.08 }}
                 >
-                  <Link 
-                    to={item.path} 
+                  <Link
+                    to={item.path}
                     className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
-                    onClick={closeMobileMenu}
+                    onClick={() => setMobileOpen(false)}
                     style={{
                       display: 'block',
                       padding: '1rem 2rem',
                       borderBottom: '1px solid #333',
                       textDecoration: 'none',
-                      color: location.pathname === item.path ? '#FFFFFF' : '#FFFFFF',
+                      color: '#FFFFFF',
                       fontSize: '1.1rem',
-                      transition: 'all 0.3s ease'
-                    }}
-                    onMouseEnter={(e) => {
-                      if (location.pathname !== item.path) {
-                        e.currentTarget.style.color = '#FFFFFF'
-                        e.currentTarget.style.backgroundColor = 'rgba(0, 255, 65, 0.1)'
-                      }
-                    }}
-                    onMouseLeave={(e) => {
-                      if (location.pathname !== item.path) {
-                        e.currentTarget.style.color = '#FFFFFF'
-                        e.currentTarget.style.backgroundColor = 'transparent'
-                      }
                     }}
                   >
                     {item.label}

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 const MatrixRain: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -10,54 +10,67 @@ const MatrixRain: React.FC = () => {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
-    canvas.width = window.innerWidth
-    canvas.height = window.innerHeight
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*'
+    const fontSize = 14
+    let columns = 0
+    let drops: number[] = []
 
-    const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}".split("")
-    const font_size = 14
-    const columns = canvas.width / font_size
-    const drops: number[] = []
+    function resize() {
+      canvas!.width = window.innerWidth
+      canvas!.height = window.innerHeight
+      columns = Math.floor(canvas!.width / fontSize)
 
-    for (let x = 0; x < columns; x++) {
-      drops[x] = 1
+      // Preserve existing drops, initialize new ones
+      const newDrops = new Array(columns).fill(0)
+      for (let i = 0; i < Math.min(drops.length, columns); i++) {
+        newDrops[i] = drops[i]
+      }
+      drops = newDrops
     }
 
-    const draw = () => {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.04)'
-      ctx.fillRect(0, 0, canvas.width, canvas.height)
+    resize()
 
-      ctx.fillStyle = '#FFFFFF'
-      ctx.font = font_size + 'px monospace'
+    let animationId: number
+    let lastTime = 0
+    const interval = 35 // ~29fps
+
+    function draw(timestamp: number) {
+      animationId = requestAnimationFrame(draw)
+
+      // Throttle to target fps
+      if (timestamp - lastTime < interval) return
+      lastTime = timestamp
+
+      ctx!.fillStyle = 'rgba(0, 0, 0, 0.04)'
+      ctx!.fillRect(0, 0, canvas!.width, canvas!.height)
+
+      ctx!.fillStyle = '#FFFFFF'
+      ctx!.font = `${fontSize}px monospace`
 
       for (let i = 0; i < drops.length; i++) {
-        const text = matrix[Math.floor(Math.random() * matrix.length)]
-        ctx.fillText(text, i * font_size, drops[i] * font_size)
+        const char = chars[Math.floor(Math.random() * chars.length)]
+        ctx!.fillText(char, i * fontSize, drops[i] * fontSize)
 
-        if (drops[i] * font_size > canvas.height && Math.random() > 0.975) {
+        if (drops[i] * fontSize > canvas!.height && Math.random() > 0.975) {
           drops[i] = 0
         }
         drops[i]++
       }
     }
 
-    const interval = setInterval(draw, 35)
-
-    const handleResize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-    }
-
-    window.addEventListener('resize', handleResize)
+    animationId = requestAnimationFrame(draw)
+    window.addEventListener('resize', resize)
 
     return () => {
-      clearInterval(interval)
-      window.removeEventListener('resize', handleResize)
+      cancelAnimationFrame(animationId)
+      window.removeEventListener('resize', resize)
     }
   }, [])
 
   return (
     <canvas
       ref={canvasRef}
+      aria-hidden="true"
       style={{
         position: 'fixed',
         top: 0,
@@ -65,7 +78,8 @@ const MatrixRain: React.FC = () => {
         width: '100%',
         height: '100%',
         zIndex: -1,
-        opacity: 0.3
+        opacity: 0.3,
+        pointerEvents: 'none',
       }}
     />
   )

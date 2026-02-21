@@ -1,0 +1,16 @@
+name = "matrix-club-api"
+main = "src/index.ts"
+compatibility_date = "2024-11-01"
+
+[vars]
+ADMIN_PASSWORD = "matrix2026"
+JWT_SECRET = "matrix-club-jwt-secret-change-me"
+FRONTEND_URL = "http://localhost:5173"
+CLOUDINARY_CLOUD = "dfc9sgywk"
+CLOUDINARY_KEY = "174996598746739"
+CLOUDINARY_SECRET = "ari321XC-VPd1nS8cHrWjrh-t8E"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "matrix-club-db"
+database_id = "6fe2d1b5-13c6-4d92-b65c-77f3abea361d"
