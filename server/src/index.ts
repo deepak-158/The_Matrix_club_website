@@ -14,11 +14,11 @@ app.use('*', async (c, next) => {
     const frontendUrl = c.env.FRONTEND_URL || 'http://localhost:5173'
     const corsMiddleware = cors({
         origin: (origin) => {
-            // Allow the configured frontend URL, localhost for dev, and any *.netlify.app
+            // Allow the configured frontend URL, localhost for dev, and any *.netlify.app or *.vercel.app
             const allowed = [frontendUrl, 'http://localhost:5173', 'http://localhost:4173']
             if (!origin) return frontendUrl
             if (allowed.includes(origin)) return origin
-            if (origin.endsWith('.netlify.app')) return origin
+            if (origin.endsWith('.netlify.app') || origin.endsWith('.vercel.app')) return origin
             return frontendUrl
         },
         credentials: true,
