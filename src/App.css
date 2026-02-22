@@ -521,6 +521,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   min-height: 500px;
   transition: all 0.3s ease;
 }
