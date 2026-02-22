@@ -53,7 +53,13 @@ const Contact: React.FC = () => {
       setStatus('error')
       return
     }
-    if (formData.name.trim().length < 2 || formData.message.trim().length < 10) {
+    if (formData.name.trim().length < 2) {
+      alert("Name must be at least 2 characters long.")
+      setStatus('error')
+      return
+    }
+    if (formData.message.trim().length < 10) {
+      alert("Message must be at least 10 characters long.")
       setStatus('error')
       return
     }
