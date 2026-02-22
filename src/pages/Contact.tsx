@@ -1,337 +1,253 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, MapPin, Instagram, Linkedin, Send, Phone } from 'lucide-react'
+import { Mail, MapPin, Instagram, Linkedin, Send, Phone, ChevronDown } from 'lucide-react'
+
+const FAQ_DATA = [
+  {
+    question: 'How can I join The Matrix Club at VIT Bhopal?',
+    answer: 'You can join by filling out the registration form released during our recruitment drive or by contacting us through our official social media handles.',
+  },
+  {
+    question: 'Do I need prior coding experience?',
+    answer: "No prior experience is required! We organize beginner-friendly workshops and mentoring sessions.",
+  },
+  {
+    question: 'What kind of events does the club organize?',
+    answer: 'We host hackathons, coding challenges, project showcases, and collaborative learning sessions.',
+  },
+  {
+    question: 'Are there any membership fees?',
+    answer: 'Membership is completely free! Some events may have small participation fees.',
+  },
+  {
+    question: 'Can students from any branch join?',
+    answer: 'Absolutely! The Matrix Club encourages interdisciplinary collaboration across all branches.',
+  },
+]
+
+const SOCIAL_LINKS = [
+  { icon: Instagram, link: 'https://instagram.com/thematrixclub_vitb', label: 'Follow us on Instagram' },
+  { icon: Linkedin, link: 'https://www.linkedin.com/company/matrixclub-vitbhopal/', label: 'Follow us on LinkedIn' },
+]
+
+type FormStatus = 'idle' | 'sending' | 'success' | 'error'
 
 const Contact: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  })
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '', _honeypot: '' })
+  const [status, setStatus] = useState<FormStatus>('idle')
+  const [openFaq, setOpenFaq] = useState<number | null>(null)
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }))
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
+
+    // Honeypot check — bots fill this hidden field
+    if (formData._honeypot) return
+
+    // Basic validation
+    const email = formData.email.trim()
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setStatus('error')
+      return
+    }
+    if (formData.name.trim().length < 2 || formData.message.trim().length < 10) {
+      setStatus('error')
+      return
+    }
+
+    setStatus('sending')
+
     try {
-      const response = await fetch('https://formspree.io/f/xvgwrovd', {
+      const { _honeypot, ...payload } = formData
+      const res = await fetch('https://formspree.io/f/xvgwrovd', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
       })
-      
-      if (response.ok) {
-        alert('Thank you for your message! We\'ll get back to you soon.')
-        setFormData({ name: '', email: '', subject: '', message: '' })
+
+      if (res.ok) {
+        setStatus('success')
+        setFormData({ name: '', email: '', subject: '', message: '', _honeypot: '' })
+        setTimeout(() => setStatus('idle'), 5000)
       } else {
-        alert('There was an error sending your message. Please try again.')
+        setStatus('error')
+        setTimeout(() => setStatus('idle'), 5000)
       }
-    } catch (error) {
-      console.error('Error:', error)
-      alert('There was an error sending your message. Please try again.')
+    } catch {
+      setStatus('error')
+      setTimeout(() => setStatus('idle'), 5000)
     }
   }
 
   return (
-    <div style={{ paddingTop: '100px' }}>
+    <div style={{ paddingTop: 100 }}>
       {/* Header */}
-      <motion.section 
+      <motion.section
         className="section"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         style={{ textAlign: 'center', paddingBottom: '2rem' }}
       >
-        <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>Connect With Us</h1>
-        <p style={{ fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto' }}>
-          Ready to join The Matrix Club-  VIT BHOPAL? Have questions? We'd love to hear from you!
+        <h1>Connect With Us</h1>
+        <p style={{ fontSize: '1.2rem', maxWidth: 600, margin: '0 auto' }}>
+          Ready to join The Matrix Club — VIT Bhopal? Have questions? We'd love to hear from you!
         </p>
       </motion.section>
 
       {/* Contact Content */}
-      <motion.section 
+      <motion.section
         className="section"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.3 }}
       >
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: '1fr 1fr', 
-          gap: '4rem',
-          alignItems: 'start'
-        }}>
-          {/* Contact Information */}
+        <div className="contact-grid">
+          {/* Info Column */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <h2 style={{ marginBottom: '2rem', fontSize: '2rem' }}>Get In Touch</h2>
-            
-            <div style={{ marginBottom: '2rem' }}>
-              <div style={{ 
-                display: 'flex', 
-                alignItems: 'center', 
-                gap: '1rem', 
-                marginBottom: '1.5rem',
-                padding: '1rem',
-                background: '#222',
-                borderRadius: '8px',
-                border: '1px solid #333'
-              }}>
-                <div style={{ 
-                  background: '#FFFFFF', 
-                  borderRadius: '50%', 
-                  padding: '10px',
-                  color: '#111'
-                }}>
-                  <Mail size={20} />
-                </div>
-                <div>
-                  <h4 style={{ color: '#FFFFFF', margin: '0 0 0.5rem 0' }}>Email</h4>
-                  <p style={{ margin: 0, color: '#CCCCCC' }}>multimedia_club@vitbhopal.ac.in</p>
-                </div>
-              </div>
 
-              <div style={{ 
-                display: 'flex', 
-                alignItems: 'flex-start', 
-                gap: '1rem', 
-                marginBottom: '1.5rem',
-                padding: '1rem',
-                background: '#222',
-                borderRadius: '8px',
-                border: '1px solid #333'
-              }}>
-                <div style={{ 
-                  background: '#FFFFFF', 
-                  borderRadius: '50%', 
-                  padding: '10px',
-                  color: '#111',
-                  flexShrink: 0,
-                  marginTop: '2px'
-                }}>
-                  <MapPin size={20} />
-                </div>
-                <div style={{ flex: 1, textAlign: 'left' }}>
-                  <h4 style={{ color: '#FFFFFF', margin: '0 0 0.5rem 0', textAlign: 'left' }}>Location</h4>
-                  <p style={{ margin: '0 0 0.3rem 0', color: '#CCCCCC', lineHeight: '1.4', textAlign: 'left' }}>The Matrix Club</p>
-                  <p style={{ margin: '0 0 0.3rem 0', color: '#CCCCCC', lineHeight: '1.4', textAlign: 'left' }}>VIT Bhopal University</p>
-                  <p style={{ margin: '0 0 0.3rem 0', color: '#CCCCCC', lineHeight: '1.4', textAlign: 'left' }}>Kothri Kalan, Sehore</p>
-                  <p style={{ margin: '0', color: '#CCCCCC', lineHeight: '1.4', textAlign: 'left' }}>Madhya Pradesh - 466114, India</p>
-                </div>
-              </div>
-
-              <div style={{ 
-                display: 'flex', 
-                alignItems: 'center', 
-                gap: '1rem', 
-                marginBottom: '1.5rem',
-                padding: '1rem',
-                background: '#222',
-                borderRadius: '8px',
-                border: '1px solid #333'
-              }}>
-                <div style={{ 
-                  background: '#FFFFFF', 
-                  borderRadius: '50%', 
-                  padding: '10px',
-                  color: '#111'
-                }}>
-                  <Phone size={20} />
-                </div>
-                <div>
-                  <h4 style={{ color: '#FFFFFF', margin: '0 0 0.5rem 0' }}>Phone</h4>
-                  <p style={{ margin: 0, color: '#CCCCCC' }}>+91 89689 78226</p>
-                </div>
+            <div className="contact-card">
+              <div className="contact-card-icon"><Mail size={20} /></div>
+              <div>
+                <h4 style={{ color: '#FFF', margin: '0 0 0.3rem' }}>Email</h4>
+                <p style={{ margin: 0, color: '#CCC', textAlign: 'left' }}>multimedia_club@vitbhopal.ac.in</p>
               </div>
             </div>
 
-            <h3 style={{ marginBottom: '1rem', color: '#FFFFFF' }}>Follow Us</h3>
+            <div className="contact-card" style={{ alignItems: 'flex-start' }}>
+              <div className="contact-card-icon" style={{ marginTop: 2 }}><MapPin size={20} /></div>
+              <div>
+                <h4 style={{ color: '#FFF', margin: '0 0 0.3rem' }}>Location</h4>
+                <p style={{ margin: 0, color: '#CCC', lineHeight: 1.5, textAlign: 'left' }}>
+                  The Matrix Club<br />
+                  VIT Bhopal University<br />
+                  Kothri Kalan, Sehore<br />
+                  Madhya Pradesh — 466114, India
+                </p>
+              </div>
+            </div>
+
+            <div className="contact-card">
+              <div className="contact-card-icon"><Phone size={20} /></div>
+              <div>
+                <h4 style={{ color: '#FFF', margin: '0 0 0.3rem' }}>Phone</h4>
+                <p style={{ margin: 0, color: '#CCC', textAlign: 'left' }}>+91 89689 78226</p>
+              </div>
+            </div>
+
+            <h3 style={{ margin: '1.5rem 0 1rem', color: '#FFF' }}>Follow Us</h3>
             <div style={{ display: 'flex', gap: '1rem' }}>
-              {[
-                { icon: Instagram, link: 'https://instagram.com/thematrixclub_vitb', label: 'Instagram' },
-                { icon: Linkedin, link: 'https://www.linkedin.com/company/matrixclub-vitbhopal/', label: 'LinkedIn' }
-              ].map(({ icon: Icon, link, label }) => (
-                <motion.button
+              {SOCIAL_LINKS.map(({ icon: Icon, link, label }) => (
+                <a
                   key={label}
-                  onClick={() => window.open(link, '_blank', 'noopener,noreferrer')}
-                  style={{
-                    background: '#222',
-                    border: '1px solid #333',
-                    borderRadius: '8px',
-                    padding: '12px',
-                    color: '#FFFFFF',
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    transition: 'all 0.3s ease'
-                  }}
-                  whileHover={{ 
-                    scale: 1.05, 
-                    borderColor: '#FFFFFF',
-                    boxShadow: '0 5px 15px rgba(0, 255, 65, 0.3)'
-                  }}
-                  whileTap={{ scale: 0.95 }}
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-btn"
+                  aria-label={label}
                 >
                   <Icon size={24} />
-                </motion.button>
+                </a>
               ))}
             </div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Form Column */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <div style={{
-              background: '#222',
-              border: '1px solid #333',
-              borderRadius: '10px',
-              padding: '2rem'
-            }}>
+            <div className="form-container">
               <h2 style={{ marginBottom: '2rem', fontSize: '2rem' }}>Send Message</h2>
-              
-              <form onSubmit={handleSubmit}>
-                <div style={{ marginBottom: '1.5rem' }}>
-                  <label style={{ 
-                    display: 'block', 
-                    marginBottom: '0.5rem', 
-                    color: '#FFFFFF',
-                    fontWeight: '500'
-                  }}>
-                    Name *
-                  </label>
+
+              <form onSubmit={handleSubmit} noValidate>
+                {/* Honeypot — hidden from humans */}
+                <div className="form-hp" aria-hidden="true">
+                  <label htmlFor="hp-field">Leave empty</label>
                   <input
+                    id="hp-field"
+                    type="text"
+                    name="_honeypot"
+                    value={formData._honeypot}
+                    onChange={handleChange}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label className="form-label" htmlFor="name">Name *</label>
+                  <input
+                    id="name"
+                    className="form-input"
                     type="text"
                     name="name"
                     value={formData.name}
-                    onChange={handleInputChange}
+                    onChange={handleChange}
                     required
-                    style={{
-                      width: '100%',
-                      padding: '12px',
-                      background: '#111',
-                      border: '1px solid #333',
-                      borderRadius: '5px',
-                      color: '#FFFFFF',
-                      fontSize: '1rem',
-                      transition: 'border-color 0.3s ease'
-                    }}
-                    onFocus={(e) => e.target.style.borderColor = '#FFFFFF'}
-                    onBlur={(e) => e.target.style.borderColor = '#333'}
+                    maxLength={100}
+                    placeholder="Your name"
                   />
                 </div>
 
-                <div style={{ marginBottom: '1.5rem' }}>
-                  <label style={{ 
-                    display: 'block', 
-                    marginBottom: '0.5rem', 
-                    color: '#FFFFFF',
-                    fontWeight: '500'
-                  }}>
-                    Email *
-                  </label>
+                <div className="form-group">
+                  <label className="form-label" htmlFor="email">Email *</label>
                   <input
+                    id="email"
+                    className="form-input"
                     type="email"
                     name="email"
                     value={formData.email}
-                    onChange={handleInputChange}
+                    onChange={handleChange}
                     required
-                    style={{
-                      width: '100%',
-                      padding: '12px',
-                      background: '#111',
-                      border: '1px solid #333',
-                      borderRadius: '5px',
-                      color: '#FFFFFF',
-                      fontSize: '1rem',
-                      transition: 'border-color 0.3s ease'
-                    }}
-                    onFocus={(e) => e.target.style.borderColor = '#FFFFFF'}
-                    onBlur={(e) => e.target.style.borderColor = '#333'}
+                    maxLength={200}
+                    placeholder="Your email"
                   />
                 </div>
 
-                <div style={{ marginBottom: '1.5rem' }}>
-                  <label style={{ 
-                    display: 'block', 
-                    marginBottom: '0.5rem', 
-                    color: '#FFFFFF',
-                    fontWeight: '500'
-                  }}>
-                    Subject *
-                  </label>
+                <div className="form-group">
+                  <label className="form-label" htmlFor="subject">Subject *</label>
                   <input
+                    id="subject"
+                    className="form-input"
                     type="text"
                     name="subject"
                     value={formData.subject}
-                    onChange={handleInputChange}
+                    onChange={handleChange}
                     required
-                    style={{
-                      width: '100%',
-                      padding: '12px',
-                      background: '#111',
-                      border: '1px solid #333',
-                      borderRadius: '5px',
-                      color: '#FFFFFF',
-                      fontSize: '1rem',
-                      transition: 'border-color 0.3s ease'
-                    }}
-                    onFocus={(e) => e.target.style.borderColor = '#FFFFFF'}
-                    onBlur={(e) => e.target.style.borderColor = '#333'}
+                    maxLength={200}
+                    placeholder="Subject"
                   />
                 </div>
 
-                <div style={{ marginBottom: '2rem' }}>
-                  <label style={{ 
-                    display: 'block', 
-                    marginBottom: '0.5rem', 
-                    color: '#FFFFFF',
-                    fontWeight: '500'
-                  }}>
-                    Your Message *
-                  </label>
+                <div className="form-group">
+                  <label className="form-label" htmlFor="message">Your Message *</label>
                   <textarea
+                    id="message"
+                    className="form-textarea"
                     name="message"
                     value={formData.message}
-                    onChange={handleInputChange}
+                    onChange={handleChange}
                     required
+                    maxLength={5000}
                     rows={6}
-                    style={{
-                      width: '100%',
-                      padding: '12px',
-                      background: '#111',
-                      border: '1px solid #333',
-                      borderRadius: '5px',
-                      color: '#FFFFFF',
-                      fontSize: '1rem',
-                      resize: 'vertical',
-                      fontFamily: 'inherit',
-                      transition: 'border-color 0.3s ease'
-                    }}
-                    onFocus={(e) => e.target.style.borderColor = '#FFFFFF'}
-                    onBlur={(e) => e.target.style.borderColor = '#333'}
+                    placeholder="Tell us what's on your mind..."
                   />
                 </div>
 
                 <motion.button
                   type="submit"
                   className="btn"
+                  disabled={status === 'sending'}
                   style={{
                     width: '100%',
                     display: 'flex',
@@ -339,69 +255,63 @@ const Contact: React.FC = () => {
                     justifyContent: 'center',
                     gap: '0.5rem',
                     fontSize: '1.1rem',
-                    padding: '15px'
+                    padding: 15,
+                    opacity: status === 'sending' ? 0.7 : 1,
                   }}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={status !== 'sending' ? { scale: 1.02 } : {}}
+                  whileTap={status !== 'sending' ? { scale: 0.98 } : {}}
                 >
                   <Send size={20} />
-                  Send Message
+                  {status === 'sending' ? 'Sending...' : 'Send Message'}
                 </motion.button>
+
+                {status === 'success' && (
+                  <div className="form-status success">
+                    ✓ Thank you! Your message has been sent successfully.
+                  </div>
+                )}
+                {status === 'error' && (
+                  <div className="form-status error">
+                    ✕ Something went wrong. Please check your inputs and try again.
+                  </div>
+                )}
               </form>
             </div>
           </motion.div>
         </div>
       </motion.section>
 
-      {/* FAQ Section */}
-      <motion.section 
+      {/* FAQ Accordion */}
+      <motion.section
         className="section"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        style={{ marginTop: '4rem' }}
+        style={{ marginTop: '2rem' }}
       >
-        <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Frequently Asked Questions</h2>
-        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          {[
-            {
-              question: "How can I join The Matrix Club at VIT Bhopal?",
-              answer: "You can join by filling out the registration form released during our recruitment drive or by contacting us through our official social media handles."
-            },
-            {
-              question: "Do I need prior coding experience?",
-              answer: "No prior experience is required! We organize beginner-friendly workshops and mentoring sessions."
-            },
-            {
-              question: "What kind of events does the club organize?",
-              answer: "We host hackathons, coding challenges, project showcases, and collaborative learning sessions."
-            },
-            {
-              question: "Are there any membership fees?",
-              answer: "Membership is completely free! Some events may have small participation fees."
-            },
-            {
-              question: "Can students from any branch join?",
-              answer: "Absolutely! The Matrix Club encourages interdisciplinary collaboration across all branches."
-            }
-          ].map((faq, index) => (
+        <h2>Frequently Asked Questions</h2>
+        <div style={{ maxWidth: 800, margin: '0 auto' }}>
+          {FAQ_DATA.map((faq, i) => (
             <motion.div
-              key={index}
-              style={{
-                background: '#222',
-                border: '1px solid #333',
-                borderRadius: '8px',
-                padding: '1.5rem',
-                marginBottom: '1rem'
-              }}
+              key={i}
+              className="faq-item"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
               viewport={{ once: true }}
             >
-              <h4 style={{ color: '#FFFFFF', marginBottom: '1rem' }}>{faq.question}</h4>
-              <p style={{ margin: 0, color: '#CCCCCC' }}>{faq.answer}</p>
+              <button
+                className="faq-question"
+                onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                aria-expanded={openFaq === i}
+              >
+                {faq.question}
+                <ChevronDown size={20} className={`faq-chevron ${openFaq === i ? 'open' : ''}`} />
+              </button>
+              <div className={`faq-answer ${openFaq === i ? 'open' : ''}`}>
+                <p>{faq.answer}</p>
+              </div>
             </motion.div>
           ))}
         </div>
