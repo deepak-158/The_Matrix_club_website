@@ -1,7 +1,7 @@
 import React, { memo, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { LazyMotion, domAnimation, m, useScroll, useTransform } from 'framer-motion'
-import { Camera, Video, Zap, ExternalLink, Users, Calendar } from 'lucide-react'
+import { Camera, Video, ExternalLink, Users, Calendar } from 'lucide-react'
 import { openExternalLink } from '../utils/helpers'
 import { ReactTyped } from 'react-typed'
 
