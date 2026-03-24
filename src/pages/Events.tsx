@@ -34,18 +34,19 @@ const Events: React.FC = () => {
       attendees: 150,
       galleryUrl: "https://www.instagram.com/reel/DU_luJdDdfu/?igsh=MXV2MGE2eW94d3k4ZQ==",
       image: "/images/events/matchmatrix.jpeg"
+    },
+    {
+      id: 4,
+      title: "AIRM 2 2026",
+      date: "22 Feb 2026",
+      description: "Matrix Club, the Multimedia Club at VIT Bhopal, hosted AIRM 2 on 22 February—an online event for college students focused on Artificial Intelligence, Robotics, and Multimedia. The session featured expert talks, interactive discussions, and engaging activities, providing valuable insights into emerging technologies and real-world applications.",
+      attendees: 200,
+      galleryUrl: "https://www.instagram.com/p/DS1e_hXEr5s/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA==",
+      image: ""
     }
   ]
   const upcomingEvents = [
     // Add upcoming events here
-      {id: 3,
-      title: "AIRM 2 2026",
-      date: "22 Feb 2026",
-      description: "Matrix Club, the Multimedia Club at VIT Bhopal, is set to host AIRM 2 on 22 February—an upcoming online event for college students focused on Artificial Intelligence, Robotics, and Multimedia. The session will feature expert talks, interactive discussions, and engaging activities, aiming to provide valuable insights into emerging technologies and real-world applications.",
-      attendees: 'Expected 200+',
-      galleryUrl: "https://www.instagram.com/p/DS1e_hXEr5s/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA=="
-    }
-
   ]
   // const ongoingContests = [
   //   // Add ongoing contests here
