@@ -1,305 +1,460 @@
-import { useState } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
-import { Unlock, Clock, Users, Star, ChevronRight, CheckCircle, User, FileText, MessageSquare, Award } from 'lucide-react'
-
-interface TeamInfo {
-  id: string
-  name: string
-  icon: React.ElementType
-  description: string
-  skills: string[]
-  positions: number | null
-  formUrl: string
-}
-
-const TEAMS: TeamInfo[] = [
-  {
-    id: 'tech',
-    name: 'Technical Team',
-    icon: Star,
-    description: 'Build and maintain web platforms, develop AI/ML projects, and push the boundaries of technology.',
-    skills: ['React', 'TypeScript', 'Python', 'HTML/CSS', 'Node.js'],
-    positions: null,
-    formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScI2Bi3jzqWUZlszmJf3DbqLVW_7ZHJf6HarDVwErB0aB1HHg/viewform?usp=dialog',
-  },
-  {
-    id: 'design',
-    name: 'Design Team',
-    icon: Star,
-    description: 'Create stunning visual content, design event assets, and build the club\'s visual brand identity.',
-    skills: ['Figma', 'Photoshop', 'Illustrator', 'Canva', 'UI/UX'],
-    positions: null,
-    formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSfN08SSG48ye633a4T0Ibii3bNIR0tJ5XP4uvVyQYBDbVNbQQ/viewform?usp=header',
-  },
-  {
-    id: 'digital-media',
-    name: 'Digital Media & Production',
-    icon: Star,
-    description: 'Produce video content, manage social media, and create media strategies for events.',
-    skills: ['Premiere Pro', 'After Effects', 'Photography', 'Social Media', 'Content Creation'],
-    positions: null,
-    formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSeWxc8Brf1BnaRI3QcnGyNOLOajE3L3PDgxlfezuESpByHn8A/viewform?usp=dialog',
-  },
-  {
-    id: 'event',
-    name: 'Event Management',
-    icon: Star,
-    description: 'Plan, organize, and execute club events, workshops, and competitions.',
-    skills: ['Event Planning', 'Budget Management', 'Vendor Coordination', 'Team Leadership'],
-    positions: null,
-    formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScbCvo-6ofTVWjU57_42Kzz3LQggZJVt-HPgAKB9V8E7TMreg/viewform?usp=header',
-  },
-  {
-    id: 'pr',
-    name: 'PR & Outreach',
-    icon: Star,
-    description: 'Build partnerships, manage club communications, and grow our network across campuses.',
-    skills: ['Communication', 'Partnership Building', 'Public Speaking', 'Marketing'],
-    positions: null,
-    formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSfPgYJGxUtsqICaN3SdZy4qOINz5V8-EtQUhgeK9DoApsScQA/viewform?usp=header',
-  },
-  {
-    id: 'content',
-    name: 'Content Team',
-    icon: Star,
-    description: 'Craft compelling written content for blogs, social media, and event materials.',
-    skills: ['Creative Writing', 'Copywriting', 'Research', 'Storytelling'],
-    positions: null,
-    formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSfztAbmQ4jVOgBOPIAo4BeKMsxvy5W0NMQah2SpWgU66khM8w/viewform?usp=header',
-  },
-  {
-    id: 'finance',
-    name: 'Finance',
-    icon: Star,
-    description: 'Handle club finances, budgeting for events, and managing sponsorship funds.',
-    skills: ['Budgeting', 'Accounting', 'Excel', 'Financial Planning'],
-    positions: null,
-    formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSduZ5vmcBcI1Ba37q7nGW4guHSCgeFXVFQcCheT4lPxNU2KCQ/viewform?usp=header',
-  },
-]
-
-const TIMELINE = [
-  { icon: FileText, label: 'Registration Open', description: 'March 23 – March 29, 2026 · Submit your application', done: true },
-  { icon: User, label: 'Shortlisting Round', description: 'By March 29, 2026 · Our team reviews all submissions', done: false },
-  { icon: MessageSquare, label: 'Interview Round', description: 'Date to be announced', done: false },
-  { icon: Award, label: 'Final Selection', description: 'Date to be announced · Results and teams finalized', done: false },
-]
+import { Users, Calendar, CheckCircle, CheckCircle2, Target, Zap, ChevronRight } from 'lucide-react'
 
 const Recruitment: React.FC = () => {
-  const [selectedTeam, setSelectedTeam] = useState<string | null>(null)
+  const recruitmentTeams = [
+    {
+      id: 1,
+      name: "TECHNICAL TEAM",
+      description: "Join our tech wizards in building innovative solutions and web applications.",
+      requirements: [
+        "Basic knowledge of programming (Python, JavaScript, Java, etc.)",
+        "Interest in web development, AI/ML, or mobile app development",
+        "Problem-solving mindset and eagerness to learn",
+        "Experience with Git/GitHub is a plus"
+      ],
+      skills: ["Full Stack Development", "Machine Learning", "DevOps", "Mobile Development"],
+      positions: null,
+      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLScbCvo-6ofTVWjU57_42Kzz3LQggZJVt-HPgAKB9V8E7TMreg/viewform?usp=header",
+      icon: "💻",
+      color: "#FFFFFF"
+    },
+    {
+      id: 2,
+      name: "DESIGN TEAM",
+      description: "Create stunning visual experiences and bring creative concepts to life.",
+      requirements: [
+        "Proficiency in design tools (Photoshop, Illustrator, Figma, etc.)",
+        "Strong aesthetic sense and attention to detail",
+        "Understanding of design principles and color theory",
+        "Portfolio showcasing previous design work"
+      ],
+      skills: ["UI/UX Design", "Graphic Design", "Brand Identity", "Digital Art"],
+      positions: null,
+      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSfN08SSG48ye633a4T0Ibii3bNIR0tJ5XP4uvVyQYBDbVNbQQ/viewform?usp=header",
+      icon: "🎨",
+      color: "#FF6B6B"
+    },
+    {
+      id: 3,
+      name: "DIGITAL MEDIA & PRODUCTION",
+      description: "Master the art of visual storytelling through photography and videography.",
+      requirements: [
+        "Experience with photography or videography",
+        "Knowledge of editing software (Premiere Pro, After Effects, etc.)",
+        "Creative eye for visual composition",
+        "Own camera equipment preferred but not mandatory"
+      ],
+      skills: ["Photography", "Video Editing", "Content Creation", "Visual Effects"],
+      positions: null,
+      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLScI2Bi3jzqWUZlszmJf3DbqLVW_7ZHJf6HarDVwErB0aB1HHg/viewform?usp=dialog",
+      icon: "📸",
+      color: "#4ECDC4"
+    },
+    {
+      id: 4,
+      name: "EVENT MANAGEMENT",
+      description: "Organize and execute memorable events that bring the community together.",
+      requirements: [
+        "Strong organizational and leadership skills",
+        "Experience in event planning or coordination",
+        "Excellent communication and teamwork abilities",
+        "Ability to work under pressure and meet deadlines"
+      ],
+      skills: ["Event Planning", "Project Management", "Vendor Coordination", "Logistics"],
+      positions: null,
+      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSfztAbmQ4jVOgBOPIAo4BeKMsxvy5W0NMQah2SpWgU66khM8w/viewform?usp=header",
+      icon: "🎉",
+      color: "#FFE66D"
+    },
+    {
+      id: 5,
+      name: "PR & OUTREACH",
+      description: "Build relationships and expand our community reach through strategic communications.",
+      requirements: [
+        "Excellent verbal and written communication skills",
+        "Experience with social media management",
+        "Networking and relationship-building abilities",
+        "Knowledge of marketing principles is a plus"
+      ],
+      skills: ["Public Relations", "Social Media", "Marketing", "Community Building"],
+      positions: null,
+      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSeWxc8Brf1BnaRI3QcnGyNOLOajE3L3PDgxlfezuESpByHn8A/viewform?usp=dialog",
+      icon: "📢",
+      color: "#A8E6CF"
+    },
+    {
+      id: 6,
+      name: "FINANCE TEAM",
+      description: "Manage club finances and ensure sustainable growth through strategic planning.",
+      requirements: [
+        "Basic understanding of accounting and finance",
+        "Attention to detail and analytical skills",
+        "Experience with spreadsheets and financial tools",
+        "Trustworthy and responsible attitude"
+      ],
+      skills: ["Financial Planning", "Budget Management", "Sponsorship", "Resource Allocation"],
+      positions: null,
+      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSduZ5vmcBcI1Ba37q7nGW4guHSCgeFXVFQcCheT4lPxNU2KCQ/viewform?usp=header",
+      icon: "💰",
+      color: "#FFB6C1"
+    },
+    {
+      id: 7,
+      name: "CONTENT TEAM",
+      description: "Craft compelling narratives and engage our audience through creative writing and storytelling across all our platforms.",
+      requirements: [
+        "Excellent command of language, grammar, and style",
+        "Ability to write engaging copy for social media and scripts",
+        "A creative mindset with a knack for storytelling",
+        "Experience in writing for blogs, social media, or scripts is a plus"
+      ],
+      skills: ["Copywriting", "Content Strategy", "Storytelling", "Script Writing"],
+      positions: null,
+      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSfPgYJGxUtsqICaN3SdZy4qOINz5V8-EtQUhgeK9DoApsScQA/viewform?usp=header",
+      icon: "📝",
+      color: "#87CEEB"
+    }
+  ]
+
+  const recruitmentTimeline = [
+    {
+      phase: "Registrations Open",
+      date: "March 23 - March 29, 2026",
+      description: "Recruitment announcement and team-wise form fillup",
+      status: "active"
+    },
+    {
+      phase: "Shortlisting Round",
+      date: "By March 29, 2026",
+      description: "Review of applications",
+      status: "pending"
+    },
+    {
+      phase: "Interview Round",
+      date: "TBA",
+      description: "One-on-one interviews",
+      status: "pending"
+    },
+    {
+      phase: "Final Selection",
+      date: "TBA",
+      description: "Results announcement",
+      status: "pending"
+    }
+  ]
 
   return (
-    <div style={{ paddingTop: 100 }}>
-      {/* Header */}
-      <motion.section
+    <div style={{ paddingTop: '100px' }}>
+      {/* Header Section */}
+      <motion.section 
         className="section"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         style={{ textAlign: 'center', paddingBottom: '2rem' }}
       >
-        <h1>Join The Matrix</h1>
-        <p style={{ fontSize: '1.2rem', maxWidth: 600, margin: '0 auto' }}>
-          Become part of VIT Bhopal's premier multimedia club
+        <h1 style={{ fontSize: '3rem', marginBottom: '1rem', color: '#4ade80' }}>
+          Registrations are Open!
+        </h1>
+        <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', color: '#CCCCCC' }}>
+          The Matrix Club Recruitment 2026 is now live! Registration is open from March 23 – March 29, 2026.
         </p>
       </motion.section>
 
-      {/* Status Banner */}
-      <motion.section
-        className="section"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3 }}
-        style={{ paddingTop: '1rem', paddingBottom: '1rem' }}
-      >
-        <div
-          style={{
-            background: '#1a1a1a',
-            border: '1px solid #333',
-            borderRadius: 10,
-            padding: '1.5rem 2rem',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '1rem',
-            flexWrap: 'wrap',
-            textAlign: 'center',
-          }}
-        >
-          <Unlock size={24} color="#4ade80" />
-          <div>
-            <h3 style={{ margin: 0, fontSize: '1.1rem', color: '#4ade80' }}>Registrations are Open!</h3>
-            <p style={{ margin: '0.3rem 0 0', fontSize: '0.9rem', color: '#CCC' }}>
-              Registration Open: March 23 – March 29, 2026 &nbsp;·&nbsp; Shortlisting by March 29, 2026
-            </p>
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Teams */}
-      <motion.section
+      {/* Team Recruitment Cards */}
+      <motion.section 
         className="section"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <h2>Our Teams</h2>
-
-        <div className="recruitment-grid">
-          {TEAMS.map((team, i) => (
+        <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Choose Your Team</h2>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', 
+          gap: '2rem' 
+        }}>
+          {recruitmentTeams.map((team, index) => (
             <motion.div
               key={team.id}
-              className="recruitment-card"
-              initial={{ opacity: 0, y: 30 }}
+              style={{
+                background: '#222',
+                border: '1px solid #333',
+                borderRadius: '15px',
+                padding: '2rem',
+                position: 'relative',
+                overflow: 'hidden',
+                display: 'flex',
+                flexDirection: 'column',
+                minHeight: '600px'
+              }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              onClick={() => setSelectedTeam(selectedTeam === team.id ? null : team.id)}
-              style={{ cursor: 'pointer' }}
+              whileHover={{ 
+                borderColor: team.color,
+                boxShadow: `0 10px 30px ${team.color}20`
+              }}
             >
-              <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.8rem' }}>
-                  <team.icon size={24} color="#FFF" />
-                  <h3 style={{ margin: 0, color: '#FFF' }}>{team.name}</h3>
+              {/* Content Container */}
+              <div style={{ flex: '1', display: 'flex', flexDirection: 'column' }}>
+                {/* Team Header */}
+                <div style={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  marginBottom: '1.5rem' 
+                }}>
+                  <span style={{ fontSize: '2rem', marginRight: '1rem' }}>{team.icon}</span>
+                  <div style={{ flex: '1', minWidth: '0' }}>
+                    <h3 style={{ 
+                      color: team.color, 
+                      margin: '0 0 0.5rem 0',
+                      fontSize: '1.3rem',
+                      whiteSpace: 'nowrap',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      textAlign: 'left'
+                    }}>
+                      {team.name}
+                    </h3>
+                  </div>
                 </div>
 
-                {team.positions != null && (
-                  <div
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '0.3rem',
-                      background: '#333',
-                      borderRadius: 15,
-                      padding: '0.3rem 0.8rem',
-                      fontSize: '0.8rem',
-                      color: '#CCC',
-                      marginBottom: '0.8rem',
-                    }}
-                  >
-                    <Users size={14} />
-                    {team.positions} positions available
-                  </div>
-                )}
-
-                <p style={{ color: '#CCC', marginBottom: '1rem', lineHeight: 1.6, textAlign: 'left' }}>
+                {/* Description */}
+                <p style={{ 
+                  color: '#CCCCCC', 
+                  marginBottom: '1.5rem',
+                  lineHeight: '1.6'
+                }}>
                   {team.description}
                 </p>
 
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1rem' }}>
-                  {team.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="skill-tag"
-                      style={{
-                        background: 'rgba(255,255,255,0.1)',
-                        color: '#FFF',
-                        border: '1px solid rgba(255,255,255,0.15)',
-                      }}
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                {/* Skills */}
+                <div style={{ marginBottom: '1.5rem' }}>
+                  <h4 style={{ color: '#FFFFFF', marginBottom: '0.5rem' }}>Key Skills:</h4>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                    {team.skills.map((skill, skillIndex) => (
+                      <span
+                        key={skillIndex}
+                        style={{
+                          background: `${team.color}20`,
+                          color: team.color,
+                          padding: '0.3rem 0.8rem',
+                          borderRadius: '15px',
+                          fontSize: '0.8rem',
+                          border: `1px solid ${team.color}50`
+                        }}
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Requirements */}
+                <div style={{ marginBottom: '2rem', flex: '1' }}>
+                  <h4 style={{ color: '#FFFFFF', marginBottom: '0.5rem' }}>Requirements:</h4>
+                  <ul style={{ 
+                    color: '#CCCCCC', 
+                    paddingLeft: '1.2rem',
+                    fontSize: '0.9rem',
+                    lineHeight: '1.5'
+                  }}>
+                    {team.requirements.map((req, reqIndex) => (
+                      <li key={reqIndex} style={{ marginBottom: '0.3rem' }}>{req}</li>
+                    ))}
+                  </ul>
                 </div>
               </div>
 
+              {/* Apply Button */}
               <a
-                href={team.formUrl}
+                href={team.applicationLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn"
-                style={{ marginTop: '0.5rem', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.9rem', padding: '0.5rem 1.2rem' }}
+                style={{ 
+                  marginTop: '0.5rem', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center',
+                  gap: '0.4rem', 
+                  fontSize: '1rem', 
+                  padding: '1rem 1.2rem',
+                  background: team.color,
+                  color: '#000',
+                  fontWeight: 'bold',
+                  border: 'none',
+                  borderRadius: '10px'
+                }}
                 onClick={(e) => e.stopPropagation()}
               >
-                Apply Now <ChevronRight size={16} />
+                Apply Now <ChevronRight size={18} />
               </a>
             </motion.div>
           ))}
         </div>
       </motion.section>
 
-      {/* Timeline */}
-      <motion.section
+      {/* Why Join Section */}
+      <motion.section 
         className="section"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <h2>Recruitment Timeline</h2>
-        <div style={{ maxWidth: 600, margin: '0 auto' }}>
-          {TIMELINE.map((step, i) => (
+        <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Why Join The Matrix Club?</h2>
+        <div className="card-grid">
+          <motion.div 
+            className="card"
+            whileHover={{ scale: 1.05 }}
+            style={{ textAlign: 'center' }}
+          >
+            <Target size={40} style={{ color: '#FFFFFF', marginBottom: '1rem' }} />
+            <h3>Skill Development</h3>
+            <p>Learn from industry experts and develop professional-level skills in your chosen field.</p>
+          </motion.div>
+          
+          <motion.div 
+            className="card"
+            whileHover={{ scale: 1.05 }}
+            style={{ textAlign: 'center' }}
+          >
+            <Users size={40} style={{ color: '#FFFFFF', marginBottom: '1rem' }} />
+            <h3>Networking</h3>
+            <p>Connect with like-minded creatives and build lasting professional relationships.</p>
+          </motion.div>
+          
+          <motion.div 
+            className="card"
+            whileHover={{ scale: 1.05 }}
+            style={{ textAlign: 'center' }}
+          >
+            <Zap size={40} style={{ color: '#FFFFFF', marginBottom: '1rem' }} />
+            <h3>Real Projects</h3>
+            <p>Work on actual projects and build an impressive portfolio that stands out.</p>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Recruitment Timeline */}
+      <motion.section 
+        className="section"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Recruitment Timeline</h2>
+        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+          {recruitmentTimeline.map((phase, index) => (
             <motion.div
-              key={i}
+              key={index}
               style={{
                 display: 'flex',
-                gap: '1rem',
-                marginBottom: i < TIMELINE.length - 1 ? '0.5rem' : 0,
-                position: 'relative',
+                alignItems: 'center',
+                marginBottom: '2rem',
+                padding: '1.5rem',
+                background: phase.status === 'active' ? 'rgba(0, 255, 65, 0.1)' : 
+                           phase.status === 'completed' ? 'rgba(0, 255, 65, 0.05)' : '#222',
+                border: phase.status === 'active' ? '2px solid #FFFFFF' : 
+                        phase.status === 'completed' ? '1px solid #FFFFFF' : '1px solid #333',
+                borderRadius: '10px'
               }}
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: i * 0.12 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              {/* Connector line */}
-              {i < TIMELINE.length - 1 && (
-                <div
-                  style={{
-                    position: 'absolute',
-                    left: 19,
-                    top: 40,
-                    width: 2,
-                    height: 'calc(100% - 10px)',
-                    background: step.done ? '#666' : '#333',
-                  }}
-                />
-              )}
-
-              <div
-                style={{
-                  width: 40,
-                  height: 40,
-                  borderRadius: '50%',
-                  background: step.done ? '#333' : '#222',
-                  border: `2px solid ${step.done ? '#FFF' : '#444'}`,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                }}
-              >
-                {step.done ? <CheckCircle size={18} color="#FFF" /> : <Clock size={18} color="#666" />}
+              <div style={{
+                minWidth: '40px',
+                height: '40px',
+                borderRadius: '50%',
+                background: phase.status === 'active' ? '#FFFFFF' : 
+                            phase.status === 'completed' ? '#CCCCCC' : '#333',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginRight: '1.5rem'
+              }}>
+                {phase.status === 'active' ? 
+                  <CheckCircle size={24} color="#111" /> : 
+                  phase.status === 'completed' ?
+                  <CheckCircle2 size={24} color="#111" /> :
+                  <Calendar size={24} color="#666" />
+                }
               </div>
-
-              <div style={{ paddingBottom: '1.5rem' }}>
-                <h4 style={{ color: '#FFF', margin: '0 0 0.3rem', fontWeight: 600 }}>{step.label}</h4>
-                <p style={{ color: '#999', margin: 0, fontSize: '0.9rem', textAlign: 'left' }}>{step.description}</p>
+              <div style={{ flex: 1 }}>
+                <h3 style={{ 
+                  color: phase.status === 'active' ? '#FFFFFF' : 
+                         phase.status === 'completed' ? '#CCCCCC' : '#FFFFFF',
+                  margin: '0 0 0.5rem 0' 
+                }}>
+                  {phase.phase}
+                </h3>
+                <p style={{ color: '#FFFFFF', margin: '0 0 0.5rem 0', fontSize: '0.9rem' }}>
+                  {phase.date}
+                </p>
+                <p style={{ color: '#CCCCCC', margin: '0', fontSize: '0.9rem' }}>
+                  {phase.description}
+                </p>
               </div>
             </motion.div>
           ))}
         </div>
       </motion.section>
 
-      {/* CTA */}
-      <motion.section
+      {/* Contact Section */}
+      <motion.section 
         className="section"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        style={{ textAlign: 'center' }}
       >
-        <h2>Questions?</h2>
-        <p style={{ marginBottom: '2rem' }}>
-          Feel free to reach out to us for any queries about joining The Matrix Club.
+        <div style={{ 
+          textAlign: 'center',
+          background: 'linear-gradient(135deg, #FFFFFF, #CCCCCC)',
+          borderRadius: '15px',
+          color: '#111',
+          padding: '3rem 2rem',
+          width: '100%',
+          margin: '0'
+        }}
+        >
+        <h2 style={{ color: '#111', marginBottom: '1rem' }}>Questions About Recruitment?</h2>
+        <p style={{ 
+          color: '#111', 
+          fontSize: '1.1rem',
+          marginBottom: '2rem',
+          maxWidth: '600px',
+          margin: '0 auto 2rem'
+        }}>
+          Have questions about the recruitment process or want to know more about a specific team? 
+          We're here to help!
         </p>
-        <Link to="/contact" className="btn">
-          <ChevronRight size={20} style={{ marginRight: 8, verticalAlign: 'middle' }} />
-          Contact Us
-        </Link>
+          <motion.button
+            className="btn"
+            style={{
+              background: '#111',
+              color: '#FFFFFF',
+              border: '2px solid #111'
+            }}
+            whileHover={{ 
+              background: 'transparent',
+              color: '#111',
+              borderColor: '#111'
+            }}
+            onClick={() => window.location.href = '/contact'}
+          >
+            Contact Us
+          </motion.button>
+        </div>
       </motion.section>
     </div>
   )

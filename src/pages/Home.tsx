@@ -1,64 +1,53 @@
-import { memo, useMemo, useState, useEffect } from 'react'
+import React, { memo, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { LazyMotion, domAnimation, m } from 'framer-motion'
-import { Camera, Video, Zap, ExternalLink } from 'lucide-react'
-import { galleryThumbUrl } from '../utils/cloudinary'
+import { LazyMotion, domAnimation, m, useScroll, useTransform } from 'framer-motion'
+import { Camera, Video, ExternalLink, Users, Calendar } from 'lucide-react'
+import { openExternalLink } from '../utils/helpers'
+import { ReactTyped } from 'react-typed'
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3001'
+/* -------------------------------
+   Optimized Gallery Card
+-------------------------------- */
 
-/* ─── Types ─── */
-interface GalleryItem {
-  id: number
-  type: 'image' | 'video'
-  src: string
-  alt: string
-}
-
-interface AlbumWithImages {
-  id: number
-  title: string
-  description: string | null
-  images: { id: number; title: string; image_url: string }[]
-}
-
-/* ─── Gallery Card ─── */
-const GalleryCard = memo<{ item: GalleryItem; delay: number }>(({ item, delay }) => {
+const GalleryCard = memo(({ item, delay }: any) => {
   const [loaded, setLoaded] = useState(false)
-  const optimizedSrc = item.src.startsWith('http') ? item.src : galleryThumbUrl(item.src)
 
   return (
     <m.div
       style={{
         position: 'relative',
         width: '100%',
-        height: 200,
+        height: '200px',
         background: '#222',
-        borderRadius: 8,
+        borderRadius: '8px',
         overflow: 'hidden',
         cursor: 'pointer',
+        willChange: 'transform'
       }}
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.4, delay }}
-      whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(255,255,255,0.3)' }}
+      whileHover={{
+        scale: 1.05,
+        boxShadow: '0 10px 30px rgba(255,255,255,0.3)'
+      }}
     >
+      {/* Skeleton */}
       {!loaded && (
         <div
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'linear-gradient(90deg,#1a1a1a 25%,#2a2a2a 50%,#1a1a1a 75%)',
-            backgroundSize: '200% 100%',
-            animation: 'shimmer 1.5s infinite',
+            background: 'linear-gradient(90deg,#222,#333,#222)',
+            animation: 'pulse 1.2s infinite'
           }}
         />
       )}
+
       <img
-        src={optimizedSrc}
+        src={item.src}
         alt={item.alt}
-        width={400}
-        height={200}
         loading="lazy"
         decoding="async"
         onLoad={() => setLoaded(true)}
@@ -67,20 +56,19 @@ const GalleryCard = memo<{ item: GalleryItem; delay: number }>(({ item, delay })
           height: '100%',
           objectFit: 'cover',
           opacity: loaded ? 1 : 0,
-          transition: 'opacity .4s ease',
-          display: 'block',
+          transition: 'opacity .4s ease'
         }}
       />
+
       <div
         style={{
           position: 'absolute',
-          top: 10,
-          right: 10,
+          top: '10px',
+          right: '10px',
           background: 'rgba(255,255,255,0.85)',
           borderRadius: '50%',
-          padding: 6,
-          color: '#000',
-          display: 'flex',
+          padding: '6px',
+          color: '#000'
         }}
       >
         {item.type === 'video' ? <Video size={16} /> : <Camera size={16} />}
@@ -89,80 +77,98 @@ const GalleryCard = memo<{ item: GalleryItem; delay: number }>(({ item, delay })
   )
 })
 
-GalleryCard.displayName = 'GalleryCard'
+/* -------------------------------
+   Home Page
+-------------------------------- */
 
-/* ─── Home Page ─── */
 const Home: React.FC = () => {
-  // Static galleries for existing event photos
-  const mediaMorphosis = useMemo<GalleryItem[]>(
+  const { scrollY } = useScroll()
+  const y = useTransform(scrollY, [0, 500], [0, -100]) // Parallax effect
+
+  const MediaMorphosis = useMemo(
     () => [
-      { id: 1, type: 'image', src: '/images/events/MediaMorphosis/6.JPG', alt: 'Media Morphosis event photo' },
-      { id: 2, type: 'image', src: '/images/events/MediaMorphosis/2.JPG', alt: 'Media Morphosis workshop' },
-      { id: 3, type: 'image', src: '/images/events/MediaMorphosis/3.JPG', alt: 'Media Morphosis attendees' },
-      { id: 4, type: 'image', src: '/images/events/MediaMorphosis/4.JPG', alt: 'Media Morphosis panel discussion' },
-      { id: 5, type: 'image', src: '/images/events/MediaMorphosis/5.JPG', alt: 'Media Morphosis presentation' },
-      { id: 6, type: 'image', src: '/images/events/MediaMorphosis/1.JPG', alt: 'Media Morphosis group photo' },
+      { id: 1, type: 'image', src: '/images/events/MediaMorphosis/6.JPG', alt: 'Photography work 1' },
+      { id: 2, type: 'image', src: '/images/events/MediaMorphosis/2.JPG', alt: 'Photography work 2' },
+      { id: 3, type: 'image', src: '/images/events/MediaMorphosis/3.JPG', alt: 'Photography work 3' },
+      { id: 4, type: 'image', src: '/images/events/MediaMorphosis/4.JPG', alt: 'Photography work 4' },
+      { id: 5, type: 'image', src: '/images/events/MediaMorphosis/5.JPG', alt: 'Photography work 5' },
+      { id: 6, type: 'image', src: '/images/events/MediaMorphosis/1.JPG', alt: 'Photography work 6' }
     ],
     []
   )
 
-  const airm2025 = useMemo<GalleryItem[]>(
+  const AIRM2025 = useMemo(
     () => [
-      { id: 1, type: 'image', src: '/images/events/AIRM1/1.jpeg', alt: 'AIRM 2025 event photo' },
-      { id: 2, type: 'image', src: '/images/events/AIRM1/2.jpeg', alt: 'AIRM 2025 session' },
-      { id: 3, type: 'image', src: '/images/events/AIRM1/3.jpeg', alt: 'AIRM 2025 interaction' },
-      { id: 4, type: 'image', src: '/images/events/AIRM1/4.jpeg', alt: 'AIRM 2025 workshop' },
-      { id: 5, type: 'image', src: '/images/events/AIRM1/5.jpeg', alt: 'AIRM 2025 Q&A' },
-      { id: 6, type: 'image', src: '/images/events/AIRM1/6.jpeg', alt: 'AIRM 2025 closing' },
+      { id: 1, type: 'image', src: '/images/events/AIRM1/1.jpeg', alt: 'AIRM work 1' },
+      { id: 2, type: 'image', src: '/images/events/AIRM1/2.jpeg', alt: 'AIRM work 2' },
+      { id: 3, type: 'image', src: '/images/events/AIRM1/3.jpeg', alt: 'AIRM work 3' },
+      { id: 4, type: 'image', src: '/images/events/AIRM1/4.jpeg', alt: 'AIRM work 4' },
+      { id: 5, type: 'image', src: '/images/events/AIRM1/5.jpeg', alt: 'AIRM work 5' },
+      { id: 6, type: 'image', src: '/images/events/AIRM1/6.jpeg', alt: 'AIRM work 6' }
     ],
     []
   )
-
-  // Dynamic albums from admin panel
-  const [dynamicAlbums, setDynamicAlbums] = useState<AlbumWithImages[]>([])
-
-  useEffect(() => {
-    // Fetch all albums with their images
-    fetch(`${API_BASE}/api/gallery/albums`, { credentials: 'include' })
-      .then((r) => r.json())
-      .then(async (albums: { id: number; title: string; description: string | null; image_count: number }[]) => {
-        // Only fetch albums that have images
-        const withImages = albums.filter((a) => a.image_count > 0)
-        const detailed = await Promise.all(
-          withImages.map((a) =>
-            fetch(`${API_BASE}/api/gallery/albums/${a.id}`, { credentials: 'include' })
-              .then((r) => r.json())
-          )
-        )
-        setDynamicAlbums(detailed)
-      })
-      .catch(console.error)
-  }, [])
-
-  const openPortfolio = () =>
-    window.open('https://www.instagram.com/thematrixclub_vitb/', '_blank', 'noopener,noreferrer')
 
   return (
     <LazyMotion features={domAnimation}>
       <div>
-        {/* Hero */}
-        <section className="hero">
+        {/* HERO */}
+        <section className="hero" style={{ position: 'relative', overflow: 'hidden' }}>
+          {/* Parallax Background Image */}
+          <m.div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundImage: 'url(/images/events/MediaMorphosis/1.JPG)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              filter: 'blur(8px) brightness(0.3)',
+              zIndex: 1,
+              y: y, // Parallax transform
+              willChange: 'transform'
+            }}
+          />
           <m.div
             className="hero-content"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
+            style={{ position: 'relative', zIndex: 2 }}
           >
             <h1>Welcome to The Matrix Club</h1>
-            <p className="tagline">Decoding Creativity | Your Reality, Reimagined.</p>
-            <Link to="/events" className="btn" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-              <Zap size={20} />
-              Explore Our Events
-            </Link>
+            <div className="tagline-container">
+              <ReactTyped
+                strings={[
+                  'Decoding Creativity',
+                  'Your Reality, Reimagined',
+                  'Innovation Unleashed',
+                  'Where Ideas Become Reality'
+                ]}
+                typeSpeed={80}
+                backSpeed={50}
+                backDelay={2000}
+                loop
+                className="tagline"
+              />
+            </div>
+
+            <div className="hero-buttons">
+              <Link to="/recruitment" className="btn btn-primary">
+                <Users size={20} style={{ marginRight: 8 }} />
+                Join Recruitment
+              </Link>
+              <Link to="/events" className="btn btn-secondary">
+                <Calendar size={20} style={{ marginRight: 8 }} />
+                See Events
+              </Link>
+            </div>
           </m.div>
         </section>
 
-        {/* About */}
+        {/* ABOUT */}
         <m.section
           className="section"
           initial={{ opacity: 0 }}
@@ -179,6 +185,7 @@ const Home: React.FC = () => {
             Join us in pushing the boundaries of multimedia art and technology, where your creative
             vision becomes reality.
           </p>
+
           <div style={{ textAlign: 'center', marginTop: '2rem' }}>
             <Link to="/about" className="btn btn-secondary">
               Learn More About Us
@@ -186,31 +193,7 @@ const Home: React.FC = () => {
           </div>
         </m.section>
 
-        {/* Dynamic Albums from Admin Panel */}
-        {dynamicAlbums.map((album) => (
-          <m.section
-            key={album.id}
-            className="section"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2>{album.title}</h2>
-            {album.description && <p>{album.description}</p>}
-            <div className="gallery-grid">
-              {album.images.map((img, i) => (
-                <GalleryCard
-                  key={img.id}
-                  item={{ id: img.id, type: 'image', src: img.image_url, alt: img.title }}
-                  delay={i * 0.08}
-                />
-              ))}
-            </div>
-          </m.section>
-        ))}
-
-        {/* Static Media Morphosis Gallery */}
+        {/* MEDIA MORPHOSIS */}
         <m.section
           className="section"
           initial={{ opacity: 0 }}
@@ -219,29 +202,58 @@ const Home: React.FC = () => {
           viewport={{ once: true }}
         >
           <h2>Glimpses of Media Morphosis</h2>
-          <div className="gallery-grid">
-            {mediaMorphosis.map((item, i) => (
+
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit,minmax(200px,1fr))',
+              gap: '1rem',
+              marginTop: '3rem'
+            }}
+          >
+            {MediaMorphosis.map((item, i) => (
               <GalleryCard key={item.id} item={item} delay={i * 0.08} />
             ))}
           </div>
+
           <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-            <button className="btn btn-secondary" onClick={openPortfolio}>
-              <ExternalLink size={20} style={{ marginRight: 8, verticalAlign: 'middle' }} />
+            <button
+              className="btn btn-secondary"
+              onClick={() =>
+                openExternalLink('https://www.instagram.com/thematrixclub_vitb/')
+              }
+            >
+              <ExternalLink size={20} style={{ marginRight: 8 }} />
               View Full Portfolio
             </button>
           </div>
 
           <br />
 
+          {/* AIRM */}
           <h2>Glimpses of AIRM 2025</h2>
-          <div className="gallery-grid">
-            {airm2025.map((item, i) => (
+
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit,minmax(200px,1fr))',
+              gap: '1rem',
+              marginTop: '3rem'
+            }}
+          >
+            {AIRM2025.map((item, i) => (
               <GalleryCard key={item.id} item={item} delay={i * 0.08} />
             ))}
           </div>
+
           <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-            <button className="btn btn-secondary" onClick={openPortfolio}>
-              <ExternalLink size={20} style={{ marginRight: 8, verticalAlign: 'middle' }} />
+            <button
+              className="btn btn-secondary"
+              onClick={() =>
+                openExternalLink('https://www.instagram.com/thematrixclub_vitb/')
+              }
+            >
+              <ExternalLink size={20} style={{ marginRight: 8 }} />
               View Full Portfolio
             </button>
           </div>
