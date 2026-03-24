@@ -36,7 +36,7 @@ const AnnouncementModal: React.FC<AnnouncementModalProps> = ({ onClose }) => {
         
         <h3>🎉 Registrations are Open!</h3>
         <p>
-          The Matrix Club Recruitment 2026 is now live! Registration is open from <strong>March 23 – March 29, 2026</strong>. Shortlisting results will be announced by March 29. Interview & Final Selection dates to be announced soon.
+          The Matrix Club Recruitment 2026 is now live! Registration is open from <strong>March 25 – March 30, 2026</strong>. Shortlisting results will be announced by March 31. Interview & Final Selection dates to be announced soon.
         </p>
         
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>

@@ -16,7 +16,7 @@ const Recruitment: React.FC = () => {
       ],
       skills: ["Full Stack Development", "Machine Learning", "DevOps", "Mobile Development"],
       positions: null,
-      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLScbCvo-6ofTVWjU57_42Kzz3LQggZJVt-HPgAKB9V8E7TMreg/viewform?usp=header",
+      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLScI2Bi3jzqWUZlszmJf3DbqLVW_7ZHJf6HarDVwErB0aB1HHg/viewform?usp=dialog",
       icon: "💻",
       color: "#FFFFFF"
     },
@@ -48,7 +48,7 @@ const Recruitment: React.FC = () => {
       ],
       skills: ["Photography", "Video Editing", "Content Creation", "Visual Effects"],
       positions: null,
-      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLScI2Bi3jzqWUZlszmJf3DbqLVW_7ZHJf6HarDVwErB0aB1HHg/viewform?usp=dialog",
+      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSeWxc8Brf1BnaRI3QcnGyNOLOajE3L3PDgxlfezuESpByHn8A/viewform?usp=dialog",
       icon: "📸",
       color: "#4ECDC4"
     },
@@ -64,7 +64,7 @@ const Recruitment: React.FC = () => {
       ],
       skills: ["Event Planning", "Project Management", "Vendor Coordination", "Logistics"],
       positions: null,
-      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSfztAbmQ4jVOgBOPIAo4BeKMsxvy5W0NMQah2SpWgU66khM8w/viewform?usp=header",
+      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLScbCvo-6ofTVWjU57_42Kzz3LQggZJVt-HPgAKB9V8E7TMreg/viewform?usp=header",
       icon: "🎉",
       color: "#FFE66D"
     },
@@ -80,7 +80,7 @@ const Recruitment: React.FC = () => {
       ],
       skills: ["Public Relations", "Social Media", "Marketing", "Community Building"],
       positions: null,
-      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSeWxc8Brf1BnaRI3QcnGyNOLOajE3L3PDgxlfezuESpByHn8A/viewform?usp=dialog",
+      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSfPgYJGxUtsqICaN3SdZy4qOINz5V8-EtQUhgeK9DoApsScQA/viewform?usp=header",
       icon: "📢",
       color: "#A8E6CF"
     },
@@ -112,7 +112,7 @@ const Recruitment: React.FC = () => {
       ],
       skills: ["Copywriting", "Content Strategy", "Storytelling", "Script Writing"],
       positions: null,
-      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSfPgYJGxUtsqICaN3SdZy4qOINz5V8-EtQUhgeK9DoApsScQA/viewform?usp=header",
+      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSfztAbmQ4jVOgBOPIAo4BeKMsxvy5W0NMQah2SpWgU66khM8w/viewform?usp=header",
       icon: "📝",
       color: "#87CEEB"
     }
@@ -121,13 +121,13 @@ const Recruitment: React.FC = () => {
   const recruitmentTimeline = [
     {
       phase: "Registrations Open",
-      date: "March 23 - March 29, 2026",
+      date: "March 25 - March 30, 2026",
       description: "Recruitment announcement and team-wise form fillup",
       status: "active"
     },
     {
       phase: "Shortlisting Round",
-      date: "By March 29, 2026",
+      date: "By March 31, 2026",
       description: "Review of applications",
       status: "pending"
     },
@@ -159,7 +159,7 @@ const Recruitment: React.FC = () => {
           Registrations are Open!
         </h1>
         <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', color: '#CCCCCC' }}>
-          The Matrix Club Recruitment 2026 is now live! Registration is open from March 23 – March 29, 2026.
+          The Matrix Club Recruitment 2026 is now live! Registration is open from March 25 – March 30, 2026.
         </p>
       </motion.section>
 
