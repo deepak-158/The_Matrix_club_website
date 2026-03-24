@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { Lock, Clock, Users, Star, ChevronRight, CheckCircle, User, FileText, MessageSquare, Award } from 'lucide-react'
+import { Unlock, Clock, Users, Star, ChevronRight, CheckCircle, User, FileText, MessageSquare, Award } from 'lucide-react'
 
 interface TeamInfo {
   id: string
@@ -10,6 +10,7 @@ interface TeamInfo {
   description: string
   skills: string[]
   positions: number | null
+  formUrl: string
 }
 
 const TEAMS: TeamInfo[] = [
@@ -20,6 +21,7 @@ const TEAMS: TeamInfo[] = [
     description: 'Build and maintain web platforms, develop AI/ML projects, and push the boundaries of technology.',
     skills: ['React', 'TypeScript', 'Python', 'HTML/CSS', 'Node.js'],
     positions: null,
+    formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScI2Bi3jzqWUZlszmJf3DbqLVW_7ZHJf6HarDVwErB0aB1HHg/viewform?usp=dialog',
   },
   {
     id: 'design',
@@ -28,6 +30,7 @@ const TEAMS: TeamInfo[] = [
     description: 'Create stunning visual content, design event assets, and build the club\'s visual brand identity.',
     skills: ['Figma', 'Photoshop', 'Illustrator', 'Canva', 'UI/UX'],
     positions: null,
+    formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSfN08SSG48ye633a4T0Ibii3bNIR0tJ5XP4uvVyQYBDbVNbQQ/viewform?usp=header',
   },
   {
     id: 'digital-media',
@@ -36,6 +39,7 @@ const TEAMS: TeamInfo[] = [
     description: 'Produce video content, manage social media, and create media strategies for events.',
     skills: ['Premiere Pro', 'After Effects', 'Photography', 'Social Media', 'Content Creation'],
     positions: null,
+    formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSeWxc8Brf1BnaRI3QcnGyNOLOajE3L3PDgxlfezuESpByHn8A/viewform?usp=dialog',
   },
   {
     id: 'event',
@@ -44,6 +48,7 @@ const TEAMS: TeamInfo[] = [
     description: 'Plan, organize, and execute club events, workshops, and competitions.',
     skills: ['Event Planning', 'Budget Management', 'Vendor Coordination', 'Team Leadership'],
     positions: null,
+    formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScbCvo-6ofTVWjU57_42Kzz3LQggZJVt-HPgAKB9V8E7TMreg/viewform?usp=header',
   },
   {
     id: 'pr',
@@ -52,6 +57,7 @@ const TEAMS: TeamInfo[] = [
     description: 'Build partnerships, manage club communications, and grow our network across campuses.',
     skills: ['Communication', 'Partnership Building', 'Public Speaking', 'Marketing'],
     positions: null,
+    formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSfPgYJGxUtsqICaN3SdZy4qOINz5V8-EtQUhgeK9DoApsScQA/viewform?usp=header',
   },
   {
     id: 'content',
@@ -60,6 +66,7 @@ const TEAMS: TeamInfo[] = [
     description: 'Craft compelling written content for blogs, social media, and event materials.',
     skills: ['Creative Writing', 'Copywriting', 'Research', 'Storytelling'],
     positions: null,
+    formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSfztAbmQ4jVOgBOPIAo4BeKMsxvy5W0NMQah2SpWgU66khM8w/viewform?usp=header',
   },
   {
     id: 'finance',
@@ -68,14 +75,15 @@ const TEAMS: TeamInfo[] = [
     description: 'Handle club finances, budgeting for events, and managing sponsorship funds.',
     skills: ['Budgeting', 'Accounting', 'Excel', 'Financial Planning'],
     positions: null,
+    formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSduZ5vmcBcI1Ba37q7nGW4guHSCgeFXVFQcCheT4lPxNU2KCQ/viewform?usp=header',
   },
 ]
 
 const TIMELINE = [
-  { icon: FileText, label: 'Applications Open', description: 'Submit your application with your portfolio', done: true },
-  { icon: User, label: 'Portfolio Review', description: 'Our team reviews all submitted portfolios', done: true },
-  { icon: MessageSquare, label: 'Interview Round', description: 'Selected candidates will be interviewed', done: true },
-  { icon: Award, label: 'Final Selection', description: 'Results announced and teams finalized', done: true },
+  { icon: FileText, label: 'Registration Open', description: 'March 23 – March 29, 2026 · Submit your application', done: true },
+  { icon: User, label: 'Shortlisting Round', description: 'By March 29, 2026 · Our team reviews all submissions', done: false },
+  { icon: MessageSquare, label: 'Interview Round', description: 'Date to be announced', done: false },
+  { icon: Award, label: 'Final Selection', description: 'Date to be announced · Results and teams finalized', done: false },
 ]
 
 const Recruitment: React.FC = () => {
@@ -119,11 +127,11 @@ const Recruitment: React.FC = () => {
             textAlign: 'center',
           }}
         >
-          <Lock size={24} color="#999" />
+          <Unlock size={24} color="#4ade80" />
           <div>
-            <h3 style={{ margin: 0, fontSize: '1.1rem', color: '#FFF' }}>Recruitment is Currently Closed</h3>
-            <p style={{ margin: '0.3rem 0 0', fontSize: '0.9rem', color: '#999' }}>
-              Follow our social media for updates on the next recruitment cycle
+            <h3 style={{ margin: 0, fontSize: '1.1rem', color: '#4ade80' }}>Registrations are Open!</h3>
+            <p style={{ margin: '0.3rem 0 0', fontSize: '0.9rem', color: '#CCC' }}>
+              Registration Open: March 23 – March 29, 2026 &nbsp;·&nbsp; Shortlisting by March 29, 2026
             </p>
           </div>
         </div>
@@ -197,10 +205,16 @@ const Recruitment: React.FC = () => {
                 </div>
               </div>
 
-              <div className="closed-badge">
-                <Lock size={16} />
-                Applications Closed
-              </div>
+              <a
+                href={team.formUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn"
+                style={{ marginTop: '0.5rem', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.9rem', padding: '0.5rem 1.2rem' }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                Apply Now <ChevronRight size={16} />
+              </a>
             </motion.div>
           ))}
         </div>

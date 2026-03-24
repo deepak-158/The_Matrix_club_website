@@ -34,9 +34,9 @@ const AnnouncementModal: React.FC<AnnouncementModalProps> = ({ onClose }) => {
           <X size={24} />
         </button>
         
-        <h3>✅ Recruitment Cycle Completed!</h3>
+        <h3>🎉 Registrations are Open!</h3>
         <p>
-          Thank you for your interest in The Matrix Club! Our recruitment for this cycle has ended and selections have been made. Stay connected with us for future opportunities and upcoming events!
+          The Matrix Club Recruitment 2026 is now live! Registration is open from <strong>March 23 – March 29, 2026</strong>. Shortlisting results will be announced by March 29. Interview & Final Selection dates to be announced soon.
         </p>
         
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
@@ -44,7 +44,7 @@ const AnnouncementModal: React.FC<AnnouncementModalProps> = ({ onClose }) => {
             className="btn" 
             onClick={handleApplyClick}
           >
-            View Details
+            Apply Now
           </button>
           <button className="btn btn-secondary" onClick={onClose}>
             Close
