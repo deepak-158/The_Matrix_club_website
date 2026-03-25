@@ -45,7 +45,7 @@ const Events: React.FC = () => {
       image: ""
     }
   ]
-  const upcomingEvents = [
+  const upcomingEvents: any[] = [
     // Add upcoming events here
   ]
   // const ongoingContests = [
