@@ -38,7 +38,7 @@ const Recruitment: React.FC = () => {
     },
     {
       id: 3,
-      name: "DIGITAL MEDIA & PRODUCTION",
+      name: "PHOTOGRAPHY TEAM",
       description: "Master the art of visual storytelling through photography and videography.",
       requirements: [
         "Experience with photography or videography",
@@ -48,9 +48,25 @@ const Recruitment: React.FC = () => {
       ],
       skills: ["Photography", "Video Editing", "Content Creation", "Visual Effects"],
       positions: null,
-      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSeWxc8Brf1BnaRI3QcnGyNOLOajE3L3PDgxlfezuESpByHn8A/viewform?usp=dialog",
+      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSeIC669FXtLIg-u1WhS4BBZbco6gHeKSVN_u7y3GtKhE7wJ7w/viewform?usp=header",
       icon: "📸",
       color: "#4ECDC4"
+    },
+    {
+      id: 8,
+      name: "SOCIAL MEDIA TEAM",
+      description: "Manage our online presence, engage with our community, and create compelling social content.",
+      requirements: [
+        "Active user of major social media platforms (Instagram, LinkedIn, etc.)",
+        "Creative content creation skills for social media",
+        "Understanding of social media trends and algorithms",
+        "Good aesthetic sense for reels and posts"
+      ],
+      skills: ["Social Media Management", "Content Creation", "Reels/Shorts Creation", "Community Building"],
+      positions: null,
+      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSfngJ8joLTgP8tPpOzsLWRD22ocYpuUtzBNgjBCATeNxYkbCg/viewform?usp=header",
+      icon: "📱",
+      color: "#FF9F43"
     },
     {
       id: 4,
