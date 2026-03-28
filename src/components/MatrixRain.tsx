@@ -22,6 +22,8 @@ const MatrixRain: React.FC = () => {
       drops[x] = 1
     }
 
+    let animationId: number
+
     const draw = () => {
       ctx.fillStyle = 'rgba(0, 0, 0, 0.04)'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
@@ -38,9 +40,11 @@ const MatrixRain: React.FC = () => {
         }
         drops[i]++
       }
+
+      animationId = requestAnimationFrame(draw)
     }
 
-    const interval = setInterval(draw, 35)
+    draw() // Start the animation loop
 
     const handleResize = () => {
       canvas.width = window.innerWidth
@@ -50,7 +54,7 @@ const MatrixRain: React.FC = () => {
     window.addEventListener('resize', handleResize)
 
     return () => {
-      clearInterval(interval)
+      cancelAnimationFrame(animationId)
       window.removeEventListener('resize', handleResize)
     }
   }, [])
@@ -65,7 +69,8 @@ const MatrixRain: React.FC = () => {
         width: '100%',
         height: '100%',
         zIndex: -1,
-        opacity: 0.3
+        opacity: 0.3,
+        willChange: 'transform'
       }}
     />
   )

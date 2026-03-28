@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Users, Calendar, CheckCircle, CheckCircle2, Target, Zap } from 'lucide-react'
+import { Users, Calendar, CheckCircle, CheckCircle2, Target, Zap, ChevronRight } from 'lucide-react'
 
 const Recruitment: React.FC = () => {
   const recruitmentTeams = [
@@ -15,8 +15,8 @@ const Recruitment: React.FC = () => {
         "Experience with Git/GitHub is a plus"
       ],
       skills: ["Full Stack Development", "Machine Learning", "DevOps", "Mobile Development"],
-      positions:null,
-      applicationLink: "https://forms.gle/3qXoyBYXHi2kXnPM6",
+      positions: null,
+      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLScI2Bi3jzqWUZlszmJf3DbqLVW_7ZHJf6HarDVwErB0aB1HHg/viewform?usp=dialog",
       icon: "💻",
       color: "#FFFFFF"
     },
@@ -31,14 +31,14 @@ const Recruitment: React.FC = () => {
         "Portfolio showcasing previous design work"
       ],
       skills: ["UI/UX Design", "Graphic Design", "Brand Identity", "Digital Art"],
-      positions:null,
-      applicationLink: "https://forms.gle/ky9NDYoMi6muutoA8",
+      positions: null,
+      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSfN08SSG48ye633a4T0Ibii3bNIR0tJ5XP4uvVyQYBDbVNbQQ/viewform?usp=header",
       icon: "🎨",
       color: "#FF6B6B"
     },
     {
       id: 3,
-      name: "DIGITAL MEDIA & PRODUCTION",
+      name: "PHOTOGRAPHY TEAM",
       description: "Master the art of visual storytelling through photography and videography.",
       requirements: [
         "Experience with photography or videography",
@@ -47,10 +47,26 @@ const Recruitment: React.FC = () => {
         "Own camera equipment preferred but not mandatory"
       ],
       skills: ["Photography", "Video Editing", "Content Creation", "Visual Effects"],
-      positions:null,
-      applicationLink: "https://forms.gle/EtbNSJhFhZpyLWaM9",
+      positions: null,
+      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSeIC669FXtLIg-u1WhS4BBZbco6gHeKSVN_u7y3GtKhE7wJ7w/viewform?usp=header",
       icon: "📸",
       color: "#4ECDC4"
+    },
+    {
+      id: 8,
+      name: "SOCIAL MEDIA TEAM",
+      description: "Manage our online presence, engage with our community, and create compelling social content.",
+      requirements: [
+        "Active user of major social media platforms (Instagram, LinkedIn, etc.)",
+        "Creative content creation skills for social media",
+        "Understanding of social media trends and algorithms",
+        "Good aesthetic sense for reels and posts"
+      ],
+      skills: ["Social Media Management", "Content Creation", "Reels/Shorts Creation", "Community Building"],
+      positions: null,
+      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSfngJ8joLTgP8tPpOzsLWRD22ocYpuUtzBNgjBCATeNxYkbCg/viewform?usp=header",
+      icon: "📱",
+      color: "#FF9F43"
     },
     {
       id: 4,
@@ -63,8 +79,8 @@ const Recruitment: React.FC = () => {
         "Ability to work under pressure and meet deadlines"
       ],
       skills: ["Event Planning", "Project Management", "Vendor Coordination", "Logistics"],
-      positions:null,
-      applicationLink: "https://forms.gle/rNg6gxkUKSySj1gt9",
+      positions: null,
+      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLScbCvo-6ofTVWjU57_42Kzz3LQggZJVt-HPgAKB9V8E7TMreg/viewform?usp=header",
       icon: "🎉",
       color: "#FFE66D"
     },
@@ -79,8 +95,8 @@ const Recruitment: React.FC = () => {
         "Knowledge of marketing principles is a plus"
       ],
       skills: ["Public Relations", "Social Media", "Marketing", "Community Building"],
-      positions:null,
-      applicationLink: "https://forms.gle/3xHFCfxmRu2AhtYQA",
+      positions: null,
+      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSfPgYJGxUtsqICaN3SdZy4qOINz5V8-EtQUhgeK9DoApsScQA/viewform?usp=header",
       icon: "📢",
       color: "#A8E6CF"
     },
@@ -95,53 +111,53 @@ const Recruitment: React.FC = () => {
         "Trustworthy and responsible attitude"
       ],
       skills: ["Financial Planning", "Budget Management", "Sponsorship", "Resource Allocation"],
-      positions:null,
-      applicationLink: "https://forms.gle/UiXizqQsPC8eK4uq7",
+      positions: null,
+      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSduZ5vmcBcI1Ba37q7nGW4guHSCgeFXVFQcCheT4lPxNU2KCQ/viewform?usp=header",
       icon: "💰",
       color: "#FFB6C1"
     },
     {
-  id: 7,
-  name: "CONTENT TEAM",
-  description: "Craft compelling narratives and engage our audience through creative writing and storytelling across all our platforms.",
-  requirements: [
-    "Excellent command of language, grammar, and style",
-    "Ability to write engaging copy for social media and scripts",
-    "A creative mindset with a knack for storytelling",
-    "Experience in writing for blogs, social media, or scripts is a plus"
-  ],
-  skills: ["Copywriting", "Content Strategy", "Storytelling", "Script Writing"],
-  positions:null,
-  applicationLink: "https://forms.gle/m3dPd8V2N4ZbYWB58",
-  icon: "📝",
-  color: "#87CEEB"
-}
+      id: 7,
+      name: "CONTENT TEAM",
+      description: "Craft compelling narratives and engage our audience through creative writing and storytelling across all our platforms.",
+      requirements: [
+        "Excellent command of language, grammar, and style",
+        "Ability to write engaging copy for social media and scripts",
+        "A creative mindset with a knack for storytelling",
+        "Experience in writing for blogs, social media, or scripts is a plus"
+      ],
+      skills: ["Copywriting", "Content Strategy", "Storytelling", "Script Writing"],
+      positions: null,
+      applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSfztAbmQ4jVOgBOPIAo4BeKMsxvy5W0NMQah2SpWgU66khM8w/viewform?usp=header",
+      icon: "📝",
+      color: "#87CEEB"
+    }
   ]
 
   const recruitmentTimeline = [
     {
       phase: "Registrations Open",
-      date: "Nov 13 - Nov 22, 2025",
+      date: "March 28 - April 2, 2026",
       description: "Recruitment announcement and team-wise form fillup",
-      status: "completed"
+      status: "active"
     },
     {
       phase: "Shortlisting Round",
-      date: "By Nov 23, 2025",
+      date: "By April 2, 2026",
       description: "Review of applications",
-      status: "completed"
+      status: "pending"
     },
     {
       phase: "Interview Round",
-      date: "Nov 24 - Nov 27, 2025",
+      date: "TBA",
       description: "One-on-one interviews",
-      status: "completed"
+      status: "pending"
     },
     {
       phase: "Final Selection",
-      date: "Nov 28, 2025",
+      date: "TBA",
       description: "Results announcement",
-      status: "completed"
+      status: "pending"
     }
   ]
 
@@ -155,12 +171,11 @@ const Recruitment: React.FC = () => {
         transition={{ duration: 0.8 }}
         style={{ textAlign: 'center', paddingBottom: '2rem' }}
       >
-        <h1 style={{ fontSize: '3rem', marginBottom: '1rem', color: '#FF4141' }}>
-          Recruitment Closed
+        <h1 style={{ fontSize: '3rem', marginBottom: '1rem', color: '#4ade80' }}>
+          Registrations are Open!
         </h1>
         <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', color: '#CCCCCC' }}>
-          Thank you for your interest in The Matrix Club! Recruitment for this cycle has ended. 
-          Stay tuned for future opportunities to join our creative community.
+          The Matrix Club Recruitment 2026 is now live! Registration is open from March 28 – April 2, 2026.
         </p>
       </motion.section>
 
@@ -222,16 +237,6 @@ const Recruitment: React.FC = () => {
                     }}>
                       {team.name}
                     </h3>
-                    <p style={{ 
-                      color: '#FFFFFF', 
-                      margin: '0',
-                      fontSize: '0.9rem',
-                      fontWeight: 'bold',
-                      whiteSpace: 'nowrap',
-                      textAlign: 'left'
-                    }}>
-                      {team.positions} Available
-                    </p>
                   </div>
                 </div>
 
@@ -282,31 +287,35 @@ const Recruitment: React.FC = () => {
                 </div>
               </div>
 
-              {/* Closed Notice */}
-              <div
-                style={{
-                  width: '100%',
-                  background: '#333',
-                  color: '#999',
-                  border: '1px solid #444',
-                  borderRadius: '8px',
-                  padding: '1rem',
-                  fontSize: '1rem',
-                  fontWeight: 'bold',
-                  display: 'flex',
-                  alignItems: 'center',
+              {/* Apply Button */}
+              <a
+                href={team.applicationLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn"
+                style={{ 
+                  marginTop: '0.5rem', 
+                  display: 'flex', 
+                  alignItems: 'center', 
                   justifyContent: 'center',
-                  gap: '0.5rem',
-                  cursor: 'not-allowed'
+                  gap: '0.4rem', 
+                  fontSize: '1rem', 
+                  padding: '1rem 1.2rem',
+                  background: team.color,
+                  color: '#000',
+                  fontWeight: 'bold',
+                  border: 'none',
+                  borderRadius: '10px'
                 }}
+                onClick={(e) => e.stopPropagation()}
               >
-                <CheckCircle size={20} />
-                Recruitment Closed
-              </div>
+                Apply Now <ChevronRight size={18} />
+              </a>
             </motion.div>
           ))}
         </div>
       </motion.section>
+
       {/* Why Join Section */}
       <motion.section 
         className="section"

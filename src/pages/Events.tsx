@@ -25,18 +25,28 @@ const Events: React.FC = () => {
       attendees: 150,
       galleryUrl: "https://www.instagram.com/p/DS1e_hXEr5s/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
       image: "/images/events/AIRM1/AIRM_2025.png"
+    },
+    {
+      id: 3,
+      title: "MatrixMatch 2026",
+      date: "February 20, 2026",
+      description: "Matrix Club hosted MatchMatrix – Tech Compatibility & Collaboration Test, an interactive technical event that combined technology, logical thinking, and collaborative assessment in a safe campus environment. The event featured a custom-built in-house web platform developed by students, where participants completed a technical and personality-oriented quiz and were grouped using a compatibility algorithm.",
+      attendees: 150,
+      galleryUrl: "https://www.instagram.com/reel/DU_luJdDdfu/?igsh=MXV2MGE2eW94d3k4ZQ==",
+      image: "/images/events/matchmatrix.jpeg"
+    },
+    {
+      id: 4,
+      title: "AIRM 2 2026",
+      date: "22 Feb 2026",
+      description: "Matrix Club, the Multimedia Club at VIT Bhopal, hosted AIRM 2 on 22 February—an online event for college students focused on Artificial Intelligence, Robotics, and Multimedia. The session featured expert talks, interactive discussions, and engaging activities, providing valuable insights into emerging technologies and real-world applications.",
+      attendees: 200,
+      galleryUrl: "https://www.instagram.com/p/DS1e_hXEr5s/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA==",
+      image: ""
     }
   ]
-  const upcomingEvents = [
+  const upcomingEvents: any[] = [
     // Add upcoming events here
-      {id: 3,
-      title: "AIRM 2 2026",
-      date: "February 7, 2026",
-      description: "Matrix Club, the Multimedia Club at VIT Bhopal, is set to host AIRM 2 on 7 February—an upcoming online event for college students focused on Artificial Intelligence, Robotics, and Multimedia. The session will feature expert talks, interactive discussions, and engaging activities, aiming to provide valuable insights into emerging technologies and real-world applications.",
-      attendees: 'Expected 200+',
-      galleryUrl: "https://www.instagram.com/p/DS1e_hXEr5s/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA=="
-    }
-
   ]
   // const ongoingContests = [
   //   // Add ongoing contests here
@@ -253,17 +263,17 @@ const Events: React.FC = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ scale: 1.02 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem' }}>
+                  {/* <Archive size={24} color="#FFFFFF" /> */}
+                  {/* <h3 style={{ margin: 0 }}>{event.title}</h3> */}
+                  {event.image && <img src={event.image} alt={event.title} style={{ width: '100%', objectFit: 'cover', borderRadius: '8px' }} />}
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem' }}>
                   <Archive size={24} color="#FFFFFF" />
                   <h3 style={{ margin: 0 }}>{event.title}</h3>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-                  {/* <Archive size={24} color="#FFFFFF" /> */}
-                  {/* <h3 style={{ margin: 0 }}>{event.title}</h3> */}
-                  <img src={event.image} alt={event.title} style={{ width: '100%', objectFit: 'cover', borderRadius: '8px' }} />
-                </div>
                 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem', color: '#FFFFFF' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.5rem', color: '#FFFFFF' }}>
                   <Calendar size={16} />
                   <span>{event.date}</span>
                 </div>

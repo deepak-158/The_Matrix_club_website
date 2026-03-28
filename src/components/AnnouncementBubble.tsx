@@ -1,173 +1,179 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Bell, ExternalLink } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
-interface AnnouncementBubbleProps {
-  announcement?: {
-    title: string
-    message: string
-    link?: string
-    linkText?: string
-  }
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3001'
+
+interface Announcement {
+  id: number
+  title: string
+  message: string
+  link?: string | null
+  link_text?: string | null
 }
 
-const AnnouncementBubble: React.FC<AnnouncementBubbleProps> = ({ 
-  announcement = {
-    title: "✅ Recruitment Cycle Completed!",
-    message: "Thank you for your interest in The Matrix Club! Our recruitment for this cycle has ended. Stay connected with us for future opportunities and upcoming events!",
-    link: "/recruitment",
-    linkText: "View Details"
-  }
-}) => {
+const STORAGE_KEY = 'announcementBubbleClosed'
+
+const AnnouncementBubble: React.FC = () => {
+  const navigate = useNavigate()
   const [isVisible, setIsVisible] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
+  const [announcement, setAnnouncement] = useState<Announcement | null>(null)
 
   useEffect(() => {
-    // Show bubble after 3 seconds
-    const timer = setTimeout(() => {
-      setIsVisible(true)
-    }, 3000)
+    // Fetch active announcement from API
+    fetch(`${API_BASE}/api/announcements`, { credentials: 'include' })
+      .then((r) => r.json())
+      .then((items: Announcement[]) => {
+        if (items.length > 0) {
+          setAnnouncement(items[0])
 
-    return () => clearTimeout(timer)
+          // Check if user already dismissed
+          const closedAt = localStorage.getItem(STORAGE_KEY)
+          if (closedAt) {
+            const hoursSinceClosed = (Date.now() - Number(closedAt)) / 3_600_000
+            if (hoursSinceClosed < 24) return
+          }
+
+          setTimeout(() => setIsVisible(true), 3000)
+        }
+      })
+      .catch(console.error)
   }, [])
 
   const handleClose = () => {
     setIsVisible(false)
-    localStorage.setItem('announcementBubbleClosed', Date.now().toString())
+    localStorage.setItem(STORAGE_KEY, Date.now().toString())
   }
 
-  const handleClick = () => {
-    if (announcement.link) {
-      if (announcement.link.startsWith('http')) {
-        window.open(announcement.link, '_blank', 'noopener,noreferrer')
-      } else {
-        window.location.href = announcement.link
-      }
+  const handleLinkClick = () => {
+    if (!announcement?.link) return
+    if (announcement.link.startsWith('http')) {
+      window.open(announcement.link, '_blank', 'noopener,noreferrer')
+    } else {
+      navigate(announcement.link)
     }
-    setIsExpanded(!isExpanded)
   }
 
-  if (!isVisible) return null
+  if (!isVisible || !announcement) return null
 
   return (
     <AnimatePresence>
       <motion.div
-        initial={{ opacity: 0, scale: 0, x: -20, y: 20 }}
-        animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
-        exit={{ opacity: 0, scale: 0, x: -20, y: 20 }}
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0 }}
         style={{
           position: 'fixed',
-          bottom: '20px',
-          left: '20px',
+          bottom: 20,
+          left: 20,
           zIndex: 1000,
-          maxWidth: isExpanded ? '320px' : '60px',
-          transition: 'max-width 0.3s ease'
+          maxWidth: isExpanded ? 320 : 60,
+          transition: 'max-width 0.3s ease',
         }}
       >
         {!isExpanded ? (
-          // Collapsed bubble (bell icon)
-          <motion.div
+          <motion.button
             onClick={() => setIsExpanded(true)}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            aria-label="Show announcement"
             style={{
-              width: '60px',
-              height: '60px',
+              width: 60,
+              height: 60,
               borderRadius: '50%',
               background: 'linear-gradient(135deg, #FFFFFF, #CCCCCC)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               cursor: 'pointer',
-              boxShadow: '0 4px 20px rgba(255, 255, 255, 0.4)',
-              position: 'relative'
+              boxShadow: '0 4px 20px rgba(255,255,255,0.4)',
+              border: 'none',
+              position: 'relative',
             }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
           >
             <Bell size={24} color="#000" />
-            {/* Notification dot */}
-            <motion.div
+            <motion.span
               style={{
                 position: 'absolute',
-                top: '8px',
-                right: '8px',
-                width: '12px',
-                height: '12px',
+                top: 8,
+                right: 8,
+                width: 12,
+                height: 12,
                 borderRadius: '50%',
-                background: '#FF4444'
+                background: '#FF4444',
               }}
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ repeat: Infinity, duration: 2 }}
             />
-          </motion.div>
+          </motion.button>
         ) : (
-          // Expanded bubble (full announcement)
           <motion.div
-            initial={{ width: '60px', height: '60px' }}
-            animate={{ width: '320px', height: 'auto' }}
+            initial={{ width: 60, height: 60 }}
+            animate={{ width: 320, height: 'auto' }}
             style={{
               background: '#1a1a1a',
               border: '2px solid #FFFFFF',
-              borderRadius: '15px',
-              padding: '15px',
-              boxShadow: '0 8px 30px rgba(255, 255, 255, 0.3)',
-              position: 'relative'
+              borderRadius: 15,
+              padding: 15,
+              boxShadow: '0 8px 30px rgba(255,255,255,0.3)',
+              position: 'relative',
             }}
           >
             <button
               onClick={handleClose}
+              aria-label="Close announcement"
               style={{
                 position: 'absolute',
-                top: '10px',
-                right: '10px',
+                top: 10,
+                right: 10,
                 background: 'none',
                 border: 'none',
                 color: '#CCCCCC',
                 cursor: 'pointer',
-                padding: '2px'
+                padding: 2,
               }}
             >
               <X size={16} />
             </button>
 
-            <div style={{ marginBottom: '10px' }}>
-              <h4 style={{ 
-                color: '#FFFFFF', 
-                fontSize: '0.9rem', 
-                margin: '0 0 8px 0',
-                fontFamily: 'Share Tech Mono, monospace'
-              }}>
+            <div style={{ marginBottom: 10 }}>
+              <h4
+                style={{
+                  color: '#FFFFFF',
+                  fontSize: '0.9rem',
+                  margin: '0 0 8px',
+                  fontFamily: "'Share Tech Mono', monospace",
+                }}
+              >
                 {announcement.title}
               </h4>
-              <p style={{ 
-                color: '#FFFFFF', 
-                fontSize: '0.8rem', 
-                margin: '0 0 12px 0',
-                lineHeight: '1.4'
-              }}>
+              <p style={{ color: '#FFFFFF', fontSize: '0.8rem', margin: '0 0 12px', lineHeight: 1.4 }}>
                 {announcement.message}
               </p>
             </div>
 
             {announcement.link && (
               <button
-                onClick={handleClick}
+                onClick={handleLinkClick}
                 style={{
                   background: 'linear-gradient(45deg, #FFFFFF, #CCCCCC)',
                   color: '#000',
                   border: 'none',
-                  borderRadius: '5px',
+                  borderRadius: 5,
                   padding: '8px 12px',
                   fontSize: '0.8rem',
                   cursor: 'pointer',
-                  fontWeight: '600',
+                  fontWeight: 600,
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '5px',
+                  gap: 5,
                   width: '100%',
-                  justifyContent: 'center'
+                  justifyContent: 'center',
                 }}
               >
-                {announcement.linkText || 'Learn More'}
+                {announcement.link_text || 'Learn More'}
                 <ExternalLink size={12} />
               </button>
             )}
@@ -178,12 +184,12 @@ const AnnouncementBubble: React.FC<AnnouncementBubbleProps> = ({
                 background: 'none',
                 border: '1px solid #444',
                 color: '#CCCCCC',
-                borderRadius: '5px',
-                padding: '6px',
+                borderRadius: 5,
+                padding: 6,
                 fontSize: '0.7rem',
                 cursor: 'pointer',
-                marginTop: '8px',
-                width: '100%'
+                marginTop: 8,
+                width: '100%',
               }}
             >
               Minimize

@@ -1,8 +1,9 @@
 import React, { memo, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { LazyMotion, domAnimation, m } from 'framer-motion'
-import { Camera, Video, Zap, ExternalLink } from 'lucide-react'
+import { LazyMotion, domAnimation, m, useScroll, useTransform } from 'framer-motion'
+import { Camera, Video, ExternalLink, Users, Calendar } from 'lucide-react'
 import { openExternalLink } from '../utils/helpers'
+import { ReactTyped } from 'react-typed'
 
 /* -------------------------------
    Optimized Gallery Card
@@ -81,6 +82,9 @@ const GalleryCard = memo(({ item, delay }: any) => {
 -------------------------------- */
 
 const Home: React.FC = () => {
+  const { scrollY } = useScroll()
+  const y = useTransform(scrollY, [0, 500], [0, -100]) // Parallax effect
+
   const MediaMorphosis = useMemo(
     () => [
       { id: 1, type: 'image', src: '/images/events/MediaMorphosis/6.JPG', alt: 'Photography work 1' },
@@ -109,20 +113,58 @@ const Home: React.FC = () => {
     <LazyMotion features={domAnimation}>
       <div>
         {/* HERO */}
-        <section className="hero">
+        <section className="hero" style={{ position: 'relative', overflow: 'hidden' }}>
+          {/* Parallax Background Image */}
+          <m.div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundImage: 'url(/images/events/MediaMorphosis/1.JPG)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              filter: 'blur(8px) brightness(0.3)',
+              zIndex: 1,
+              y: y, // Parallax transform
+              willChange: 'transform'
+            }}
+          />
           <m.div
             className="hero-content"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
+            style={{ position: 'relative', zIndex: 2 }}
           >
             <h1>Welcome to The Matrix Club</h1>
-            <p className="tagline">Decoding Creativity | Your Reality, Reimagined.</p>
+            <div className="tagline-container">
+              <ReactTyped
+                strings={[
+                  'Decoding Creativity',
+                  'Your Reality, Reimagined',
+                  'Innovation Unleashed',
+                  'Where Ideas Become Reality'
+                ]}
+                typeSpeed={80}
+                backSpeed={50}
+                backDelay={2000}
+                loop
+                className="tagline"
+              />
+            </div>
 
-            <Link to="/events" className="btn">
-              <Zap size={20} style={{ marginRight: 8 }} />
-              Explore Our Events
-            </Link>
+            <div className="hero-buttons">
+              <Link to="/recruitment" className="btn btn-primary">
+                <Users size={20} style={{ marginRight: 8 }} />
+                Join Recruitment
+              </Link>
+              <Link to="/events" className="btn btn-secondary">
+                <Calendar size={20} style={{ marginRight: 8 }} />
+                See Events
+              </Link>
+            </div>
           </m.div>
         </section>
 
