@@ -137,13 +137,13 @@ const Recruitment: React.FC = () => {
   const recruitmentTimeline = [
     {
       phase: "Registrations Open",
-      date: "March 25 - March 30, 2026",
+      date: "March 28 - April 2, 2026",
       description: "Recruitment announcement and team-wise form fillup",
       status: "active"
     },
     {
       phase: "Shortlisting Round",
-      date: "By March 31, 2026",
+      date: "By April 2, 2026",
       description: "Review of applications",
       status: "pending"
     },
@@ -175,7 +175,7 @@ const Recruitment: React.FC = () => {
           Registrations are Open!
         </h1>
         <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', color: '#CCCCCC' }}>
-          The Matrix Club Recruitment 2026 is now live! Registration is open from March 25 – March 30, 2026.
+          The Matrix Club Recruitment 2026 is now live! Registration is open from March 28 – April 2, 2026.
         </p>
       </motion.section>
 
