@@ -3,6 +3,8 @@ import { motion } from 'framer-motion'
 import { Users, Calendar, CheckCircle, CheckCircle2, Target, Zap, ChevronRight } from 'lucide-react'
 
 const Recruitment: React.FC = () => {
+  const registrationsOpen = false
+
   const recruitmentTeams = [
     {
       id: 1,
@@ -172,10 +174,10 @@ const Recruitment: React.FC = () => {
         style={{ textAlign: 'center', paddingBottom: '2rem' }}
       >
         <h1 style={{ fontSize: '3rem', marginBottom: '1rem', color: '#4ade80' }}>
-          Registrations are Open!
+          Registrations are Closed
         </h1>
         <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', color: '#CCCCCC' }}>
-          The Matrix Club Recruitment 2026 is now live! Registration is open from March 28 – April 2, 2026.
+          The Matrix Club Recruitment 2026 registration window has ended. Thank you for your interest.
         </p>
       </motion.section>
 
@@ -288,29 +290,54 @@ const Recruitment: React.FC = () => {
               </div>
 
               {/* Apply Button */}
-              <a
-                href={team.applicationLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn"
-                style={{ 
-                  marginTop: '0.5rem', 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  justifyContent: 'center',
-                  gap: '0.4rem', 
-                  fontSize: '1rem', 
-                  padding: '1rem 1.2rem',
-                  background: team.color,
-                  color: '#000',
-                  fontWeight: 'bold',
-                  border: 'none',
-                  borderRadius: '10px'
-                }}
-                onClick={(e) => e.stopPropagation()}
-              >
-                Apply Now <ChevronRight size={18} />
-              </a>
+              {registrationsOpen ? (
+                <a
+                  href={team.applicationLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn"
+                  style={{ 
+                    marginTop: '0.5rem', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    gap: '0.4rem', 
+                    fontSize: '1rem', 
+                    padding: '1rem 1.2rem',
+                    background: team.color,
+                    color: '#000',
+                    fontWeight: 'bold',
+                    border: 'none',
+                    borderRadius: '10px'
+                  }}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  Apply Now <ChevronRight size={18} />
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  className="btn"
+                  disabled
+                  style={{ 
+                    marginTop: '0.5rem', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    fontSize: '1rem', 
+                    padding: '1rem 1.2rem',
+                    background: '#444',
+                    color: '#BBBBBB',
+                    fontWeight: 'bold',
+                    border: '1px solid #555',
+                    borderRadius: '10px',
+                    cursor: 'not-allowed',
+                    opacity: 0.85
+                  }}
+                >
+                  Registrations Closed
+                </button>
+              )}
             </motion.div>
           ))}
         </div>
