@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { motion, px } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Linkedin, Instagram, Github, Sparkles, Eye, Heart, Target } from 'lucide-react'
 import { teamMembers, TEAM_ORDER, obfuscateEmail, type TeamMember } from '../data/teamMembers'
