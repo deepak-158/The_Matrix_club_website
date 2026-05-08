@@ -43,6 +43,15 @@ const Events: React.FC = () => {
       attendees: 200,
       galleryUrl: "https://www.instagram.com/p/DS1e_hXEr5s/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA==",
       image: ""
+    },
+    {
+      id: 5,
+      title: "GameCraft",
+      date: "9 April 2026",
+      description: "Matric GameCraft is a creative tech event where participants design and develop their own games from scratch. It encourages innovation, problem-solving, and programming skills as individuals or teams build unique gaming experiences within a given time frame. This was very fun and engaging event for all the participants.",
+      attendees: 50,
+      galleryUrl: "https://www.instagram.com/p/DS1e_hXEr5s/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA==",
+      image: ""
     }
   ]
   const upcomingEvents: any[] = [
